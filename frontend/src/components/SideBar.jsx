@@ -45,7 +45,7 @@ const SideBar = () => {
          
             <Link as={RouterLink} to='/'>
               <Button size="lg"  bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px"    leftIcon={<BsHouseAddFill size={30}  />}>
-                Home
+                Hom
               </Button>
             </Link>
             <Link as={RouterLink} to="/">
