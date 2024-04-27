@@ -1,0 +1,85 @@
+.icon-container {
+	border-radius: 50%;
+	padding: 8px;
+	width: 40px;
+	height: 40px;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.icon-container:hover {
+	background-color: #1e1e1e;
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #888;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #555;
+}
+/* Add this CSS to your stylesheet */
+@media only screen and (max-width: 620px) {
+	svg {
+	  height: 15px;
+	  width: 15px; /* Assuming you want to maintain aspect ratio */
+	}
+  }
+  
+  @media only screen and (min-width: 621px) {
+	svg {
+	  height: 20px;
+	  width: 20px; /* Assuming you want to maintain aspect ratio */
+	}
+  }
+ /* Define sizes for small screens */
+/* Default image size */
+.truncate-text {
+	max-width: 40%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+  }
+
+
+
+  .truncate-text5 {
+	max-width: 30%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+  }
+
+
+  .post-content {
+	word-wrap: break-word;
+  }
+
+  
+/* Define different sizes for the logo based on screen size */
+@media screen and (max-width: 620px) {
+	/* Small screens */
+	.logo {
+	  width: 100px; /* Set the width of the logo for small screens */
+	  height: auto; /* Maintain aspect ratio */
+	}
+  }
+  
+  @media screen and (min-width: 621px) {
+	/* Large screens */
+	.logo {
+	  width: 150px; /* Set the width of the logo for large screens */
+	  height: auto; /* Maintain aspect ratio */
+	  margin-top: -35;
+	margin-bottom: -35;
+     
+
+	}
+  }
+  
