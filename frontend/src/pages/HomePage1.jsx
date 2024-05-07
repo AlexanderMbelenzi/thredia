@@ -8,7 +8,8 @@ import { useRecoilState } from "recoil";
 import postsAtom from "../atoms/postsAtom";
 import SuggestedUsers from "../components/SuggestedUsers";
 import {  useColorMode ,    } from "@chakra-ui/react";
-
+import { px } from "framer-motion";
+import Empty from "../components/empty";
 
 
 
@@ -47,20 +48,44 @@ const HomePage1 = () => {
   return (
 	
     <Flex gap="10"  maxWidth={1250} mt={3.5} alignItems="flex-start"  >
-      <Box  
-	         flex={23}
+
+
+
+      
+      <Box      
+
+	         flex={20}
         display={{
           base: "none",
           md: "block",
+          
         }}
-      >
-        <SideBar /> {/* Corrected the component name */}
-      </Box>
-      <Box flex={58} marginTop={35}>
-      <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"}  mt={4}></Box>
+      >      					
+
+        <SideBar    /> {/* Corrected the component name */}
+</Box>
+
+
+  
+<Box
+  borderLeft={"2px"} 
+  borderLeftColor={colorMode === "light"? "gray.200" : "#2B2B2B"}
+  flex={1}
+  mt={35}
+  display={{
+    base: "none",    // Hide on small screens
+    md: "block",     // Show on medium and larger screens
+  }}
+>
+  <Empty />
+</Box>
+
+
+      <Box flex={58} marginTop={35} marginBottom={35}  >
+
 
         {!loading && posts.length === 0 && (
-          <h1>Welcome to bidoi, share your ideas</h1>
+          <h1   >Welcome to bidoi, share your ideas</h1>
         )}
 
         {loading && (
@@ -76,8 +101,9 @@ const HomePage1 = () => {
       <Box
         flex={35}
         display={{
-          base: "none",
-          md: "block",
+          base: "none",    // Hide on small screens
+    sm: "none",      // Hide on small screens
+    md: "block", 
         }}
       >
     				<SuggestedUsers />

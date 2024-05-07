@@ -11,8 +11,8 @@ import { DeleteIcon } from "@chakra-ui/icons";
 import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import postsAtom from "../atoms/postsAtom";
-import emoji from "/public/emoji.png"; // Import your PNG image
-import rounded from "/public/rounded.png"; // Import your PNG image
+import emoji from "/public/emoji2.png"; // Import your PNG image
+import round from "/public/round.png"; // Import your PNG image
 
 
 const Post = ({ post, postedBy }) => {
@@ -79,7 +79,7 @@ const Post = ({ post, postedBy }) => {
     zIndex={-1}
     width="calc(100% + 8px)" // Adjust this value based on how much bigger you want the round image to be than the Avatar
     height="calc(100% + 8px)" // Adjust this value based on how much bigger you want the round image to be than the Avatar
-    backgroundImage={`url(${rounded})`}
+    backgroundImage={`url(${round})`}
     backgroundSize="cover"
     borderRadius="full"
   />
@@ -151,7 +151,7 @@ const Post = ({ post, postedBy }) => {
 							<Text
 								fontSize={"sm"}
 								fontWeight={"bold"}
-								className="truncate-text"
+								
 								onClick={(e) => {
 									e.preventDefault();
 									navigate(`/${user.name}`);
@@ -167,12 +167,12 @@ const Post = ({ post, postedBy }) => {
 								 {formatDistanceToNow(new Date(post.createdAt))} 
 							</Text>
 						</Flex>
-						<Flex gap={4} alignItems={"center"} >
-							<Text fontSize={"sm"}  textAlign={"right"} color={"gray.light"}>
+						<Flex gap={4} alignItems={"center"} marginLeft={"-20"} >
+							<Text fontSize={"sm"}   textAlign={"right"} color={"gray.light"}>
 								...
 							</Text>
 
-							{currentUser?._id === user._id && <DeleteIcon size={20} onClick={handleDeletePost} />}
+							{currentUser?._id === user._id && <DeleteIcon size={18} onClick={handleDeletePost} />}
 						</Flex>
 					</Flex>
 

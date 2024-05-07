@@ -6,11 +6,15 @@ import useShowToast from "../hooks/useShowToast";
 import { Link as RouterLink } from "react-router-dom";
 import { SearchIcon } from "@chakra-ui/icons";
 
-import bgbg2 from "/public/bgbg2.png";
+import pizza2 from "/public/pizza.jpeg";
 
+import coffee from "/public/coffee.gif";
+import { MdHeight } from "react-icons/md";
+import { px } from "framer-motion";
 
 
 const SuggestedUsers = () => {
+	const  {coffee } = MdHeight
     const { colorMode } = useColorMode(); // Hook to access color mode
 
 	const [loading, setLoading] = useState(true);
@@ -64,14 +68,21 @@ const SuggestedUsers = () => {
 
 
 
-			<Text mb={4} mt={4} padding={4} backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} rounded={"xl"} fontWeight={"bold"}>
-                <p>Subscribe to Premium</p>
-                <Text mt={2} mb={2} fontWeight={"normal"}>
-                    Subscribe to unlock new features and if eligible, receive a share of ads revenue.
+			<Text mb={4} mt={4}   backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"}   rounded={"xl"} fontWeight={"bold"}>
+				<Box  pb={4} pt={2} backgroundImage={        `url(${pizza2})` }  rounded={"xl"}   >
+					<Text pl={2} color={"white"}>
+                <p color="white">Welcome to reddit</p>
+				</Text>
+                <Text mt={2}  pl={2} mb={2}  color={"white"} fontWeight={"normal"}>
+                    Login to reddit and unlock all premium features.search for ideas, talk to other users and much more! .
                 </Text>
-                <Button backgroundImage={        `url(${bgbg2})`     }    style={{ borderRadius: "20px", fontSize: "sm", padding: "0.5rem 1rem", color: "white" }}>Subscribe</Button>
-            </Text>
-
+				<Text     pl={2}   >
+                <Button                  as={RouterLink} to="/auth"
+   style={{ borderRadius: "20px", fontSize: "sm",   backgroundColor:"  #76B900 ",  Left: " 2", color: "white" }}>Login Now</Button>
+				</Text>
+				</Box>
+			</Text>
+			  
 		
 			<Flex direction={"column"}  backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} rounded={"xl"}  mb={4} padding={4}  gap={4}>
 			<Text mb={4}  fontWeight={"bold"}>
@@ -99,6 +110,30 @@ const SuggestedUsers = () => {
 						</Flex>
 					))}
 			</Flex>
+
+
+
+			<Text mb={4} mt={4} padding={4} backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} rounded={"xl"} fontWeight={"bold"}>
+                <p color="blue">Buy reddit a cup of coffee</p>
+                <Text mt={2} mb={2}  fontWeight={"normal"}    backgroundImage={       `url(${coffee})`     } >
+				 
+                    We are depedent on your support to keep this site ruunning. if you find the content on this plartform interesting, then we would appreciate youir support to help us keep
+					 providing more useul information to others.one dollar means alot to us.
+                </Text>
+                <Text  >
+			    <Button                  as={RouterLink} to="/BuyCoffee"
+   style={{ borderRadius: "20px", fontSize: "sm",   backgroundColor: "#76B900",     padding: "0.5rem 1rem", color: "white" }}>Buy now</Button>
+               
+			
+			  
+				</Text>
+		   
+		    </Text>
+
+
+
+
+
 		</>
 
 		</Box>

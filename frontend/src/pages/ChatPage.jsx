@@ -117,6 +117,7 @@ const ChatPage = () => {
 
 	return (
 		<Box mt={50} 
+		marginBottom={35}  
 			position={"absolute"}
 			left={"50%"}
 			w={{ base: "100%", md: "80%", lg: "750px" }}

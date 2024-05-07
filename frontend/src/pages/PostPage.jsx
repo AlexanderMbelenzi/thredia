@@ -71,14 +71,14 @@ const PostPage = () => {
 
 	return ( 
 	
-		<Box mt={"70"}> 
+		<Box mt={"70"}   ml={{ base: 0, lg: "-15%" }}    marginBottom={35}     > 
 		<>
 		
 			<Flex>
 				<Flex w={"full"} alignItems={"center"}  gap={3}>
 					<Avatar src={user.profilePic} size={"md"} name='Mark Zuckerberg' />
 					<Flex>
-						<Text fontSize={"sm"} className="truncate-text"   fontWeight={"bold"}>
+						<Text fontSize={"sm"}  fontWeight={"bold"}>
 							{user.username}
 						</Text>
 						<Image src='/verified.png' w='4' h={4} ml={4} />

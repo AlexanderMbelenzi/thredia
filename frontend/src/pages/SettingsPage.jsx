@@ -37,7 +37,7 @@ export const SettingsPage = () => {
 				Freeze Your Account
 			</Text>
 			<Text my={1}>You can unfreeze your account anytime by logging in.</Text>
-			<Button size={"sm"} colorScheme='orange' onClick={freezeAccount}>
+			<Button size={"sm"} colorScheme="blue"  color={'#ffffff'} onClick={freezeAccount}>
 				Freeze
 			</Button>
 

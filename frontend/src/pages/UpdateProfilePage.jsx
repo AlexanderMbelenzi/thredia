@@ -60,7 +60,7 @@ export default function UpdateProfilePage() {
 	};
 	return (
 		<form    onSubmit={handleSubmit}>
-			<Flex align={"center"} justify={"center"}   my={20}>
+			<Flex align={"center"} justify={"center"}  marginBottom={35}   my={20}>
 				<Stack
 					spacing={4}
 					w={"full"}

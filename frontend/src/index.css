@@ -66,7 +66,7 @@
 @media screen and (max-width: 620px) {
 	/* Small screens */
 	.logo {
-	  width: 100px; /* Set the width of the logo for small screens */
+	  width: 90px; /* Set the width of the logo for small screens */
 	  height: auto; /* Maintain aspect ratio */
 	}
   }
@@ -74,10 +74,10 @@
   @media screen and (min-width: 621px) {
 	/* Large screens */
 	.logo {
-	  width: 150px; /* Set the width of the logo for large screens */
+	  width: 120px; /* Set the width of the logo for large screens */
 	  height: auto; /* Maintain aspect ratio */
-	  margin-top: -35;
-	margin-bottom: -35;
+	  
+	margin-bottom: -55;
      
 
 	}
