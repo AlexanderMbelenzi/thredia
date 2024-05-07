@@ -10,28 +10,23 @@ import {
   Button,
   useColorMode 
 } from "@chakra-ui/react";
-import { FiLogOut } from "react-icons/fi";
-import { CgHomeAlt } from "react-icons/cg";
+
 import { GiIdea } from "react-icons/gi";
 import { MdLogout } from "react-icons/md";
 import { BsHouseAddFill } from "react-icons/bs";
-import { BsBookmark } from "react-icons/bs";
-import { CgCommunity } from "react-icons/cg";
+
 import { BsSearch } from "react-icons/bs";
 import { BsEnvelopeFill } from "react-icons/bs"; 
-import { BsFillChatQuoteFill } from "react-icons/bs";
+
 import { MdOutlineSettings } from "react-icons/md";
 import { RxAvatar } from "react-icons/rx";
-import { Image } from "@chakra-ui/react";
-import {  AiOutlineHome,  } from "react-icons/ai"; // Import AiOutlineHome from react-icons/ai
-import { Search2Icon } from "@chakra-ui/icons";   
-import { IoEllipsisHorizontalOutline } from "react-icons/io5";
+
 import { IoNotificationsOutline } from "react-icons/io5";
-import { AiOutlineMessage } from "react-icons/ai";
+
 import useLogout from "../hooks/useLogout";
 import userAtom from "../atoms/userAtom";
 import bgbg3 from "/public/bgbg3.png"; // Import your PNG image
-import { pl } from "date-fns/locale";
+
 
 const SideBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();

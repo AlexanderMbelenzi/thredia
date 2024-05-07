@@ -8,9 +8,9 @@ import { SearchIcon } from "@chakra-ui/icons";
 
 import pizza2 from "/public/pizza.jpeg";
 
-import coffee from "/public/coffee.gif";
+
 import { MdHeight } from "react-icons/md";
-import { px } from "framer-motion";
+
 
 
 const SuggestedUsers = () => {
@@ -115,7 +115,7 @@ const SuggestedUsers = () => {
 
 			<Text mb={4} mt={4} padding={4} backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} rounded={"xl"} fontWeight={"bold"}>
                 <p color="blue">Buy reddit a cup of coffee</p>
-                <Text mt={2} mb={2}  fontWeight={"normal"}    backgroundImage={       `url(${coffee})`     } >
+                <Text mt={2} mb={2}  fontWeight={"normal"}    >
 				 
                     We are depedent on your support to keep this site ruunning. if you find the content on this plartform interesting, then we would appreciate youir support to help us keep
 					 providing more useul information to others.one dollar means alot to us.
