@@ -93,16 +93,16 @@ const HomePage1 = () => {
 <Flex><Box>
   <Flex justify="space-between">
     <Box flexBasis="25%" marginRight="4">
-      <Image src={pizza1} alt="Pizza 1" width="100%" height="218"   borderRadius="md" />
+      <Image src={pizza1} alt="Pizza 1" width="100%"   borderRadius="md" />
     </Box>
     <Box flexBasis="25%" marginRight="4">
-      <Image src={pizza2} alt="Pizza 2" width="100%" height="218"   borderRadius="md" />
+      <Image src={pizza2} alt="Pizza 2" width="100%"   borderRadius="md" />
     </Box>
     <Box flexBasis="25%" marginRight="4">
-      <Image src={pizza3} alt="Pizza 3" width="100%" height="218"     borderRadius="md" />
+      <Image src={pizza3} alt="Pizza 3" width="100%"     borderRadius="md" />
     </Box>
     <Box flexBasis="25%">
-      <Image src={pizza4} alt="Pizza 4" width="100%" height="218px"    borderRadius="md" />
+      <Image src={pizza4} alt="Pizza 4" width="100%"   borderRadius="md" />
     </Box>
   </Flex>
 </Box>
