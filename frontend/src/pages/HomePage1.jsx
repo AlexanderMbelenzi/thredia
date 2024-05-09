@@ -11,9 +11,14 @@ import {  useColorMode ,    } from "@chakra-ui/react";
 import { px } from "framer-motion";
 import Empty from "../components/empty";
 
+import { Image } from "@chakra-ui/react";
 
 
 
+import pizza2 from "/public/sec1.png";
+import pizza1 from "/public/sec2.png";
+import pizza3 from "/public/sec3.png";
+import pizza4 from "/public/sec4.webp";
 
 
 const HomePage1 = () => {
@@ -82,6 +87,30 @@ const HomePage1 = () => {
 
 
       <Box flex={58} marginTop={35} marginBottom={35}  >
+
+
+        <Box mt={6} mb={4}>
+<Flex><Box>
+  <Flex justify="space-between">
+    <Box flexBasis="25%" marginRight="4">
+      <Image src={pizza1} alt="Pizza 1" width="100%" height="218"   borderRadius="md" />
+    </Box>
+    <Box flexBasis="25%" marginRight="4">
+      <Image src={pizza2} alt="Pizza 2" width="100%" height="218"   borderRadius="md" />
+    </Box>
+    <Box flexBasis="25%" marginRight="4">
+      <Image src={pizza3} alt="Pizza 3" width="100%" height="218"     borderRadius="md" />
+    </Box>
+    <Box flexBasis="25%">
+      <Image src={pizza4} alt="Pizza 4" width="100%" height="218px"    borderRadius="md" />
+    </Box>
+  </Flex>
+</Box>
+
+
+</Flex>
+
+        </Box>
 
 
         {!loading && posts.length === 0 && (

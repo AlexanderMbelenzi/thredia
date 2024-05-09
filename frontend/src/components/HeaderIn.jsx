@@ -80,7 +80,7 @@ const Header = () => {
 
                                 <Link>
                                     <Button
-                                        leftIcon={<Image src={emoji2} w={6} alt="emoji" />}
+                                        leftIcon={<Image src={emoji2} w={5} alt="emoji" />}
                                         rightIcon={<HamburgerIcon /> }
                                         fontSize="xs"
                                         as={RouterLink}
@@ -89,7 +89,7 @@ const Header = () => {
                                         borderRadius="20px"
                                         color="white"
                                         size={isSmallScreen ? "xs" : "sm"}
-                                        backgroundImage={`url(${bgbg3})`}
+                                        backgroundColor={     " #FF4500 " }
                                     >
                                         {/* Empty button label */}
                                     </Button>

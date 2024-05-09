@@ -14,9 +14,10 @@ import {
 import { GiIdea } from "react-icons/gi";
 import { MdLogout } from "react-icons/md";
 import { BsHouseAddFill } from "react-icons/bs";
+import { BsHouseDashFill } from "react-icons/bs";
 
 import { BsSearch } from "react-icons/bs";
-import { BsEnvelopeFill } from "react-icons/bs"; 
+import { BsEnvelopeFill } from "react-icons/bs";  
 
 import { MdOutlineSettings } from "react-icons/md";
 import { RxAvatar } from "react-icons/rx";
@@ -27,6 +28,25 @@ import useLogout from "../hooks/useLogout";
 import userAtom from "../atoms/userAtom";
 import bgbg3 from "/public/bgbg3.png"; // Import your PNG image
 
+import { Image } from "@chakra-ui/react";
+
+
+
+
+import gamming from "/public/gamming1.png"; // Import your PNG image
+import crypto from "/public/crypto1.jpg"; // Import your PNG image
+import business from "/public/business1.png"; // Import your PNG image
+import sports from "/public/sports1.png"; // Import your PNG image
+import technology from "/public/technology1.png"; // Import your PNG image
+
+
+
+
+
+
+
+
+
 
 const SideBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -34,74 +54,75 @@ const SideBar = () => {
   const logout = useLogout();
 
   return (
-    <Box position="fixed" ml={-4}>
+    <Box position="fixed" ml={-2}>
       <Flex direction="column" marginTop="50px" alignItems="flex-start">
         <Box height="full" flex={20} position="fixed" display={{ base: "none", md: "block" }}>
           <Stack>
+        
             <Link as={RouterLink} to='/'>
-              <Button fontWeight="normal"   size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<BsHouseAddFill size={30} />}>
+              <Button fontWeight="normal"    size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" ml={-1} leftIcon={<BsHouseDashFill size={"45px"}  />}>
                 Home
               </Button>
             </Link>
             <Link as={RouterLink} to="/chat">
-              <Button fontWeight="normal"    size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<BsSearch size={28} />}>
+              <Button fontWeight="normal"    size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px"  ml={-1}   leftIcon={<BsSearch w={6} />}>
                 Explore
               </Button>
             </Link>
             
-            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
 
-            <Text pl={4} fontWeight="normal" color={colorMode === "dark" ? "gray.300" : "gray.600"} >Trending Topics</Text>
-
-              
-            <Link as={RouterLink} to="/">
-              <Button   fontWeight="normal"       size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<GiIdea size={30} />}>
-                Technology
-              </Button>
-            </Link>
-            <Link as={RouterLink} to="/">
-              <Button  fontWeight="normal"         size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<GiIdea size={30} />}>
-                Gaming
-              </Button>
-            </Link>
-           
-            <Link as={RouterLink} to="/">
-              <Button  fontWeight="normal"   size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<GiIdea size={30} />}>
-                Sports
-              </Button>
-            </Link>
-           
-            <Link as={RouterLink} to="/">
-              <Button   fontWeight="normal"   size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<GiIdea size={30} />}>
-                Business
-              </Button>
-            </Link>
-            <Link as={RouterLink} to="/">
-              <Button   fontWeight="normal"     size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<GiIdea size={30} />}>
-                Crypto
-              </Button>
-            </Link>
-
+            
             <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
 
             <Link as={RouterLink} to={`/${user.username}`}>
-              <Button   fontWeight="normal"      size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<RxAvatar size={30} />}>
+              <Button   fontWeight="normal"      size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<RxAvatar w={6} />}>
                 Profile
               </Button>
             </Link>
 
             <Link as={RouterLink} to="/chat">
-              <Button fontWeight="normal"     size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" ml="-1" leftIcon={<IoNotificationsOutline size={32} />}>
+              <Button fontWeight="normal"     size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px"  leftIcon={<IoNotificationsOutline w={6} />}>
                 Notifications
               </Button>
             </Link>
             <Link as={RouterLink} to={`/chat`}>
-              <Button   fontWeight="normal"  size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" ml="-1" leftIcon={<BsEnvelopeFill size={25} />}>
+              <Button   fontWeight="normal"  size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<BsEnvelopeFill w={6} />}>
                 Messages
               </Button>
             </Link>
-           
-           
+            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
+
+            <Text pl={4} fontWeight="normal" color={colorMode === "dark" ? "gray.300" : "gray.600"} >Trending Topics</Text>
+
+                   
+<Link as={RouterLink} to="/">
+  <Button   fontWeight="normal"       size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={sports}  rounded={"md"}  w={6} alt="emoji" />}>
+    Sports
+  </Button>
+</Link>
+<Link as={RouterLink} to="/">
+  <Button  fontWeight="normal"         size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={gamming} rounded={"md"}   w={6} alt="emoji" />}>
+    Gaming
+  </Button>
+</Link>
+
+<Link as={RouterLink} to="/">
+  <Button  fontWeight="normal"   size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={technology} w={6} alt="emoji" />}>
+    Technology
+  </Button>
+</Link>
+
+<Link as={RouterLink} to="/">
+  <Button   fontWeight="normal"   size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={business} w={6} rounded={"md"} alt="emoji" />}>
+    Business
+  </Button>
+</Link>
+<Link as={RouterLink} to="/">
+  <Button   fontWeight="normal"     size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px"  leftIcon={<Image src={crypto} rounded={"md"}  w={6} alt="emoji" />} >
+    Crypto
+  </Button>
+</Link>
+
             
 
             <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
@@ -131,7 +152,8 @@ const SideBar = () => {
             <Flex justifyContent="center">
               <Button
                 as={RouterLink} to="/CreatePage"
-                backgroundImage={`url(${bgbg3})`}
+                backgroundColor={  			 "#FF4500"
+              }
                 style={{
                   marginTop: "20%",
                   borderRadius: "20px",
