@@ -66,20 +66,35 @@
 @media screen and (max-width: 620px) {
 	/* Small screens */
 	.logo {
-	  width: 90px; /* Set the width of the logo for small screens */
+	  width: 200px; /* Set the width of the logo for small screens */
 	  height: auto; /* Maintain aspect ratio */
+	  margin-top: -20px;
+	  margin-bottom: -20px;
 	}
   }
   
   @media screen and (min-width: 621px) {
 	/* Large screens */
 	.logo {
-	  width: 120px; /* Set the width of the logo for large screens */
+	  width: 240px; /* Set the width of the logo for large screens */
 	  height: auto; /* Maintain aspect ratio */
-	  
-	margin-bottom: -55;
-     
-
+	
 	}
   }
   
+  @media screen and (max-width: 620px) {
+	/* Small screens */
+	.header {
+		padding-top: -10px;
+		padding-bottom: -10px;
+	}
+  }
+  
+  @media screen and (min-width: 621px) {
+	/* Large screens */
+	.header {
+	
+	  padding-top: 4;
+	  padding-bottom: 4;
+	}
+  }

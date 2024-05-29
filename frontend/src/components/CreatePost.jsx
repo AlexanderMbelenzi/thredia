@@ -27,7 +27,7 @@ import useShowToast from "../hooks/useShowToast";
 import postsAtom from "../atoms/postsAtom";
 import { useParams } from "react-router-dom";
 
-const MAX_CHAR = 500;
+const MAX_CHAR = 1200;
 
 const CreatePost = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();

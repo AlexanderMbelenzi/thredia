@@ -59,7 +59,7 @@ const HomePage1 = () => {
       
       <Box      
 
-	         flex={20}
+	         flex={25}
         display={{
           base: "none",
           md: "block",
@@ -76,6 +76,7 @@ const HomePage1 = () => {
   borderLeft={"2px"} 
   borderLeftColor={colorMode === "light"? "gray.200" : "#2B2B2B"}
   flex={1}
+  px={8}
   mt={35}
   display={{
     base: "none",    // Hide on small screens
@@ -86,22 +87,22 @@ const HomePage1 = () => {
 </Box>
 
 
-      <Box flex={58} marginTop={35} marginBottom={35}  >
+      <Box flex={80} marginTop={35} marginBottom={35}  >
 
 
         <Box mt={6} mb={4}>
 <Flex><Box>
   <Flex justify="space-between">
-    <Box flexBasis="25%" marginRight="4">
+    <Box flexBasis="27%" marginRight="4">
       <Image src={pizza1} alt="Pizza 1" width="100%"   borderRadius="md" />
     </Box>
-    <Box flexBasis="25%" marginRight="4">
+    <Box flexBasis="27%" marginRight="4">
       <Image src={pizza2} alt="Pizza 2" width="100%"   borderRadius="md" />
     </Box>
-    <Box flexBasis="25%" marginRight="4">
+    <Box flexBasis="27%" marginRight="4">
       <Image src={pizza3} alt="Pizza 3" width="100%"     borderRadius="md" />
     </Box>
-    <Box flexBasis="25%">
+    <Box flexBasis="27%">
       <Image src={pizza4} alt="Pizza 4" width="100%"   borderRadius="md" />
     </Box>
   </Flex>
@@ -128,13 +129,12 @@ const HomePage1 = () => {
 				))}
       </Box>
       <Box
-        flex={35}
-        display={{
-          base: "none",    // Hide on small screens
-    sm: "none",      // Hide on small screens
-    md: "block", 
-        }}
-      >
+       flex={20}
+  display={{
+    base: "none", // Hide on small screens
+    lg: "block", // Show on large screens and above (>= 1000px)
+  }}
+>
     				<SuggestedUsers />
 
       </Box>

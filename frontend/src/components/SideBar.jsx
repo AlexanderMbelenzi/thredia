@@ -152,7 +152,7 @@ const SideBar = () => {
             <Flex justifyContent="center">
               <Button
                 as={RouterLink} to="/CreatePage"
-                backgroundColor={  			 "#FF4500"
+                backgroundColor={  			 "#1D88F2"
               }
                 style={{
                   marginTop: "20%",

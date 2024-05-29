@@ -21,7 +21,7 @@ const SuggestedUser = ({ user }) => {
 			</Flex>
 			{/* right side */}
 			<Button
-				size={"sm"}
+				size={"xs"}
 				rounded={"20px"}
 				color={following ? "#1D88F2 " : "white"}
 				bg={following ? "white" : "#1D88F2  "}

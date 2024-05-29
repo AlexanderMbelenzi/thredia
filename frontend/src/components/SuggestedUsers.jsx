@@ -1,3 +1,5 @@
+
+			
 import { Box, Flex, Link, Text, Button, Input, InputGroup, InputLeftElement, useColorMode ,  Skeleton, SkeletonCircle,   } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import SuggestedUser from "./SuggestedUser";
@@ -7,18 +9,18 @@ import { Image } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { SearchIcon } from "@chakra-ui/icons";
 
-import pizza1 from "/public/pic.png";
-
-import pizza from "/public/coffee.jpg";
+import pic1 from "/public/post1.png";
+import pic2 from "/public/pic2.jpg";
+import pic3 from "/public/pic.jpg";
 
 import { MdHeight } from "react-icons/md";
 
 
 
 const SuggestedUsers = () => {
-	const  {coffee } = MdHeight
     const { colorMode } = useColorMode(); // Hook to access color mode
-
+	const [bgIndex, setBgIndex] = useState(0);
+    const backgrounds = [pic1];
 	const [loading, setLoading] = useState(true);
 	const [suggestedUsers, setSuggestedUsers] = useState([]);
 	const showToast = useShowToast();
@@ -44,9 +46,21 @@ const SuggestedUsers = () => {
 		getSuggestedUsers();
 	}, [showToast]);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            // Incrementing the index to change the background image
+            setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+        }, 5000); // Change every 5 seconds (adjust as needed)
+
+        return () => clearInterval(interval); // Cleanup interval on unmount
+    }, []);
+
+
+
+
 	return (
 
-		<Box mr={"80"}  position="fixed"  ml={4}     marginTop="55px">
+		<Box mr={"60"}  position="fixed"  ml={8}     marginTop="55px">
 
  
                  
@@ -55,49 +69,37 @@ const SuggestedUsers = () => {
 	
 
 
+			<Text mb={4} mt={1} backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} rounded={"xl"} fontWeight={"bold"}>
+    <Box pb={4} pt={2} backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgrounds[bgIndex]})`}  rounded={"xl"} bgSize="cover" bgPos="center" position="relative">
+        <Text pl={2} fontWeight={"bold"}fontFamily="'Noto Sans', Arial, sans-serif"  fontSize={"xl"} color={"white"}>
+            <p>Welcome to reddit</p>
+        </Text>
+        <Text mt={2} pl={2} mb={2} color={"white"} style={{ textShadow: "0 0 2px black" }}
+		 fontFamily="'Noto Sans', Arial, sans-serif"  fontSize={{ base: "xs", md: "lg" }} fontWeight={"normal"}>
+            Subscribe to our premium model and get access to our community and Join the private network for high-growth founders,
+			 CEOs, and entrepreneurs.for founders, CEOs, and entrepreneurs.for founders, CEOs, and entrepreneurs.for founders,
+        </Text>
+        <Text mt={4} mb={0} pl={2}>
+            <Button as={RouterLink} to="/auth" style={{ borderRadius: "20px", fontFamily:"'Noto Sans', Arial, sans-serif" ,  fontSize: "md", backgroundColor: "#1D88F2", color: "white" }}>
+                Subscribe Now
+            </Button>
+        </Text>
+    </Box>
+</Text>
 
-			<Text mb={4} mt={1}   backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"}   rounded={"xl"} fontWeight={"bold"}>
-			<Box pb={4} pt={2} backgroundImage={`url(${pizza1})`} rounded={"xl"} bgSize="cover" bgPos="center">
 
-					<Text pl={2} style={{ textShadow: "0 0 2px black" }} fontWeight={"bold"}  fontSize={"xl"}   color={"white"}>
-                <p    >Welcome to reddit</p>
-				</Text>
-                <Text mt={2}  pl={2} mb={2}  color={"white"} style={{ textShadow: "0 0 2px black" }}  fontSize={"lg"}  fontWeight={"normal"}>
-                    Login to reddit and unlock all premium features.search for ideas, talk to other users and much more talk to other users and much more! .
-                </Text>
-				<Text     pl={2}   >
-                <Button                  as={RouterLink} to="/auth"
-   style={{ borderRadius: "20px", fontSize: "sm",   backgroundColor:"  #76B900 ",  Left: " 2", color: "white" }}>Login Now</Button>
-				</Text>
-				</Box>
-			</Text>
-
-
-
-
-			<Box  mb={4}  >
-		<Flex alignItems="center" gap={2} as={RouterLink} to="/chat"  >
-                <InputGroup size="sm" >
-                    <InputLeftElement pointerEvents="none">
-					<SearchIcon  />
-                    </InputLeftElement>
-                    <Input
-                        placeholder="Search for a user"
-                        borderRadius="full"
-                        bg={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} // Dynamically set background color based on color mode
-                    />
-                </InputGroup>
-            </Flex>
-     
-			</Box>
 
 			  
 		
 			<Flex direction={"column"}  backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} rounded={"xl"}  mb={4} padding={4}  gap={4}>
-			<Text mb={4}  fontWeight={"bold"}>
+			<Text mb={4} fontSize={"xl"} fontFamily="'Noto Sans', Arial, sans-serif"   fontWeight={"bold"}>
 			Suggested users
       
 			</Text>
+
+
+	
+
 
 				{!loading && suggestedUsers.map((user) => <SuggestedUser key={user._id} user={user} />)}
 				{loading &&
@@ -118,6 +120,24 @@ const SuggestedUsers = () => {
 							</Flex>
 						</Flex>
 					))}
+		
+		
+		<Box  mt={4}  >
+		<Flex alignItems="center" gap={2} as={RouterLink} to="/chat"  >
+                <InputGroup size="sm" >
+                    <InputLeftElement pointerEvents="none">
+					<SearchIcon  />
+                    </InputLeftElement>
+                    <Input
+                        placeholder="Search for a user"
+                        borderRadius="full"
+                        bg={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} // Dynamically set background color based on color mode
+                    />
+                </InputGroup>
+            </Flex>
+     
+			</Box>
+		
 			</Flex>
 
 
@@ -125,16 +145,16 @@ const SuggestedUsers = () => {
 			<Text mb={4} mt={4}   backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"}   rounded={"xl"} fontWeight={"bold"}>
 			<Box pb={4} pt={2}  >
 
-					<Text pl={2}  fontWeight={"bold"}  fontSize={"xl"}   >
-                <p    >BUY ME COFFEE</p>
+					<Text pl={2} fontFamily="'Noto Sans', Arial, sans-serif"  fontWeight={"bold"}  fontSize={"xl"}   >
+                <p    >buy me coffee</p>
 				</Text>
-                <Text mt={2}  pl={2} mb={2}    fontSize={"lg"}  fontWeight={"normal"}>
-				We are depedent on your support to keep this site ruunning. if you find the content on this plartform interesting, then we would appreciate youir support to help us keep
-					 providing more useul information to others.one dollar means alot to us.
+                <Text mt={2}  pl={2} mb={2} pr={2}  prefix="2"  fontSize={"md"}fontFamily="'Noto Sans', Arial, sans-serif"    fontWeight={"normal"}>
+				We are depedent your support to keep this site ruunning. if you find 
+					 
                 </Text>
 				<Text     pl={2}   >
-                <Button                  as={RouterLink} to="/auth"
-   style={{ borderRadius: "20px", fontSize: "sm",         backgroundColor: "#1D88F2",    Left: " 2", color: "white" }}>Buy Now</Button>
+                <Button       backgroundColor={colorMode === "light" ? "#ffffff" : "#000000"}            as={RouterLink} to="/auth"
+   style={{ borderRadius: "20px", fontSize: "xs",      fontFamily:"'Noto Sans', Arial, sans-serif" ,     Left: " 2" }}>Buy Now</Button>
 				</Text>
 				</Box>
 			</Text>
@@ -182,3 +202,10 @@ export default SuggestedUsers;
 // 								<Skeleton h={"20px"} w={"60px"} />
 // 							</Flex>
 // 						</Flex>
+
+
+
+
+
+
+

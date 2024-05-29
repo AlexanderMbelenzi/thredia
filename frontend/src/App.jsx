@@ -20,7 +20,7 @@ function App() {
 	return (
 		<Box position={"relative"} w='full'>
 
-<Container maxW={pathname === "/" || pathname === "/Home2" ? { base: "620px", md: "1300px" } : "620px"}>
+<Container maxW={pathname === "/" || pathname === "/Home2" ? { base: "620px", md: "1500px" } : "620px"}>
 <Header />
 <Controls />
 

@@ -34,7 +34,7 @@ const Header = () => {
                 top={0}
                 marginX="auto"
             >
-                <Box py={3} pb={2} pt={1} pl="2" maxW="1280" pr="1" marginX="auto">
+                <Box py={1} pb={3} pt={3} className="header"  pl="2" maxW="1500" pr="1" marginX="auto">
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>
@@ -49,7 +49,7 @@ const Header = () => {
                             <>
                                 <Box>
                                     <Link as={RouterLink} to="/">
-                                        <Image src={Logo2} mt={-25} mb={-25} alt="Logo" cursor="pointer" className="logo" />
+                                        <Image src={Logo2} mt={-5} mb={-25} alt="Logo" cursor="pointer" className="logo" />
                                     </Link>
                                 </Box>
 
@@ -89,7 +89,7 @@ const Header = () => {
                                         borderRadius="20px"
                                         color="white"
                                         size={isSmallScreen ? "xs" : "sm"}
-                                        backgroundColor={     " #FF4500 " }
+                                        backgroundColor={  			 "#1D88F2"}
                                     >
                                         {/* Empty button label */}
                                     </Button>

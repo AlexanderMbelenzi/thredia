@@ -26,7 +26,7 @@ import postsAtom from "../atoms/postsAtom";
 import { useParams } from "react-router-dom";
 import { useColorMode } from "@chakra-ui/react";
 
-const MAX_CHAR = 500;
+const MAX_CHAR = 1200;
 const CreatePage = () => {
 	const { colorMode } = useColorMode();
 
