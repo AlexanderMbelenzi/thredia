@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Box, Flex, Image, Button, Link, useColorMode, useBreakpointValue } from "@chakra-ui/react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -49,22 +50,28 @@ const Header = () => {
         setActiveLink(link);
     };
 
-    const linkStyles = (link) => ({
-        color: activeLink === link ? " " : "#abb7c4",
-        
-        position: "relative",
-        _after: {
-            content: '""',
-            position: "absolute",
-            width: "100%",
-            height: "4px",
-            
-            left: 0,
-            bg: "1D88F2",
-            borderRadius: "4px",
-            display: activeLink === link ? "block" : "none",
-        },
-    });
+     
+        const linkStyles = (link) => ({
+            color: activeLink === link ? "white" : "#abb7c4",
+            position: "relative",
+            _after: {
+                content: '""',
+                position: "absolute",
+                width: "100%",
+                height: "4px",
+                bottom: "-6px",
+                left: 0,
+                bg: "blue.500",
+                borderRadius: "4px",
+                display: activeLink === link ? "block" : "none",
+            },
+        });
+    
+     
+      
+       
+           
+    
 
     return (
         <Box>
@@ -119,7 +126,7 @@ const Header = () => {
                                     
                                   
                              
-                                <Link  fontSize="xl"
+                                <Link  fontSize="2xl"
                                         as={RouterLink}
                                         to="/auth" >
                                          
@@ -244,6 +251,4 @@ const Header = () => {
 };
 
 export default Header;
-
-
 
