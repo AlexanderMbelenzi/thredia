@@ -28,7 +28,7 @@ const Header = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            if (currentScrollY > lastScrollY && currentScrollY > 20) {
                 // Scrolling down and scrolled more than 100px
                 setShowLinks(false);
             } else {
