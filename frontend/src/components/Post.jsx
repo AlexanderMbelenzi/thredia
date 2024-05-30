@@ -107,7 +107,7 @@ size={{
             <Box position={"relative"} w={"full"}>
               {post.replies.length === 0 && (
                 <Text textAlign={"center"}>
-                  <Image src={emoji} alt="emoji" w={5} h={5} ml={3} mb={-2} />
+                  <Text w={5} h={5} ml={3} mb={-2}  >🥱</Text> 
                 </Text>
               )}
               <Flex mt={4}>

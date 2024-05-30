@@ -88,3 +88,35 @@
 	height: 2px; /* Adjust the height as needed */
   }
   
+  .round-button {
+	position: fixed;
+	bottom: 60px;
+	right: 20px;
+	background-color: #1D88F2; 
+	color: white;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	text-decoration: none;
+	z-index: 1000;
+	transition: transform 0.3s ease;
+  }
+  
+  .round-button:hover {
+	transform: scale(1.1);
+  }
+  
+
+  .round-button.hidden {
+	opacity: 0; /* Hide the button */
+  }
+  
+  @media (min-width: 621px) { /* Adjust based on your large screen breakpoint */
+	.round-button {
+	  display: none;
+	}
+  }

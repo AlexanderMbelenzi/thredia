@@ -13,7 +13,7 @@ import Empty from "../components/empty";
 
 import { Image } from "@chakra-ui/react";
 
-
+import RoundButton from "../components/scrolltotop";
 
 import pizza2 from "/public/sec1.png";
 import pizza1 from "/public/sec2.png";
@@ -27,6 +27,9 @@ const HomePage1 = () => {
 	const [posts, setPosts] = useRecoilState(postsAtom);
 	const [loading, setLoading] = useState(true);
 	const showToast = useShowToast();
+  const [scrollDirection, setScrollDirection] = useState("down");
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
 	useEffect(() => {
 		const getFeedPosts = async () => {
 			setLoading(true);
@@ -49,7 +52,22 @@ const HomePage1 = () => {
 		getFeedPosts();
 	}, [showToast, setPosts]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      if (currentScrollPos > prevScrollPos) {
+        setScrollDirection("up");
+      } else {
+        setScrollDirection("down");
+      }
+      setPrevScrollPos(currentScrollPos);
+    };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos]);
   return (
 	
     <Flex gap="10"  maxWidth={1250} mt={3.5} alignItems="flex-start"  >
@@ -114,9 +132,12 @@ const HomePage1 = () => {
 
 </Flex>
 
+       
+
+
+
+
         </Box>
-
-
         {!loading && posts.length === 0 && (
           <h1   >Welcome to bidoi, share your ideas</h1>
         )}
@@ -141,6 +162,7 @@ const HomePage1 = () => {
     				<SuggestedUsers />
 
       </Box>
+      {scrollDirection === "down" && <RoundButton   />}
     </Flex>
   );
 };
