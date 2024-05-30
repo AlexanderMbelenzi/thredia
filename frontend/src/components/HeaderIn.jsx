@@ -115,7 +115,7 @@ const Header = () => {
                                 </Box>
 
 
-                                <Link  fontSize="lg"
+                                <Link mr={2} fontSize="lg"
                                       alt="theme"
                                       onClick={toggleColorMode}
                                          >
