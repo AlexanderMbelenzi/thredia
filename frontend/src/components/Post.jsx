@@ -75,33 +75,34 @@ const Post = ({ post, postedBy }) => {
 
   if (!user) return null;
   return (
+
+	
     <Box wordBreak="break-word">
       <Link to={`/${user.username}/post/${post._id}`}>
         <Flex gap={3} paddingTop={3}>
           <Flex flexDirection={"column"} alignItems={"center"}>
-            <Box position="relative">
-              <Box
-                position="absolute"
-                top="-4px"
-                left="-4px"
-                zIndex={-1}
-                width="calc(100% + 8px)"
-                height="calc(100% + 8px)"
-                backgroundImage={`url(${round})`}
-                backgroundSize="cover"
-                borderRadius="full"
-              />
-              <Avatar
-                size='md'
-                name={user.name}
-                src={user?.profilePic}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(`/${user.username}`);
-                }}
-                zIndex={1}
-              />
-            </Box>
+        
+             
+			<Box position="relative">
+			<Avatar
+
+size={{
+	base: "sm",
+	sm: "sm",
+	md: "md",
+}}
+  name={user.name}
+  src={user?.profilePic}
+  onClick={(e) => {
+    e.preventDefault();
+    navigate(`/${user.username}`);
+  }}
+  zIndex={1}
+/>
+
+
+</Box>
+
             <Box w='1px' h={"full"} bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} my={2} mb={4}></Box>
             <Box position={"relative"} w={"full"}>
               {post.replies.length === 0 && (

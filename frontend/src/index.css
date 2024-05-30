@@ -82,19 +82,9 @@
 	}
   }
   
-  @media screen and (max-width: 620px) {
-	/* Small screens */
-	.header {
-		padding-top: -10px;
-		padding-bottom: -10px;
-	}
+/* Add this CSS to your stylesheet */
+.profile-avatar {
+	width: 2px; /* Adjust the width as needed */
+	height: 2px; /* Adjust the height as needed */
   }
   
-  @media screen and (min-width: 621px) {
-	/* Large screens */
-	.header {
-	
-	  padding-top: 4;
-	  padding-bottom: 4;
-	}
-  }
