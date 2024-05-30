@@ -8,9 +8,10 @@ import { BsArrowUp } from "react-icons/bs";
 
 const HeaderBox = () => {
   return (
-    <Link  className="header-box">
+    <Link  as={RouterLink}
+    to="/discoverdailynews"   className="header-box">
       <Flex justify="center">
-        <Box padding={1} flex={"center"} >   <BsArrowUp /> </Box>
+        <Box padding={1}  mt={1} flex={"center"} >   <BsArrowUp /> </Box>
      
         <Box flexBasis="27%">
            
@@ -30,7 +31,7 @@ const HeaderBox = () => {
         </Box>
      
         <Box >
-          <Box flex={"center"} ml={5} overflow="hidden">
+          <Box flex={"center"}  mt={1} ml={5} overflow="hidden">
           <Text fontSize={"xs"}>
             trends
           </Text>
