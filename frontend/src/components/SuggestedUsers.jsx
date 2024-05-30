@@ -69,7 +69,7 @@ const SuggestedUsers = () => {
 	
 
 
-			<Text mb={4} mt={1} backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} rounded={"xl"} fontWeight={"bold"}>
+			<Text mb={4} mt={1} backgroundColor={colorMode === "light" ? "#F5F8FA" : "#192734"} rounded={"xl"} fontWeight={"bold"}>
     <Box pb={4} pt={2} backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgrounds[bgIndex]})`}  rounded={"xl"} bgSize="cover" bgPos="center" position="relative">
         <Text pl={2} fontWeight={"bold"}fontFamily="'Noto Sans', Arial, sans-serif"  fontSize={"xl"} color={"white"}>
             <p>Welcome to reddit</p>
@@ -91,7 +91,7 @@ const SuggestedUsers = () => {
 
 			  
 		
-			<Flex direction={"column"}  backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} rounded={"xl"}  mb={4} padding={4}  gap={4}>
+			<Flex direction={"column"}  backgroundColor={colorMode === "light" ? "#F5F8FA" : "#192734"} rounded={"xl"}  mb={4} padding={4}  gap={4}>
 			<Text mb={4} fontSize={"xl"} fontFamily="'Noto Sans', Arial, sans-serif"   fontWeight={"bold"}>
 			Suggested users
       
@@ -131,7 +131,7 @@ const SuggestedUsers = () => {
                     <Input
                         placeholder="Search for a user"
                         borderRadius="full"
-                        bg={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"} // Dynamically set background color based on color mode
+                        bg={colorMode === "light" ? "#F5F8FA" : "#192734"} // Dynamically set background color based on color mode
                     />
                 </InputGroup>
             </Flex>
@@ -142,7 +142,7 @@ const SuggestedUsers = () => {
 
 
 
-			<Text mb={4} mt={4}   backgroundColor={colorMode === "light" ? "#F0F0F0" : "#2B2B2B"}   rounded={"xl"} fontWeight={"bold"}>
+			<Text mb={4} mt={4}   backgroundColor={colorMode === "light" ? "#F5F8FA" : "#192734"}   rounded={"xl"} fontWeight={"bold"}>
 			<Box pb={4} pt={2}  >
 
 					<Text pl={2} fontFamily="'Noto Sans', Arial, sans-serif"  fontWeight={"bold"}  fontSize={"xl"}   >
