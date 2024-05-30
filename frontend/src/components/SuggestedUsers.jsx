@@ -77,7 +77,7 @@ const SuggestedUsers = () => {
         <Text mt={2} pl={2} mb={2} color={"white"} style={{ textShadow: "0 0 2px black" }}
 		 fontFamily="'Noto Sans', Arial, sans-serif"  fontSize={{ base: "xs", md: "lg" }} fontWeight={"normal"}>
             Subscribe to our premium model and get access to our community and Join the private network for high-growth founders,
-			 CEOs, and entrepreneurs.for founders, CEOs, and entrepreneurs.for founders, CEOs, and entrepreneurs.for founders,
+			 CEOs, and entrepreneurs.for founders, CEOs and entrepreneurs.for founders, CEOs, and entrepreneurs.for founders,
         </Text>
         <Text mt={4} mb={0} pl={2}>
             <Button as={RouterLink} to="/auth" style={{ borderRadius: "20px", fontFamily:"'Noto Sans', Arial, sans-serif" ,  fontSize: "md", backgroundColor: "#1D88F2", color: "white" }}>
