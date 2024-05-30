@@ -93,7 +93,10 @@ const HomePage1 = () => {
         <Box mt={6} mb={4}>
 <Flex><Box>
   <Flex justify="space-between">
-    <Box flexBasis="27%" marginRight="4">
+    <Box flexBasis="27%" marginRight="4"   display={{
+    base: "none", // Hide on small screens
+    lg: "block", // Show on large screens and above (>= 1000px)
+  }}  >
       <Image src={pizza1} alt="Pizza 1" width="100%"   borderRadius="md" />
     </Box>
     <Box flexBasis="27%" marginRight="4">

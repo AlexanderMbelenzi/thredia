@@ -70,7 +70,7 @@ const Post = ({ post, postedBy }) => {
     if (sentences.length <= 1 || showFullText) {
       return post.text;
     }
-    return sentences.slice(0, 2).join('. ') + '...';
+    return sentences.slice(0, 1).join('. ') + '...';
   };
 
   if (!user) return null;
