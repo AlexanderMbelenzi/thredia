@@ -6,6 +6,8 @@ import authScreenAtom from "../atoms/authAtom";
 import { Link as RouterLink } from "react-router-dom";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo2 from "/public/logo.png"; // Import your PNG image
+import Logo3 from "/public/logo3.png"; // Import your PNG image
+
 import emoji2 from "/public/emoji2.png"; // Import your PNG image
 import theme2 from "/public/theme2.png";
 import useLogout from "../hooks/useLogout";
@@ -21,7 +23,7 @@ const Header = () => {
 
     // Determine if it's a small screen
     const isSmallScreen = useBreakpointValue({ base: true, md: false });
-
+    const isBigScreen = useBreakpointValue({ base: false, md: true });
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
@@ -47,7 +49,7 @@ const Header = () => {
     };
 
     const linkStyles = (link) => ({
-        color: activeLink === link ? "white" : "#abb7c4",
+        color: activeLink === link ? "white" : "gray",
         position: "relative",
         _after: {
             content: '""',
@@ -87,14 +89,48 @@ const Header = () => {
                                 </Link>
                             </>
                         ) : (
-                            <>
+
+                             
+                            
+                                 
+
+                            <> 
+                            
+                            
+                            {isBigScreen ? null : (
+                                <>
+                                <Box>
+                                    <Link as={RouterLink} to="/">
+                                        <Image src={Logo3}  alt="Logo" cursor="pointer" mb={2} mt={2} w={10}   />
+                                    </Link>
+                                </Box>
+                               
+                                    
+                                  
+                             
+                                <Link  fontSize="lg"
+                                        as={RouterLink}
+                                        to="/auth" >
+                                         
+
+                                   <HamburgerIcon  />
+                                       
+                                   
+                                     
+                                </Link>  </>
+                                )}
+                            
+                            
+                            
+                         
+                             {isSmallScreen ? null : (
+                                <>
                                 <Box>
                                     <Link as={RouterLink} to="/">
                                         <Image src={Logo2} mt={-5} mb={-25} alt="Logo" cursor="pointer" className="logo" />
                                     </Link>
                                 </Box>
-                                {isSmallScreen ? null : (
-                                    <>
+                               
                                         <Link
                                             fontSize="md"
                                             as={RouterLink}
@@ -113,8 +149,7 @@ const Header = () => {
                                         >
                                             Following
                                         </Link>
-                                    </>
-                                )}
+                                  
                                 <Flex justifyContent="center" alignItems="center">
                                     <Image
                                         cursor="pointer"
@@ -139,15 +174,29 @@ const Header = () => {
                                     >
                                         {/* Empty button label */}
                                     </Button>
-                                </Link>
+                                </Link>  </>
+                                )}
                             </>
                         )}
                     </Flex>
+
+
+                  
+                         
+               
+
+
                     {isSmallScreen && user && showLinks && (
                         <Flex justifyContent="space-between" mt={2}>
-                                <Link as={RouterLink} to="/">
-                                        <Image src={emoji2}  alt="Logo" w={7} cursor="pointer" className="logo" />
-                                    </Link>
+                               <Link
+                                fontSize="md"
+                                as={RouterLink}
+                                to="/Home2"
+                                onClick={() => handleLinkClick("following")}
+                                sx={linkStyles("following")}
+                            >
+                              
+                            </Link>
                             <Link
                                 fontSize="md"
                                 as={RouterLink}
@@ -172,7 +221,6 @@ const Header = () => {
                                 to="/Home2"
                                 onClick={() => handleLinkClick("following")}
                                 sx={linkStyles("following")}
-                                rightIcon={<HamburgerIcon />}
                             >
                               
                             </Link>
