@@ -145,15 +145,9 @@ const Header = () => {
                     </Flex>
                     {isSmallScreen && user && showLinks && (
                         <Flex justifyContent="space-between" mt={2}>
-                               <Link
-                                fontSize="md"
-                                as={RouterLink}
-                                to="/Home2"
-                                onClick={() => handleLinkClick("following")}
-                                sx={linkStyles("following")}
-                            >
-                              
-                            </Link>
+                                <Link as={RouterLink} to="/">
+                                        <Image src={emoji2}  alt="Logo" w={7} cursor="pointer" className="logo" />
+                                    </Link>
                             <Link
                                 fontSize="md"
                                 as={RouterLink}
@@ -178,6 +172,7 @@ const Header = () => {
                                 to="/Home2"
                                 onClick={() => handleLinkClick("following")}
                                 sx={linkStyles("following")}
+                                rightIcon={<HamburgerIcon />}
                             >
                               
                             </Link>
