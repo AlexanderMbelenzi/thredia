@@ -1,25 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Flex, Image, Button, Link, useColorMode, useBreakpointValue } from "@chakra-ui/react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 import authScreenAtom from "../atoms/authAtom";
 import { Link as RouterLink } from "react-router-dom";
-import { SearchIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo2 from "/public/logo.png"; // Import your PNG image
 import emoji2 from "/public/emoji2.png"; // Import your PNG image
-import { Container } from "@chakra-ui/react";
-import useLogout from "../hooks/useLogout";
-import bgbg3 from "/public/bgbg3.png";
 import theme2 from "/public/theme2.png";
+import useLogout from "../hooks/useLogout";
 
 const Header = () => {
     const { colorMode, toggleColorMode } = useColorMode();
     const user = useRecoilValue(userAtom);
     const setAuthScreen = useSetRecoilState(authScreenAtom);
     const logout = useLogout();
+    const [activeLink, setActiveLink] = useState("foryou");
+    const [showLinks, setShowLinks] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     // Determine if it's a small screen
     const isSmallScreen = useBreakpointValue({ base: true, md: false });
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down and scrolled more than 100px
+                setShowLinks(false);
+            } else {
+                // Scrolling up
+                setShowLinks(true);
+            }
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [lastScrollY]);
+
+    const handleLinkClick = (link) => {
+        setActiveLink(link);
+    };
+
+    const linkStyles = (link) => ({
+        color: activeLink === link ? "white" : "gray",
+        position: "relative",
+        _after: {
+            content: '""',
+            position: "absolute",
+            width: "100%",
+            height: "4px",
+            bottom: "-6px",
+            left: 0,
+            bg: "blue.500",
+            borderRadius: "4px",
+            display: activeLink === link ? "block" : "none",
+        },
+    });
 
     return (
         <Box>
@@ -34,7 +75,7 @@ const Header = () => {
                 top={0}
                 marginX="auto"
             >
-                <Box py={1} pb={3} pt={3} className="header"  pl="2" maxW="1500" pr="1" marginX="auto">
+                <Box py={1} pb={3} pt={3} className="header" pl="2" maxW="1500" pr="1" marginX="auto">
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>
@@ -52,36 +93,41 @@ const Header = () => {
                                         <Image src={Logo2} mt={-5} mb={-25} alt="Logo" cursor="pointer" className="logo" />
                                     </Link>
                                 </Box>
-
-                                <Link fontSize="md" as={RouterLink} to="/">
-                  For you
-                </Link>
-                <Flex    justifyContent="center" alignItems="center">
-                  <Image
-                    
-                    cursor="pointer"
-                    alt="theme"
-                    w={6}
-                    src={theme2} 
-                    onClick={toggleColorMode}
-                  />
-                </Flex>
-
-              
-
-
-                <Link fontSize="md" as={RouterLink} to="/Home2">
-                  Following
-                </Link>
-
-                <Link  fontSize="md" as={RouterLink} to="/"    >
-           
-            </Link>
-
+                                {isSmallScreen ? null : (
+                                    <>
+                                        <Link
+                                            fontSize="md"
+                                            as={RouterLink}
+                                            to="/"
+                                            onClick={() => handleLinkClick("foryou")}
+                                            sx={linkStyles("foryou")}
+                                        >
+                                            For you
+                                        </Link>
+                                        <Link
+                                            fontSize="md"
+                                            as={RouterLink}
+                                            to="/Home2"
+                                            onClick={() => handleLinkClick("following")}
+                                            sx={linkStyles("following")}
+                                        >
+                                            Following
+                                        </Link>
+                                    </>
+                                )}
+                                <Flex justifyContent="center" alignItems="center">
+                                    <Image
+                                        cursor="pointer"
+                                        alt="theme"
+                                        w={6}
+                                        src={theme2}
+                                        onClick={toggleColorMode}
+                                    />
+                                </Flex>
                                 <Link>
                                     <Button
                                         leftIcon={<Image src={emoji2} w={5} alt="emoji" />}
-                                        rightIcon={<HamburgerIcon /> }
+                                        rightIcon={<HamburgerIcon />}
                                         fontSize="xs"
                                         as={RouterLink}
                                         to="/auth"
@@ -89,7 +135,7 @@ const Header = () => {
                                         borderRadius="20px"
                                         color="white"
                                         size={isSmallScreen ? "xs" : "sm"}
-                                        backgroundColor={  			 "#1D88F2"}
+                                        backgroundColor={"#1D88F2"}
                                     >
                                         {/* Empty button label */}
                                     </Button>
@@ -97,6 +143,46 @@ const Header = () => {
                             </>
                         )}
                     </Flex>
+                    {isSmallScreen && user && showLinks && (
+                        <Flex justifyContent="space-between" mt={2}>
+                               <Link
+                                fontSize="md"
+                                as={RouterLink}
+                                to="/Home2"
+                                onClick={() => handleLinkClick("following")}
+                                sx={linkStyles("following")}
+                            >
+                              
+                            </Link>
+                            <Link
+                                fontSize="md"
+                                as={RouterLink}
+                                to="/"
+                                onClick={() => handleLinkClick("foryou")}
+                                sx={linkStyles("foryou")}
+                            >
+                                For you
+                            </Link>
+                            <Link
+                                fontSize="md"
+                                as={RouterLink}
+                                to="/Home2"
+                                onClick={() => handleLinkClick("following")}
+                                sx={linkStyles("following")}
+                            >
+                                Following
+                            </Link>
+                            <Link
+                                fontSize="md"
+                                as={RouterLink}
+                                to="/Home2"
+                                onClick={() => handleLinkClick("following")}
+                                sx={linkStyles("following")}
+                            >
+                              
+                            </Link>
+                        </Flex>
+                    )}
                 </Box>
             </Box>
         </Box>
@@ -104,3 +190,6 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
