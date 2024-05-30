@@ -108,11 +108,10 @@ const Header = () => {
 
 
                                 <Link  fontSize="lg"
-                                        as={RouterLink}
-                                        to="/auth" >
-                                         
-
-                                   <SunIcon  />
+                                      alt="theme"
+                                      onClick={toggleColorMode}
+                                         >
+                                         <SunIcon  />
                                     </Link>
                            
                                
@@ -162,13 +161,13 @@ const Header = () => {
                                         </Link>
                                   
                                 <Flex justifyContent="center" alignItems="center">
-                                    <Image
-                                        cursor="pointer"
-                                        alt="theme"
-                                        w={6}
-                                        src={theme2}
-                                        onClick={toggleColorMode}
-                                    />
+                                  
+                                <Link  fontSize="lg"
+                                      alt="theme"
+                                      onClick={toggleColorMode}
+                                         >
+                                         <SunIcon  />
+                                    </Link>
                                 </Flex>
                                 <Link>
                                     <Button
