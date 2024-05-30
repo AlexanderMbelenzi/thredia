@@ -86,7 +86,7 @@ const Header = () => {
                 top={0}
                 marginX="auto"
             >
-                <Box py={1} pb={3} pt={3} className="header" pl="2" maxW="1500" pr="1" marginX="auto">
+                <Box py={1} className="header" pl="2" maxW="1500" pr="1" marginX="auto">
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>
@@ -126,7 +126,7 @@ const Header = () => {
                                     
                                   
                              
-                                <Link  fontSize="2xl"
+                                <Link  fontSize="xl"
                                         as={RouterLink}
                                         to="/auth" >
                                          
