@@ -86,7 +86,7 @@ const Header = () => {
                 top={0}
                 marginX="auto"
             >
-                <Box py={1} className="header" pl="2" maxW="1500" pr="1" marginX="auto">
+                <Box py={1} pb={2} pt={2} className="header" pl="2" maxW="1500" pr="1" marginX="auto">
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>
