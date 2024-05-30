@@ -26,7 +26,7 @@ const config = {
 
 const colors = {
 	gray: {
-		light: "#616161",
+		light: "#F8F9FA",
 		dark: "#15202B",
 	},
 };

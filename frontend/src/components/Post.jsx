@@ -67,7 +67,7 @@ const Post = ({ post, postedBy }) => {
 
   const renderText = () => {
     const sentences = post.text.split('. ');
-    if (sentences.length <= 2 || showFullText) {
+    if (sentences.length <= 1 || showFullText) {
       return post.text;
     }
     return sentences.slice(0, 2).join('. ') + '...';
@@ -180,7 +180,7 @@ size={{
               fontWeight={"normal"}
             >
               {renderText()}
-              {post.text.split('. ').length > 2 && !showFullText && (
+              {post.text.split('. ').length > 1 && !showFullText && (
                 <Text
                   as="span"
                   color="blue.500"
