@@ -47,7 +47,7 @@ const Header = () => {
     };
 
     const linkStyles = (link) => ({
-        color: activeLink === link ? "white" : "gray",
+        color: activeLink === link ? "white" : "#abb7c4",
         position: "relative",
         _after: {
             content: '""',

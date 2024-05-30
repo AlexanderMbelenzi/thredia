@@ -54,7 +54,7 @@ const UserPost = ({ postImg, postTitle, likes, replies }) => {
 							<Image src='/verified.png' w={4} h={4} ml={1} />
 						</Flex>
 						<Flex gap={4} alignItems={"center"}>
-							<Text fontStyle={"sm"} color={"gray.light"}>
+							<Text fontStyle={"sm"} color={"#abb7c4"}>
 								1d
 							</Text>
 							<BsThreeDots />
@@ -63,7 +63,7 @@ const UserPost = ({ postImg, postTitle, likes, replies }) => {
 
 					<Text fontSize={"sm"}>{postTitle}</Text>
 					{postImg && (
-						<Box borderRadius={6} overflow={"hidden"} border={"1px solid"} borderColor={"gray.light"}>
+						<Box borderRadius={6} overflow={"hidden"} border={"1px solid"} borderColor="#abb7c4">
 							<Image src={postImg} w={"full"} />
 						</Box>
 					)}
@@ -73,11 +73,11 @@ const UserPost = ({ postImg, postTitle, likes, replies }) => {
 					</Flex>
 
 					<Flex gap={2} alignItems={"center"}>
-						<Text color={"gray.light"} fontSize='sm'>
+						<Text color="#abb7c4" fontSize='sm'>
 							{replies} replies
 						</Text>
-						<Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
-						<Text color={"gray.light"} fontSize='sm'>
+						<Box w={0.5} h={0.5} borderRadius={"full"} bg={"#abb7c4"}></Box>
+						<Text color="#abb7c4" fontSize='sm'>
 							{likes} likes
 						</Text>
 
