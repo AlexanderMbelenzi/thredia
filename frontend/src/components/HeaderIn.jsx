@@ -5,6 +5,7 @@ import userAtom from "../atoms/userAtom";
 import authScreenAtom from "../atoms/authAtom";
 import { Link as RouterLink } from "react-router-dom";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { SunIcon } from "@chakra-ui/icons";
 import Logo2 from "/public/logo.png"; // Import your PNG image
 import Logo3 from "/public/logo3.png"; // Import your PNG image
 
@@ -101,16 +102,19 @@ const Header = () => {
                                 <>
   <Box>
                                     <Link as={RouterLink} to="/">
-                                        <Image src={emoji2}  alt="Logo" cursor="pointer" w={8}   />
-                                    </Link>
-                                </Box>
-
-
-                                <Box>
-                                    <Link as={RouterLink} to="/">
                                         <Image src={Logo3}  alt="Logo" cursor="pointer" w={8}   />
                                     </Link>
                                 </Box>
+
+
+                                <Link  fontSize="lg"
+                                        as={RouterLink}
+                                        to="/auth" >
+                                         
+
+                                   <SunIcon  />
+                                    </Link>
+                           
                                
                                     
                                   
