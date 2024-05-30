@@ -99,9 +99,16 @@ const Header = () => {
                             
                             {isBigScreen ? null : (
                                 <>
+  <Box>
+                                    <Link as={RouterLink} to="/">
+                                        <Image src={emoji2}  alt="Logo" cursor="pointer" w={8}   />
+                                    </Link>
+                                </Box>
+
+
                                 <Box>
                                     <Link as={RouterLink} to="/">
-                                        <Image src={Logo3}  alt="Logo" cursor="pointer" mb={2} mt={2} w={10}   />
+                                        <Image src={Logo3}  alt="Logo" cursor="pointer" w={8}   />
                                     </Link>
                                 </Box>
                                
