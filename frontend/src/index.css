@@ -100,7 +100,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 24px;
+	font-size: 18px;
 	text-decoration: none;
 	z-index: 1000;
 	transition: transform 0.3s ease;
@@ -117,6 +117,40 @@
   
   @media (min-width: 621px) { /* Adjust based on your large screen breakpoint */
 	.round-button {
+	  display: none;
+	}
+  }
+
+  .header-box {
+	position: fixed;
+	top: 40px;
+	left: 35%;
+	flex: "center";
+	background-color: #1D88F2; 
+	color: white;
+	width: 150px;
+	height: 40px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	text-decoration: none;
+	z-index: 1000;
+	transition: transform 0.3s ease;
+  }
+  
+  .header-box:hover {
+	transform: scale(1.1);
+  }
+  
+
+  .header-box.hidden {
+	opacity: 0; /* Hide the button */
+  }
+  
+  @media (min-width: 621px) { /* Adjust based on your large screen breakpoint */
+	.header-box {
 	  display: none;
 	}
   }

@@ -50,16 +50,17 @@ const Header = () => {
     };
 
     const linkStyles = (link) => ({
-        color: activeLink === link ? "white" : "gray",
+        color: activeLink === link ? " " : "#abb7c4",
+        
         position: "relative",
         _after: {
             content: '""',
             position: "absolute",
             width: "100%",
             height: "4px",
-            bottom: "-6px",
+            
             left: 0,
-            bg: "blue.500",
+            bg: "1D88F2",
             borderRadius: "4px",
             display: activeLink === link ? "block" : "none",
         },
@@ -118,7 +119,7 @@ const Header = () => {
                                     
                                   
                              
-                                <Link  fontSize="lg"
+                                <Link  fontSize="xl"
                                         as={RouterLink}
                                         to="/auth" >
                                          
