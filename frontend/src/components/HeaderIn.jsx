@@ -3,7 +3,7 @@
     import React, { useState, useEffect, useRef } from "react";
     import { Box, Flex, Image, Button, Link, useColorMode, useBreakpointValue } from "@chakra-ui/react";
     import { useRecoilValue, useSetRecoilState } from "recoil";
-    import { Link as RouterLink } from "react-router-dom";
+    import { Link as RouterLink, useLocation } from "react-router-dom";
     import { Text } from "@chakra-ui/react";
     import { HamburgerIcon, SunIcon } from "@chakra-ui/icons";
     import userAtom from "../atoms/userAtom";
@@ -12,7 +12,11 @@
     import Logo2 from "/public/logo.png";
     import Logo3 from "/public/logo3.png";
     import emoji2 from "/public/emoji2.png";
-    
+    import right from "/public/right.svg";
+
+
+
+
     const Header = () => {
         const { colorMode, toggleColorMode } = useColorMode();
         const user = useRecoilValue(userAtom);
@@ -29,6 +33,9 @@
     const isBigScreen = useBreakpointValue({ base: false, md: true });
 
     const sideMenuWrapperRef = useRef(null);
+
+    const location = useLocation();
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -158,32 +165,80 @@
                                 )}
                      
                      {isSmallScreen && isSideMenuOpen && (
-                                    <Box
-                                        ref={sideMenuWrapperRef}
-                                        position="fixed"
-                                        top={0}
-                                        right={0}
-                                        bg={colorMode === "light" ? "#F5F8FA " : "#000000"}
-                                        bottom={0}
-                                        borderLeft={2}
-                                        width="50%"
-                                        zIndex="1000"
-                                        boxShadow="0px 4px 8px rgba(0, 0, 0, 0.1)"
-                                    >
-                                        <Flex flexDirection="column" p={4} h="100%">
-                                            <Link fontSize="xl" as={RouterLink} to="/" onClick={closeSideMenu}>
-                                               <Text>
-                                                nnnnnnnnnn
-                                               </Text>
-                                            </Link>
-                                            <Link fontSize="xl" as={RouterLink} to="/home2" onClick={closeSideMenu}>
-                                            <Text>
-                                                nnnnnnnnnn
-                                               </Text>
-                                            </Link>
-                                        </Flex>
-                                    </Box>
-                                )}
+    <>
+        <Box
+            ref={sideMenuWrapperRef}
+            position="fixed"
+            top={0}
+            right={0}
+            bg={colorMode === "light" ? "#F5F8FA" : "#000000"}
+            bottom={0}
+            borderLeft={2}
+            width="50%"
+            zIndex="1001"  // Ensure this is higher than other fixed elements
+            boxShadow="0px 4px 8px rgba(0, 0, 0, 0.1)"
+        >
+            <Flex flexDirection="column" ml={5} p={4} h="100%">
+                <Link as={RouterLink} onClick={closeSideMenu}>
+                    <Image src={right} alt="Logo" cursor="pointer" w={4} marginLeft="97%" mt="12px" />
+                </Link>
+
+                <Link fontSize="xl" as={RouterLink} to="/auth" onClick={closeSideMenu}>
+                    <Text>
+                        Login
+                    </Text>
+                </Link>
+                <Link fontSize="xl" as={RouterLink} to="/DiscoverDaily" onClick={closeSideMenu}>
+                    <Text>
+                        Discover Daily
+                    </Text>
+                </Link>
+                <Link fontSize="xl" as={RouterLink} to="/Communities" onClick={closeSideMenu}>
+                    <Text>
+                        Podcast
+                    </Text>
+                </Link>
+                <Link fontSize="xl" as={RouterLink} to="/Premium" onClick={closeSideMenu}>
+                    <Text>
+                        Premium
+                    </Text>
+                </Link>
+                <Link fontSize="xl" as={RouterLink} to="/Communities" onClick={closeSideMenu}>
+                    <Text>
+                        Communities
+                    </Text>
+                </Link>
+                <Link fontSize="xl" as={RouterLink} to="/settings " onClick={closeSideMenu}>
+                    <Text>
+                        Settings & Help
+                    </Text>
+                </Link>
+                <Link fontSize="xl" as={RouterLink}  to={`/AboutUs`} onClick={closeSideMenu}>
+                    <Text>
+                        AboutUs
+                    </Text>
+                </Link>
+                <Link fontSize="xl" as={RouterLink} to="/Support" onClick={closeSideMenu}>
+                    <Text>
+                        Support
+                    </Text>
+                </Link>
+            </Flex>
+        </Box>
+
+        <Box
+            position="fixed"
+            top={0}
+            left={0}
+            width="50%"
+            height="100%"
+            bg="rgba(0, 0, 0, 0.5)"  // Dark overlay
+            zIndex="1000"  // Ensure this is lower than the side menu
+            onClick={closeSideMenu}  // Close the menu when the overlay is clicked
+        />
+    </>
+)}
+
                             </>
                         )}
                    
@@ -264,24 +319,33 @@
                             >
                               
                             </Link>
-                            <Link
-                                fontSize="md"
-                                as={RouterLink}
-                                to="/"
-                                onClick={() => handleLinkClick("foryou")}
-                                sx={linkStyles("foryou")}
-                            >
-                                For you
-                            </Link>
-                            <Link
-                                fontSize="md"
-                                as={RouterLink}
-                                to="/Home2"
-                                onClick={() => handleLinkClick("following")}
-                                sx={linkStyles("following")}
-                            >
-                                Following
-                            </Link>
+
+ {(location.pathname === "/" || location.pathname === "/Home2") && (
+  <Link
+
+    fontSize="md"
+    as={RouterLink}
+    to="/"
+    onClick={() => handleLinkClick("foryou")}
+    sx={linkStyles("foryou")}
+  >
+    For you
+  </Link>
+)}
+
+{(location.pathname === "/Home2" || location.pathname === "/") && (
+  <Link
+
+    fontSize="md"
+    as={RouterLink}
+    to="/Home2"
+    onClick={() => handleLinkClick("following")}
+    sx={linkStyles("following")}
+  >
+    Following
+  </Link>
+)}
+
                             <Link
                                 fontSize="md"
                                 as={RouterLink}

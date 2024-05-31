@@ -97,29 +97,29 @@ const SideBar = () => {
                    
 <Link as={RouterLink} to="/">
   <Button   fontWeight="normal"       size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={sports}  rounded={"md"}  w={6} alt="emoji" />}>
-    Sports
+    Discover Daily
   </Button>
 </Link>
 <Link as={RouterLink} to="/">
   <Button  fontWeight="normal"         size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={gamming} rounded={"md"}   w={6} alt="emoji" />}>
-    Gaming
+    Podcast
   </Button>
 </Link>
 
 <Link as={RouterLink} to="/">
   <Button  fontWeight="normal"   size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={technology} w={6} alt="emoji" />}>
-    Technology
+    Communities
   </Button>
 </Link>
 
 <Link as={RouterLink} to="/">
   <Button   fontWeight="normal"   size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={business} w={6} rounded={"md"} alt="emoji" />}>
-    Business
+    Ideas
   </Button>
 </Link>
 <Link as={RouterLink} to="/">
   <Button   fontWeight="normal"     size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px"  leftIcon={<Image src={crypto} rounded={"md"}  w={6} alt="emoji" />} >
-    Crypto
+    challenges & Problems
   </Button>
 </Link>
 
