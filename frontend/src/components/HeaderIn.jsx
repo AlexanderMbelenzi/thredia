@@ -133,14 +133,14 @@
                                     </Link>
                                 </Box>
 
-
+                                {isSmallScreen && user && showLinks && (
                                 <Link mr={4} fontSize="lg"
                                       alt="theme"
                                       onClick={toggleColorMode}
                                          >
                                          <SunIcon  />
                                     </Link>
-                           
+                             )}
                                
                                     
                                   
