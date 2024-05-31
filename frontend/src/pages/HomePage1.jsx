@@ -15,6 +15,7 @@ import { Image } from "@chakra-ui/react";
 
 import RoundButton from "../components/scrolltotop";
 import HeaderBox from "../components/Headerbox";
+import HeaderBox2 from "../components/HeaderBox2";
 import pizza2 from "/public/sec1.png";
 import pizza1 from "/public/sec2.png";
 import pizza3 from "/public/sec3.png";
@@ -215,6 +216,7 @@ const HomePage1 = () => {
       </Box>
       {scrollDirection === "down" && <RoundButton   />}
       {scrollDirection === "up" && < HeaderBox  />}
+      {scrollDirection === "down" && < HeaderBox2  />}
     </Flex>
   );
 };

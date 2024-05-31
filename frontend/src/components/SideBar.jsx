@@ -85,7 +85,7 @@ const SideBar = () => {
             </Link>
             <Link as={RouterLink} to="/">
               <Button leftIcon={<FiSettings />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
-                Challenges & Problems
+                Problems
               </Button>
             </Link>
 

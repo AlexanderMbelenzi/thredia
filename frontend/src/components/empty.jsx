@@ -8,8 +8,8 @@ const Empty = () => {
 
     return (
 
-      <Box  borderLeft={"2px"} borderLeftColor={ colorMode === "light"? "gray.200" : "#2B2B2B"} 
-       bg={colorMode === "dark" ? "blackAlpha.800" : "whiteAlpha.800"} zIndex="999" position="fixed"  height={"4000px"}   >
+      <Box  borderLeft={"1px"} mt={4} borderLeftColor={ colorMode === "light"? "gray.300" : "gray.800"}
+       bg={colorMode === "dark" ? "blackAlpha.800" : "whiteAlpha.800"} zIndex="998" position="fixed"  height={"4000px"}   >
         
     
       </Box>

@@ -21,7 +21,7 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                         bg={colorMode === "light" ? "#F5F8FA" : "#000000"}
                         bottom={0}
                         borderLeft={2}
-                        width="75%"
+                        width={{ base: "75%", md: "30%" }}
                         zIndex="999"
                         boxShadow="0px 4px 8px rgba(0, 0, 0, 0.1)"
                     >
@@ -109,7 +109,7 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                         position="fixed"
                         top={0}
                         left={0}
-                        width="25%"
+                        width={{ base: "25%", md: "70%" }}
                         height="100%"
                         bg="rgba(0, 0, 0, 0.5)"
                         zIndex="1000"

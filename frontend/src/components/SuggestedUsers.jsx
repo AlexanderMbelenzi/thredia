@@ -69,7 +69,7 @@ const SuggestedUsers = () => {
 	
 
 
-			<Text mb={4} mt={1} backgroundColor={colorMode === "light" ? "#F5F8FA" : "#192734"} rounded={"md"} fontWeight={"bold"}>
+			<Text mb={4} mt={1} backgroundColor={colorMode === "light" ? "#edf1f5   " : "#101014"} rounded={"md"} fontWeight={"bold"}>
     <Box pb={4} pt={2} backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgrounds[bgIndex]})`}
 	  rounded={"xl"} bgSize="cover" bgPos="center" position="relative">
         <Text pl={2} fontWeight={"bold"}fontFamily="'Noto Sans', Arial, sans-serif"  fontSize={"xl"} color={"white"}>
@@ -82,7 +82,7 @@ const SuggestedUsers = () => {
         </Text>
         <Text mt={3}  pl={2}>
             <Button as={RouterLink} to="/auth" style={{ borderRadius: "20px", fontFamily:"'Noto Sans', Arial, sans-serif" , 
-			 fontSize: "md", backgroundColor: "#1D88F2", color: "white" }}>
+			 fontSize: "md", backgroundColor: "#000000", color: "white" }}>
                 Subscribe Now
             </Button>
         </Text>
@@ -93,7 +93,7 @@ const SuggestedUsers = () => {
 
 			  
 		
-			<Flex direction={"column"}  backgroundColor={colorMode === "light" ? "#F5F8FA" : "#192734"} rounded={"xl"}  mb={4} padding={4}  gap={4}>
+			<Flex direction={"column"}  backgroundColor={colorMode === "light" ? "#edf1f5" : "#101014"} rounded={"xl"}  mb={4} padding={4}  gap={4}>
 			<Text mb={4} fontSize={"xl"} fontFamily="'Noto Sans', Arial, sans-serif"   fontWeight={"bold"}>
 			Suggested users
       
@@ -123,40 +123,26 @@ const SuggestedUsers = () => {
 						</Flex>
 					))}
 		
-		
-		<Box  mt={4}  >
-		<Flex alignItems="center" gap={2} as={RouterLink} to="/chat"  >
-                <InputGroup size="sm" >
-                    <InputLeftElement pointerEvents="none">
-					<SearchIcon  />
-                    </InputLeftElement>
-                    <Input
-                        placeholder="Search for a user"
-                        borderRadius="full"
-                        bg={colorMode === "light" ? "#F5F8FA" : "#192734"} // Dynamically set background color based on color mode
-                    />
-                </InputGroup>
-            </Flex>
-     
-			</Box>
+	
 		
 			</Flex>
 
 
 
-			<Text mb={4} mt={4}   backgroundColor={colorMode === "light" ? "#F5F8FA" : "#192734"}   rounded={"xl"} fontWeight={"bold"}>
+			<Text mb={4} mt={4}   backgroundColor={colorMode === "light" ? "#edf1f5" : "#101014"}   rounded={"xl"} fontWeight={"bold"}>
 			<Box pb={4} pt={2}  >
 
 					<Text pl={2} fontFamily="'Noto Sans', Arial, sans-serif"  fontWeight={"bold"}  fontSize={"xl"}   >
                 <p    >buy me coffee</p>
 				</Text>
                 <Text mt={2}  pl={2} mb={2} pr={2}  prefix="2"  fontSize={"md"}fontFamily="'Noto Sans', Arial, sans-serif"    fontWeight={"normal"}>
-				We are depedent your support to keep this site ruunning. if you find 
+				We are depedent your support to keep this site ruunning. 
 					 
                 </Text>
 				<Text     pl={2}   >
-                <Button       backgroundColor={colorMode === "light" ? "#ffffff" : "#000000"}            as={RouterLink} to="/auth"
-   style={{ borderRadius: "20px", fontSize: "xs",      fontFamily:"'Noto Sans', Arial, sans-serif" ,     Left: " 2" }}>Buy Now</Button>
+                <Button       backgroundColor={colorMode === "light" ? "#edf1f5" : "#000000"}      
+				      as={RouterLink} to="/Donate"
+   style={{ borderRadius: "20px", fontSize: "xs",      fontFamily:"'Noto Sans', Arial, sans-serif" , color:"#1D88F2",    Left: " 2" }}>Buy Now</Button>
 				</Text>
 				</Box>
 			</Text>

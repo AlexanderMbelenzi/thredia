@@ -66,7 +66,7 @@
 @media screen and (max-width: 620px) {
 	/* Small screens */
 	.logo {
-	  width: 200px; /* Set the width of the logo for small screens */
+	  width: 120px; /* Set the width of the logo for small screens */
 	  height: auto; /* Maintain aspect ratio */
 	  margin-top: -20px;
 	  margin-bottom: -20px;
@@ -76,7 +76,7 @@
   @media screen and (min-width: 621px) {
 	/* Large screens */
 	.logo {
-	  width: 240px; /* Set the width of the logo for large screens */
+	  width: 150px; /* Set the width of the logo for large screens */
 	  height: auto; /* Maintain aspect ratio */
 	
 	}
@@ -152,6 +152,42 @@
   
   @media (min-width: 621px) { /* Adjust based on your large screen breakpoint */
 	.header-box {
+	  display: none;
+	}
+  }
+
+
+  .header-box2 {
+	position: fixed;
+	top:80px;
+	left: 40%;
+	
+	background-color: #1D88F2; 
+	color: white;
+	width: 250px;
+	height: 44px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	text-decoration: none;
+	z-index: 996;
+	transition: transform 0.3s ease;
+}
+
+  
+  .header-box2:hover {
+	transform: scale(1.1);
+  }
+  
+
+  .header-box2.hidden {
+	opacity: 0; /* Hide the button */
+  }
+  
+  @media (max-width: 1000px) { /* Adjust based on your large screen breakpoint */
+	.header-box2 {
 	  display: none;
 	}
   }
