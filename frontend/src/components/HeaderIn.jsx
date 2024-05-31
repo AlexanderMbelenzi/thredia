@@ -73,7 +73,7 @@
     };
 
     const linkStyles = (link) => ({
-        color: activeLink === link ? "white" : "#abb7c4",
+        color: activeLink === link ? "" : "#abb7c4",
         position: "relative",
         _after: {
             content: '""',
