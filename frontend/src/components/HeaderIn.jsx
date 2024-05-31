@@ -134,7 +134,7 @@
                                 </Box>
 
 
-                                <Link mr={2} fontSize="lg"
+                                <Link mr={4} fontSize="lg"
                                       alt="theme"
                                       onClick={toggleColorMode}
                                          >
