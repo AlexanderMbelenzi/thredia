@@ -14,7 +14,8 @@ const styles = {
 	global: (props) => ({
 		body: {
 			color: mode("gray.900", "white")(props),
-			bg: mode("white", "#000000")(props),
+			bg: mode("#F5F8FA", "#000000")(props),
+			
 		},
 	}),
 };
@@ -26,8 +27,8 @@ const config = {
 
 const colors = {
 	gray: {
-		light: "#F0F0F0",
-		dark: "#15202B",
+		light: "#616161",
+		dark: "#1e1e1e",
 	},
 };
 
