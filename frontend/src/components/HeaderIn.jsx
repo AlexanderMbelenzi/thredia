@@ -125,58 +125,9 @@
                             </>
                         ) : (
 
-                             
+                  <> 
                             
-                                 
-
-                            <> 
                             
-                                 
-
-                        
-                            
-                            {isBigScreen ? null : (
-                                <>
-  <Box>
-                                    <Link as={RouterLink} to="/">
-                                        <Image src={Logo3}  alt="Logo" cursor="pointer" w={8}   />
-                                    </Link>
-                                </Box>
-
-                                {isSmallScreen && user && showLinks && (
-                                <Link mr={4} fontSize="lg"
-                                      alt="theme"
-                                      onClick={toggleColorMode}
-                                         >
-                                         <SunIcon  />
-                                    </Link>
-                             )}
-                               
-                                    
-                                  
-                             
-                                <Link  fontSize="xl"
-                                        as={RouterLink}
-                                        onClick={toggleSideMenu}>
-                                         
-
-                                   <HamburgerIcon  />
-                                       
-                                   
-                                     
-                                </Link>  </>
-                                )}
-                     
- 
-
-                            </>
-                        )}
-                   
-                 
-    
-
-
-                    
 
                     {isSmallScreen ? null : (
                                 <>
@@ -235,7 +186,52 @@
                                     </Button>
                                 </Link>  </>
                                 )}
-                          
+                               
+
+                        
+                            
+                            {isBigScreen ? null : (
+                                <>
+                             <Box>
+                                    <Link as={RouterLink} to="/">
+                                        <Image src={Logo3}  alt="Logo" cursor="pointer" w={8}   />
+                                    </Link>
+                                </Box>
+
+                                {isSmallScreen && user && showLinks && (
+                                <Link mr={4} fontSize="lg"
+                                      alt="theme"
+                                      onClick={toggleColorMode}
+                                         >
+                                         <SunIcon  />
+                                    </Link>
+                             )}
+                               
+                                    
+                                  
+                             
+                                <Link  fontSize="xl"
+                                        as={RouterLink}
+                                        onClick={toggleSideMenu}>
+                                         
+
+                                   <HamburgerIcon  />
+                                       
+                                   
+                                     
+                                </Link>  </>
+                                )}
+                     
+ 
+
+                            </>
+                        )}
+                   
+                 
+    
+
+
+                    
                     
 
                           </Flex>

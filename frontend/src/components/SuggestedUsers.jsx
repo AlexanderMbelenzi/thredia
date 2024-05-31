@@ -80,7 +80,7 @@ const SuggestedUsers = () => {
             Subscribe to our premium model and get access to our community and Join the private network for high-growth founders,
 			 CEOs, and entrepreneurs.for founders, CEOs and entrepreneurs.for founders, CEOs and entrepreneurs.for founders. ounders, CEOs and entrepreneurs.for founders,
         </Text>
-        <Text mt={2}  pl={2}>
+        <Text mt={3}  pl={2}>
             <Button as={RouterLink} to="/auth" style={{ borderRadius: "20px", fontFamily:"'Noto Sans', Arial, sans-serif" , 
 			 fontSize: "md", backgroundColor: "#1D88F2", color: "white" }}>
                 Subscribe Now
