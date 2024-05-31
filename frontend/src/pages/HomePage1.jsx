@@ -73,14 +73,14 @@ const HomePage1 = () => {
   }, [prevScrollPos]);
   return (
 	
-    <Flex gap="10"  maxWidth={1250} mt={6} alignItems="flex-start"  >
+    <Flex  maxWidth={1300} mt={6} alignItems="flex-start"  >
 
 
 
       
       <Box      
 
-	         flex={25}
+	         flex={30}
         display={{
           base: "none",
           md: "block",
@@ -108,7 +108,7 @@ const HomePage1 = () => {
 </Box>
 
 
-      <Box flex={80} marginTop={35} marginBottom={35}  >
+      <Box flex={75} marginTop={35} marginBottom={35}  >
 
 
         <Box mt={6} mb={4}>
@@ -204,7 +204,7 @@ const HomePage1 = () => {
 				))}
       </Box>
       <Box
-       flex={20}
+       flex={33}
   display={{
     base: "none", // Hide on small screens
     lg: "block", // Show on large screens and above (>= 1000px)

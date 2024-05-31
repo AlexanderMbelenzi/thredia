@@ -60,7 +60,7 @@ const SuggestedUsers = () => {
 
 	return (
 
-		<Box mr={"60"}  position="fixed"  ml={8}     marginTop="55px">
+		<Box mr={"60"}  position="fixed"  ml={5}     marginTop="55px">
 
  
                  
@@ -69,18 +69,20 @@ const SuggestedUsers = () => {
 	
 
 
-			<Text mb={4} mt={1} backgroundColor={colorMode === "light" ? "#F5F8FA" : "#192734"} rounded={"xl"} fontWeight={"bold"}>
-    <Box pb={4} pt={2} backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgrounds[bgIndex]})`}  rounded={"xl"} bgSize="cover" bgPos="center" position="relative">
+			<Text mb={4} mt={1} backgroundColor={colorMode === "light" ? "#F5F8FA" : "#192734"} rounded={"md"} fontWeight={"bold"}>
+    <Box pb={4} pt={2} backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgrounds[bgIndex]})`}
+	  rounded={"xl"} bgSize="cover" bgPos="center" position="relative">
         <Text pl={2} fontWeight={"bold"}fontFamily="'Noto Sans', Arial, sans-serif"  fontSize={"xl"} color={"white"}>
             <p>Welcome to reddit</p>
         </Text>
-        <Text mt={2} pl={2} mb={2} color={"white"} style={{ textShadow: "0 0 2px black" }}
+        <Text mt={1} pl={2} mb={2} color={"white"} style={{ textShadow: "0 0 2px black" }}
 		 fontFamily="'Noto Sans', Arial, sans-serif"  fontSize={{ base: "xs", md: "lg" }} fontWeight={"normal"}>
             Subscribe to our premium model and get access to our community and Join the private network for high-growth founders,
-			 CEOs, and entrepreneurs.for founders, CEOs and entrepreneurs.for founders, CEOs, and entrepreneurs.for founders,
+			 CEOs, and entrepreneurs.for founders, CEOs and entrepreneurs.for founders, CEOs and entrepreneurs.for founders. ounders, CEOs and entrepreneurs.for founders,
         </Text>
-        <Text mt={4} mb={0} pl={2}>
-            <Button as={RouterLink} to="/auth" style={{ borderRadius: "20px", fontFamily:"'Noto Sans', Arial, sans-serif" ,  fontSize: "md", backgroundColor: "#1D88F2", color: "white" }}>
+        <Text mt={2}  pl={2}>
+            <Button as={RouterLink} to="/auth" style={{ borderRadius: "20px", fontFamily:"'Noto Sans', Arial, sans-serif" , 
+			 fontSize: "md", backgroundColor: "#1D88F2", color: "white" }}>
                 Subscribe Now
             </Button>
         </Text>
