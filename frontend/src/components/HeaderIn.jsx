@@ -13,6 +13,7 @@
     import Logo3 from "/public/logo3.png";
     import emoji2 from "/public/emoji2.png";
     import right from "/public/right.svg";
+    import SideMenu from "./sidemenu";
 
 
 
@@ -53,32 +54,30 @@
             window.removeEventListener("scroll", handleScroll);
         };
     }, [lastScrollY]);
-
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (sideMenuWrapperRef.current && !sideMenuWrapperRef.current.contains(event.target)) {
-                setIsSideMenuOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
+      const handleClickOutside = (event) => {
+        if (sideMenuWrapperRef.current && !sideMenuWrapperRef.current.contains(event.target)) {
+          setIsSideMenuOpen(false);
+        }
+      };
+  
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
     }, []);
-
+  
     const handleLinkClick = (link) => {
-        setActiveLink(link);
+      setActiveLink(link);
     };
-
+  
     const toggleSideMenu = () => {
-        setIsSideMenuOpen(!isSideMenuOpen);
+      setIsSideMenuOpen(!isSideMenuOpen);
     };
-
+  
     const closeSideMenu = () => {
-        setIsSideMenuOpen(false);
+      setIsSideMenuOpen(false);
     };
-
     const linkStyles = (link) => ({
         color: activeLink === link ? "" : "#abb7c4",
         position: "relative",
@@ -104,12 +103,12 @@
                 borderBottom={borderBottom}
                 borderBottomColor={colorMode === "light" ? "gray.300" : "#2B2B2B"}
                 bg={colorMode === "dark" ? "blackAlpha.800" : "whiteAlpha.800"}
-                zIndex="997"
+                zIndex="995"
                 position="fixed"
                 top={0}
                 marginX="auto"
             >
-                <Box py={1} pb={2} pt={2} className="header" pl="2" maxW="1500" pr="1" marginX="auto">
+                <Box py={1} pb={2} pt={2} className="header" pl="2"   maxW="1500" pr="1" marginX="auto">
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>
@@ -164,85 +163,13 @@
                                 </Link>  </>
                                 )}
                      
-                     {isSmallScreen && isSideMenuOpen && (
-    <>
-        <Box
-            ref={sideMenuWrapperRef}
-            position="fixed"
-            top={0}
-            right={0}
-            bg={colorMode === "light" ? "#F5F8FA" : "#000000"}
-            bottom={0}
-            borderLeft={2}
-            width="50%"
-            zIndex="1001"  // Ensure this is higher than other fixed elements
-            boxShadow="0px 4px 8px rgba(0, 0, 0, 0.1)"
-        >
-            <Flex flexDirection="column" ml={5} p={4} h="100%">
-                <Link as={RouterLink} onClick={closeSideMenu}>
-                    <Image src={right} alt="Logo" cursor="pointer" w={4} marginLeft="97%" mt="12px" />
-                </Link>
-
-                <Link fontSize="xl" as={RouterLink} to="/auth" onClick={closeSideMenu}>
-                    <Text>
-                        Login
-                    </Text>
-                </Link>
-                <Link fontSize="xl" as={RouterLink} to="/DiscoverDaily" onClick={closeSideMenu}>
-                    <Text>
-                        Discover Daily
-                    </Text>
-                </Link>
-                <Link fontSize="xl" as={RouterLink} to="/Communities" onClick={closeSideMenu}>
-                    <Text>
-                        Podcast
-                    </Text>
-                </Link>
-                <Link fontSize="xl" as={RouterLink} to="/Premium" onClick={closeSideMenu}>
-                    <Text>
-                        Premium
-                    </Text>
-                </Link>
-                <Link fontSize="xl" as={RouterLink} to="/Communities" onClick={closeSideMenu}>
-                    <Text>
-                        Communities
-                    </Text>
-                </Link>
-                <Link fontSize="xl" as={RouterLink} to="/settings " onClick={closeSideMenu}>
-                    <Text>
-                        Settings & Help
-                    </Text>
-                </Link>
-                <Link fontSize="xl" as={RouterLink}  to={`/AboutUs`} onClick={closeSideMenu}>
-                    <Text>
-                        AboutUs
-                    </Text>
-                </Link>
-                <Link fontSize="xl" as={RouterLink} to="/Support" onClick={closeSideMenu}>
-                    <Text>
-                        Support
-                    </Text>
-                </Link>
-            </Flex>
-        </Box>
-
-        <Box
-            position="fixed"
-            top={0}
-            left={0}
-            width="50%"
-            height="100%"
-            bg="rgba(0, 0, 0, 0.5)"  // Dark overlay
-            zIndex="1000"  // Ensure this is lower than the side menu
-            onClick={closeSideMenu}  // Close the menu when the overlay is clicked
-        />
-    </>
-)}
+ 
 
                             </>
                         )}
                    
-                         
+                 
+    
 
 
                     
@@ -359,6 +286,8 @@
                     )}
                 </Box>
             </Box>
+
+            <SideMenu isSideMenuOpen={isSideMenuOpen} colorMode={colorMode} closeSideMenu={closeSideMenu} />
         </Box>
     );
 };
