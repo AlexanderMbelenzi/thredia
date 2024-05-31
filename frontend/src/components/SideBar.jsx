@@ -33,9 +33,9 @@ import { Image } from "@chakra-ui/react";
 
 
 
-import gamming from "/public/gamming1.png"; // Import your PNG image
-import crypto from "/public/crypto1.jpg"; // Import your PNG image
-import business from "/public/business1.png"; // Import your PNG image
+import gamming from "/public/s3.png"; // Import your PNG image
+import crypto from "/public/s2.jpg"; // Import your PNG image
+import business from "/public/s1.png"; // Import your PNG image
 import sports from "/public/sports1.png"; // Import your PNG image
 import technology from "/public/technology1.png"; // Import your PNG image
 

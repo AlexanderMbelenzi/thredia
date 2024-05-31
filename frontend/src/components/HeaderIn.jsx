@@ -22,7 +22,7 @@
         const [showLinks, setShowLinks] = useState(true);
         const [lastScrollY, setLastScrollY] = useState(0);
         const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-
+        const borderBottom = useBreakpointValue({ base: "none", md: "2px" });
 
  
     const isSmallScreen = useBreakpointValue({ base: true, md: false });
@@ -94,7 +94,7 @@
             <Box
                 left={0}
                 right={0}
-                borderBottom={"2px"}
+                borderBottom={borderBottom}
                 borderBottomColor={colorMode === "light" ? "gray.300" : "#2B2B2B"}
                 bg={colorMode === "dark" ? "blackAlpha.800" : "whiteAlpha.800"}
                 zIndex="999"

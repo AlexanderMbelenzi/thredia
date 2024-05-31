@@ -20,6 +20,9 @@ import pizza1 from "/public/sec2.png";
 import pizza3 from "/public/sec3.png";
 import pizza4 from "/public/sec4.webp";
 
+import pizza7 from "/public/s1.png";
+import pizza6 from "/public/s3.png";
+import pizza5 from "/public/s2.jpg";
 
 const HomePage1 = () => {
   const { colorMode } = useColorMode(); // Hook to access color mode
@@ -70,7 +73,7 @@ const HomePage1 = () => {
   }, [prevScrollPos]);
   return (
 	
-    <Flex gap="10"  maxWidth={1250} mt={3.5} alignItems="flex-start"  >
+    <Flex gap="10"  maxWidth={1250} mt={6} alignItems="flex-start"  >
 
 
 
@@ -117,15 +120,63 @@ const HomePage1 = () => {
   }}  >
       <Image src={pizza1} alt="Pizza 1" width="100%"   borderRadius="md" />
     </Box>
-    <Box flexBasis="27%" marginRight="4">
+    <Box flexBasis="27%" marginRight="4"  display={{
+    base: "none", // Hide on small screens
+    lg: "block", // Show on large screens and above (>= 1000px)
+  }} >
       <Image src={pizza2} alt="Pizza 2" width="100%"   borderRadius="md" />
     </Box>
-    <Box flexBasis="27%" marginRight="4">
+    <Box flexBasis="27%" marginRight="4"   display={{
+    base: "none", // Hide on small screens
+    lg: "block", // Show on large screens and above (>= 1000px)
+  }}  >
       <Image src={pizza3} alt="Pizza 3" width="100%"     borderRadius="md" />
     </Box>
-    <Box flexBasis="27%">
+    <Box flexBasis="27%"    display={{
+    base: "none", // Hide on small screens
+    lg: "block", // Show on large screens and above (>= 1000px)
+  }}  >
       <Image src={pizza4} alt="Pizza 4" width="100%"   borderRadius="md" />
     </Box>
+
+
+
+
+    <Box
+  flexBasis="33%" mr="2"
+  display={{
+    base: "block", // Show on small screens
+    md: "none", 
+    lg: "none",    // Hide on large screens and above (>= 1000px)
+  }}
+>
+  <Image src={pizza5} alt="Pizza 4" width="100%" borderRadius="md" />
+</Box>
+
+
+<Box
+  flexBasis="33%" mr="2"
+  display={{
+    base: "block", // Show on small screens
+    md: "none", 
+    lg: "none",    // Hide on large screens and above (>= 1000px)
+  }}
+>
+  <Image src={pizza6} alt="Pizza 4" width="100%" borderRadius="md" />
+</Box>
+
+
+<Box
+  flexBasis="33%"
+  display={{
+    base: "block", // Show on small screens
+    md: "none", 
+    lg: "none",    // Hide on large screens and above (>= 1000px)
+  }}
+>
+  <Image src={pizza7} alt="Pizza 4" width="100%" borderRadius="md" />
+</Box>
+
   </Flex>
 </Box>
 
