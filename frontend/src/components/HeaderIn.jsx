@@ -1,77 +1,93 @@
 
-import React, { useState, useEffect } from "react";
-import { Box, Flex, Image, Button, Link, useColorMode, useBreakpointValue } from "@chakra-ui/react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import userAtom from "../atoms/userAtom";
-import authScreenAtom from "../atoms/authAtom";
-import { Link as RouterLink } from "react-router-dom";
-import { HamburgerIcon } from "@chakra-ui/icons";
-import { SunIcon } from "@chakra-ui/icons";
-import Logo2 from "/public/logo.png"; // Import your PNG image
-import Logo3 from "/public/logo3.png"; // Import your PNG image
 
-import emoji2 from "/public/emoji2.png"; // Import your PNG image
-import theme2 from "/public/theme2.png";
-import useLogout from "../hooks/useLogout";
+    import React, { useState, useEffect, useRef } from "react";
+    import { Box, Flex, Image, Button, Link, useColorMode, useBreakpointValue } from "@chakra-ui/react";
+    import { useRecoilValue, useSetRecoilState } from "recoil";
+    import { Link as RouterLink } from "react-router-dom";
+    import { Text } from "@chakra-ui/react";
+    import { HamburgerIcon, SunIcon } from "@chakra-ui/icons";
+    import userAtom from "../atoms/userAtom";
+    import authScreenAtom from "../atoms/authAtom";
+    import useLogout from "../hooks/useLogout";
+    import Logo2 from "/public/logo.png";
+    import Logo3 from "/public/logo3.png";
+    import emoji2 from "/public/emoji2.png";
+    
+    const Header = () => {
+        const { colorMode, toggleColorMode } = useColorMode();
+        const user = useRecoilValue(userAtom);
+        const setAuthScreen = useSetRecoilState(authScreenAtom);
+        const logout = useLogout();
+        const [activeLink, setActiveLink] = useState("foryou");
+        const [showLinks, setShowLinks] = useState(true);
+        const [lastScrollY, setLastScrollY] = useState(0);
+        const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
-const Header = () => {
-    const { colorMode, toggleColorMode } = useColorMode();
-    const user = useRecoilValue(userAtom);
-    const setAuthScreen = useSetRecoilState(authScreenAtom);
-    const logout = useLogout();
-    const [activeLink, setActiveLink] = useState("foryou");
-    const [showLinks, setShowLinks] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
 
-    // Determine if it's a small screen
+ 
     const isSmallScreen = useBreakpointValue({ base: true, md: false });
     const isBigScreen = useBreakpointValue({ base: false, md: true });
+
+    const sideMenuWrapperRef = useRef(null);
+
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
             if (currentScrollY > lastScrollY && currentScrollY > 2) {
-                // Scrolling down and scrolled more than 100px
                 setShowLinks(false);
             } else {
-                // Scrolling up
                 setShowLinks(true);
             }
             setLastScrollY(currentScrollY);
         };
 
         window.addEventListener("scroll", handleScroll);
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, [lastScrollY]);
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (sideMenuWrapperRef.current && !sideMenuWrapperRef.current.contains(event.target)) {
+                setIsSideMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     const handleLinkClick = (link) => {
         setActiveLink(link);
     };
 
-     
-        const linkStyles = (link) => ({
-            color: activeLink === link ? "white" : "#abb7c4",
-            position: "relative",
-            _after: {
-                content: '""',
-                position: "absolute",
-                width: "100%",
-                height: "4px",
-                bottom: "-6px",
-                left: 0,
-                bg: "blue.500",
-                borderRadius: "4px",
-                display: activeLink === link ? "block" : "none",
-            },
-        });
-    
-     
-      
-       
-           
-    
+    const toggleSideMenu = () => {
+        setIsSideMenuOpen(!isSideMenuOpen);
+    };
+
+    const closeSideMenu = () => {
+        setIsSideMenuOpen(false);
+    };
+
+    const linkStyles = (link) => ({
+        color: activeLink === link ? "white" : "#abb7c4",
+        position: "relative",
+        _after: {
+            content: '""',
+            position: "absolute",
+            width: "100%",
+            height: "4px",
+            bottom: "-6px",
+            left: 0,
+            bg: "blue.500",
+            borderRadius: "4px",
+            display: activeLink === link ? "block" : "none",
+        },
+    });
+
 
     return (
         <Box>
@@ -105,6 +121,9 @@ const Header = () => {
 
                             <> 
                             
+                                 
+
+                        
                             
                             {isBigScreen ? null : (
                                 <>
@@ -128,7 +147,7 @@ const Header = () => {
                              
                                 <Link  fontSize="xl"
                                         as={RouterLink}
-                                        to="/auth" >
+                                        onClick={toggleSideMenu}>
                                          
 
                                    <HamburgerIcon  />
@@ -137,11 +156,43 @@ const Header = () => {
                                      
                                 </Link>  </>
                                 )}
-                            
-                            
-                            
+                     
+                     {isSmallScreen && isSideMenuOpen && (
+                                    <Box
+                                        ref={sideMenuWrapperRef}
+                                        position="fixed"
+                                        top={0}
+                                        right={0}
+                                        bg={colorMode === "light" ? "#F5F8FA " : "#000000"}
+                                        bottom={0}
+                                        borderLeft={2}
+                                        width="50%"
+                                        zIndex="1000"
+                                        boxShadow="0px 4px 8px rgba(0, 0, 0, 0.1)"
+                                    >
+                                        <Flex flexDirection="column" p={4} h="100%">
+                                            <Link fontSize="xl" as={RouterLink} to="/" onClick={closeSideMenu}>
+                                               <Text>
+                                                nnnnnnnnnn
+                                               </Text>
+                                            </Link>
+                                            <Link fontSize="xl" as={RouterLink} to="/home2" onClick={closeSideMenu}>
+                                            <Text>
+                                                nnnnnnnnnn
+                                               </Text>
+                                            </Link>
+                                        </Flex>
+                                    </Box>
+                                )}
+                            </>
+                        )}
+                   
                          
-                             {isSmallScreen ? null : (
+
+
+                    
+
+                    {isSmallScreen ? null : (
                                 <>
                                 <Box>
                                     <Link as={RouterLink} to="/">
@@ -194,12 +245,10 @@ const Header = () => {
                                     </Button>
                                 </Link>  </>
                                 )}
-                            </>
-                        )}
-                    </Flex>
+                          
+                    
 
-
-                  
+                          </Flex>
                          
                
 
@@ -251,4 +300,3 @@ const Header = () => {
 };
 
 export default Header;
-
