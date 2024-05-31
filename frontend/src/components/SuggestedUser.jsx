@@ -14,7 +14,7 @@ const SuggestedUser = ({ user }) => {
 					<Text fontSize={"sm"}   fontWeight={"bold"}>
 						{user.username}
 					</Text>
-					<Text color={"#abb7c4"}   fontSize={"sm"}>
+					<Text color={"#68717a   "}   fontSize={"sm"}>
 						{user.name}
 					</Text>
 				</Box>

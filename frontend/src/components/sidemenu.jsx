@@ -1,15 +1,15 @@
-
 import React from "react";
-import { Box, Flex, Link, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Link, Text, Image, Icon } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { Avatar } from "@chakra-ui/avatar";
 import { useRecoilValue } from "recoil";
+import { FaSun, FaPodcast, FaStar, FaUsers, FaCogs, FaInfoCircle, FaLifeRing } from "react-icons/fa";
 import userAtom from "../atoms/userAtom";
 import right from "/public/right.svg";
 
 const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
     const currentUser = useRecoilValue(userAtom); // Fetch current user data from userAtom
-    
+
     return (
         <>
             {isSideMenuOpen && (
@@ -27,28 +27,40 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                     >
                         <Flex flexDirection="column" ml={5} p={4} h="100%">
                             <Flex alignItems="center" marginBottom="1rem">
-                                {/* Display user profile picture */}
-                                {currentUser.profilePic ? (
-                                    <Avatar
-                                        name={currentUser.name}
-                                        src={currentUser.profilePic}
-                                        size={{
-                                            base: "md",
-                                            md: "xl",
-                                        }}
-                                    />
-                                ) : (
-                                    <Avatar
-                                        name={currentUser.name}
-                                        src="https://bit.ly/broken-link"
-                                        size={{
-                                            base: "md",
-                                            md: "xl",
-                                        }}
-                                    />
-                                )}
-                                {/* Display user name */}
-                                <Text marginLeft="1rem">{currentUser.name}</Text>
+                                {/* Link to profile page */}
+                                <Link 
+                                    as={RouterLink} 
+                                    to={`/profile/${currentUser.username}`} 
+                                    onClick={closeSideMenu} 
+                                    display="flex" 
+                                    alignItems="center"
+                                    _hover={{ textDecoration: "none", color: "blue.500" }}
+                                >
+                                    {currentUser.profilePic ? (
+                                        <Avatar
+                                            name={currentUser.name}
+                                            src={currentUser.profilePic}
+                                            size={{
+                                                base: "md",
+                                                md: "xl",
+                                            }}
+                                        />
+                                    ) : (
+                                        <Avatar
+                                            name={currentUser.name}
+                                            src="https://bit.ly/broken-link"
+                                            size={{
+                                                base: "md",
+                                                md: "xl",
+                                            }}
+                                        />
+                                    )}
+                                    {/* Display user name */}
+                                    <Flex flexDirection="column" ml={3}>
+                                        <Text _hover={{ color: "blue.500" }}>{currentUser.name}</Text>
+                                        <Text fontSize="xs" color="gray.light" _hover={{ color: "blue.500" }}>@{currentUser.username}</Text>
+                                    </Flex>
+                                </Link>
                                 <Link as={RouterLink} onClick={closeSideMenu} marginLeft="auto">
                                     <Image src={right} alt="toggle" cursor="pointer" w={2} />
                                 </Link>
@@ -56,52 +68,40 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
 
                             {/* Menu items */}
                             <Flex flexDirection="column">
-                             
-
-
-                            <Link fontSize="xl" as={RouterLink} to="/DiscoverDaily" onClick={closeSideMenu}>
-                                <Text>
-                                    Discover Daily
-                                </Text>
-                            </Link>
-                            <br />
-                            <Link fontSize="xl" as={RouterLink} to="/Communities" onClick={closeSideMenu}>
-                                <Text>
-                                    Podcast
-                                </Text>
-                            </Link>
-                            <br />
-                            <Link fontSize="xl" as={RouterLink} to="/Premium" onClick={closeSideMenu}>
-                                <Text>
-                                    Premium
-                                </Text>
-                            </Link>
-                            <br />
-                            <Link fontSize="xl" as={RouterLink} to="/Communities" onClick={closeSideMenu}>
-                                <Text>
-                                    Communities
-                                </Text>
-                            </Link>
-                            <br />
-                            <Link fontSize="xl" as={RouterLink} to="/settings " onClick={closeSideMenu}>
-                                <Text>
-                                    Settings & Help
-                                </Text>
-                            </Link>
-                            <br />
-                            <Link fontSize="xl" as={RouterLink} to={`/AboutUs`} onClick={closeSideMenu}>
-                                <Text>
-                                    AboutUs
-                                </Text>
-                            </Link>
-                            <br />
-                            <Link fontSize="xl" as={RouterLink} to="/Support" onClick={closeSideMenu}>
-                                <Text>
-                                    Support
-                                </Text>
-                            </Link>
-   
-                       
+                                <Link fontSize="xl" as={RouterLink} to="/DiscoverDaily" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                    <Icon as={FaSun} mr={2} />
+                                    <Text>Discover Daily</Text>
+                                </Link>
+                                <br />
+                                <Link fontSize="xl" as={RouterLink} to="/Communities" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                    <Icon as={FaPodcast} mr={2} />
+                                    <Text>Podcast</Text>
+                                </Link>
+                                <br />
+                                <Link fontSize="xl" as={RouterLink} to="/Premium" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                    <Icon as={FaStar} mr={2} />
+                                    <Text>Premium</Text>
+                                </Link>
+                                <br />
+                                <Link fontSize="xl" as={RouterLink} to="/Communities" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                    <Icon as={FaUsers} mr={2} />
+                                    <Text>Communities</Text>
+                                </Link>
+                                <br />
+                                <Link fontSize="xl" as={RouterLink} to="/settings" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                    <Icon as={FaCogs} mr={2} />
+                                    <Text>Settings & Help</Text>
+                                </Link>
+                                <br />
+                                <Link fontSize="xl" as={RouterLink} to="/AboutUs" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                    <Icon as={FaInfoCircle} mr={2} />
+                                    <Text>About Us</Text>
+                                </Link>
+                                <br />
+                                <Link fontSize="xl" as={RouterLink} to="/Support" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                    <Icon as={FaLifeRing} mr={2} />
+                                    <Text>Support</Text>
+                                </Link>
                             </Flex>
                         </Flex>
                     </Box>

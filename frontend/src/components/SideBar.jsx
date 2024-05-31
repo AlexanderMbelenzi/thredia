@@ -8,45 +8,12 @@ import {
   Flex,
   Stack,
   Button,
-  useColorMode 
+  useColorMode
 } from "@chakra-ui/react";
-
-import { GiIdea } from "react-icons/gi";
-import { MdLogout } from "react-icons/md";
-import { BsHouseAddFill } from "react-icons/bs";
-import { BsHouseDashFill } from "react-icons/bs";
-
-import { BsSearch } from "react-icons/bs";
-import { BsEnvelopeFill } from "react-icons/bs";  
-
-import { MdOutlineSettings } from "react-icons/md";
-import { RxAvatar } from "react-icons/rx";
-
-import { IoNotificationsOutline } from "react-icons/io5";
+import { FiHome, FiCompass, FiUser, FiBell, FiMessageSquare, FiSearch, FiMic, FiUsers, FiSettings, FiInfo, FiLogOut, FiPlusSquare } from 'react-icons/fi'; // Import icons from react-icons
 
 import useLogout from "../hooks/useLogout";
 import userAtom from "../atoms/userAtom";
-import bgbg3 from "/public/bgbg3.png"; // Import your PNG image
-
-import { Image } from "@chakra-ui/react";
-
-
-
-
-import gamming from "/public/s3.png"; // Import your PNG image
-import crypto from "/public/s2.jpg"; // Import your PNG image
-import business from "/public/s1.png"; // Import your PNG image
-import sports from "/public/sports1.png"; // Import your PNG image
-import technology from "/public/technology1.png"; // Import your PNG image
-
-
-
-
-
-
-
-
-
 
 const SideBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -58,102 +25,94 @@ const SideBar = () => {
       <Flex direction="column" marginTop="50px" alignItems="flex-start">
         <Box height="full" flex={20} position="fixed" display={{ base: "none", md: "block" }}>
           <Stack>
-        
+
             <Link as={RouterLink} to='/'>
-              <Button fontWeight="normal"    size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" ml={-1} leftIcon={<BsHouseDashFill size={"45px"}  />}>
+              <Button leftIcon={<FiHome />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
                 Home
               </Button>
             </Link>
             <Link as={RouterLink} to="/chat">
-              <Button fontWeight="normal"    size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px"  ml={-1}   leftIcon={<BsSearch w={6} />}>
+              <Button leftIcon={<FiCompass />} fontWeight="normal" size="md" bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
                 Explore
               </Button>
             </Link>
-            
 
-            
             <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
 
             <Link as={RouterLink} to={`/${user.username}`}>
-              <Button   fontWeight="normal"      size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<RxAvatar w={6} />}>
+              <Button leftIcon={<FiUser />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
                 Profile
               </Button>
             </Link>
 
-            <Link as={RouterLink} to="/chat">
-              <Button fontWeight="normal"     size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px"  leftIcon={<IoNotificationsOutline w={6} />}>
+            <Link as={RouterLink} to="/notifications">
+              <Button leftIcon={<FiBell />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
                 Notifications
               </Button>
             </Link>
-            <Link as={RouterLink} to={`/chat`}>
-              <Button   fontWeight="normal"  size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<BsEnvelopeFill w={6} />}>
+            <Link as={RouterLink} to={`/messages`}>
+              <Button leftIcon={<FiMessageSquare />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
                 Messages
               </Button>
             </Link>
             <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
 
-            <Text pl={4} fontWeight="normal" color={colorMode === "dark" ? "gray.300" : "gray.600"} >Top Pics</Text>
+            <Text pl={4} fontWeight="normal" color={colorMode === "dark" ? "gray.300" : "gray.600"}>Top Pics</Text>
 
-                   
-<Link as={RouterLink} to="/">
-  <Button   fontWeight="normal"       size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={sports}  rounded={"md"}  w={6} alt="emoji" />}>
-    Discover Daily
-  </Button>
-</Link>
-<Link as={RouterLink} to="/">
-  <Button  fontWeight="normal"         size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={gamming} rounded={"md"}   w={6} alt="emoji" />}>
-    Podcast
-  </Button>
-</Link>
+            <Link as={RouterLink} to="/">
+              <Button leftIcon={<FiSearch />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
+                Discover Daily
+              </Button>
+            </Link>
+            <Link as={RouterLink} to="/">
+              <Button leftIcon={<FiMic />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
+                Podcast
+              </Button>
+            </Link>
 
-<Link as={RouterLink} to="/">
-  <Button  fontWeight="normal"   size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={technology} w={6} alt="emoji" />}>
-    Communities
-  </Button>
-</Link>
+            <Link as={RouterLink} to="/">
+              <Button leftIcon={<FiUsers />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"}    borderRadius="20px">  
 
-<Link as={RouterLink} to="/">
-  <Button   fontWeight="normal"   size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<Image src={business} w={6} rounded={"md"} alt="emoji" />}>
-    Ideas
-  </Button>
-</Link>
-<Link as={RouterLink} to="/">
-  <Button   fontWeight="normal"     size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px"  leftIcon={<Image src={crypto} rounded={"md"}  w={6} alt="emoji" />} >
-    challenges & Problems
-  </Button>
-</Link>
 
-            
+                Communities
+              </Button>
+            </Link>
+
+            <Link as={RouterLink} to="/">
+              <Button leftIcon={<FiMic />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
+                Ideas
+              </Button>
+            </Link>
+            <Link as={RouterLink} to="/">
+              <Button leftIcon={<FiSettings />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
+                Challenges & Problems
+              </Button>
+            </Link>
+
 
             <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
 
-            <Text pl={4}   color={colorMode === "dark" ? "gray.300" : "gray.600"}   fontWeight="normal">Resources</Text>
+            <Text pl={4} color={colorMode === "dark" ? "gray.300" : "gray.600"} fontWeight="normal">Resources</Text>
             <Link as={RouterLink} to={`/settings`}>
-              <Button   fontWeight="normal"     size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<MdOutlineSettings size={30} />}>
+              <Button leftIcon={<FiSettings />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
                 Settings
               </Button>
             </Link>
-      
-            <Link as={RouterLink} to={`/AboutUs`}>
-              <Button  fontWeight="normal"  size="md" bg={colorMode === "dark" ? "black" : "white"} borderRadius="20px" leftIcon={<MdOutlineSettings size={30} />}>
-                About us
+
+            <Link as={RouterLink} to={`/about`}>
+              <Button leftIcon={<FiInfo />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
+                About Us
               </Button>
             </Link>
 
-          
-            <Link >
-              <Button  fontWeight="normal"   size="md" onClick={logout} borderRadius="20px" bg={colorMode === "dark" ? "black" : "white"} leftIcon={<MdLogout size={30} />}>
-                Log Out
-              </Button>
-            </Link> 
+
 
             <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
 
             <Flex justifyContent="center">
               <Button
-                as={RouterLink} to="/CreatePage"
-                backgroundColor={  			 "#1D88F2"
-              }
+                as={RouterLink} to="/create"
+                backgroundColor="#1D88F2"
                 style={{
                   marginTop: "20%",
                   borderRadius: "20px",

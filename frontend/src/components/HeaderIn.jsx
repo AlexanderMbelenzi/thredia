@@ -79,7 +79,8 @@
       setIsSideMenuOpen(false);
     };
     const linkStyles = (link) => ({
-        color: activeLink === link ? "" : "#abb7c4",
+      
+        color: activeLink === link ? "" : "#7b828a",
         position: "relative",
         _after: {
             content: '""',
@@ -91,6 +92,7 @@
             bg: "blue.500",
             borderRadius: "4px",
             display: activeLink === link ? "block" : "none",
+            
         },
     });
 
@@ -112,10 +114,12 @@
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>
-                                <Link as={RouterLink} to="/auth" onClick={() => setAuthScreen("login")}>
+                                <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
+        color: "blue.500" }}   onClick={() => setAuthScreen("login")}>
                                     Login
                                 </Link>
-                                <Link as={RouterLink} to="/auth" onClick={() => setAuthScreen("signup")}>
+                                <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
+        color: "blue.500" }}  onClick={() => setAuthScreen("signup")}>
                                     Sign up
                                 </Link>
                             </>
@@ -185,6 +189,8 @@
                                         <Link
                                             fontSize="md"
                                             as={RouterLink}
+                                            _hover={{ textDecoration: "none", 
+                                            color: "blue.500" }}
                                             to="/"
                                             onClick={() => handleLinkClick("foryou")}
                                             sx={linkStyles("foryou")}
@@ -194,6 +200,8 @@
                                         <Link
                                             fontSize="md"
                                             as={RouterLink}
+                                            _hover={{ textDecoration: "none", 
+                                            color: "blue.500" }}
                                             to="/Home2"
                                             onClick={() => handleLinkClick("following")}
                                             sx={linkStyles("following")}
@@ -252,6 +260,8 @@
 
     fontSize="md"
     as={RouterLink}
+    _hover={{ textDecoration: "none", 
+    color: "blue.500" }}
     to="/"
     onClick={() => handleLinkClick("foryou")}
     sx={linkStyles("foryou")}
@@ -265,6 +275,8 @@
 
     fontSize="md"
     as={RouterLink}
+    _hover={{ textDecoration: "none", 
+    color: "blue.500" }}
     to="/Home2"
     onClick={() => handleLinkClick("following")}
     sx={linkStyles("following")}

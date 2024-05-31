@@ -163,12 +163,12 @@ size={{
                 </Text>
                 <Image src='/verified.png' w={4} h={4} ml={1} />
                 <Box w={0.5} h={0.5} mx={1} borderRadius={"full"} bg={"gray.light"}></Box>
-                <Text fontSize={"xs"} textAlign={"left"}  color="#abb7c4">
+                <Text fontSize={"xs"} textAlign={"left"}  color="#68717a">
                   {formatDistanceToNow(new Date(post.createdAt))}
                 </Text>
               </Flex>
               <Flex gap={4} alignItems={"center"} marginLeft={"-20"}>
-                <Text fontSize={"sm"} textAlign={"right"}  color="#abb7c4">
+                <Text fontSize={"sm"} textAlign={"right"}  color="#68717a">
                   ...
                 </Text>
                 {currentUser?._id === user._id && <DeleteIcon size={18} onClick={handleDeletePost} />}
