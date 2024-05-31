@@ -133,7 +133,7 @@
                                 <>
                                 <Box>
                                     <Link as={RouterLink} to="/">
-                                        <Image src={Logo2} mt={-5} mb={-25} alt="Logo" cursor="pointer" className="logo" />
+                                        <Image src={Logo2}  alt="Logo" cursor="pointer" className="logo" />
                                     </Link>
                                 </Box>
                                
