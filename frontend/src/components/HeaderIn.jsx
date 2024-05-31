@@ -104,7 +104,7 @@
                 borderBottom={borderBottom}
                 borderBottomColor={colorMode === "light" ? "gray.300" : "#2B2B2B"}
                 bg={colorMode === "dark" ? "blackAlpha.800" : "whiteAlpha.800"}
-                zIndex="999"
+                zIndex="997"
                 position="fixed"
                 top={0}
                 marginX="auto"

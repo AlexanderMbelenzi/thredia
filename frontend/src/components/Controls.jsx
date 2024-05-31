@@ -26,7 +26,7 @@ const Controls = () => {
       if (!isVisibleOnSmallScreen) return null;
   
       return (
-        <Box left={0} right={0} maxW="620px" bg={colorMode === "dark" ? "blackAlpha.800" : "whiteAlpha.800"} zIndex="999" position="fixed" bottom={0} marginX="auto">
+        <Box left={0} right={0} maxW="620px" bg={colorMode === "dark" ? "blackAlpha.800" : "whiteAlpha.800"} zIndex="997" position="fixed" bottom={0} marginX="auto">
           <Box py={2} pl={0} pr={0} maxW="620px" marginX="auto">
             <Flex justifyContent="space-between" alignItems="center">
               <Link as={RouterLink} to='/'>

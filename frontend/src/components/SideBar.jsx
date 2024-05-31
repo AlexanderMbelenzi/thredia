@@ -92,7 +92,7 @@ const SideBar = () => {
             </Link>
             <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
 
-            <Text pl={4} fontWeight="normal" color={colorMode === "dark" ? "gray.300" : "gray.600"} >Trending Topics</Text>
+            <Text pl={4} fontWeight="normal" color={colorMode === "dark" ? "gray.300" : "gray.600"} >Top Pics</Text>
 
                    
 <Link as={RouterLink} to="/">

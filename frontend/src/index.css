@@ -102,7 +102,7 @@
 	align-items: center;
 	font-size: 18px;
 	text-decoration: none;
-	z-index: 1000;
+	z-index: 998;
 	transition: transform 0.3s ease;
   }
   
@@ -136,7 +136,7 @@
 	align-items: center;
 	font-size: 18px;
 	text-decoration: none;
-	z-index: 1000;
+	z-index: 998;
 	transition: transform 0.3s ease;
 }
 
