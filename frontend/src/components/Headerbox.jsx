@@ -9,7 +9,7 @@ import { BsArrowUp } from "react-icons/bs";
 const HeaderBox = () => {
   return (
     <Link  
-    to="/discoverdailynews"   className="header-box">
+    to="/discoverdailynews"   className="header-box"    >
       <Flex justify="center">
         <Box padding={1}  mt={1} flex={"center"} >   <BsArrowUp /> </Box>
      

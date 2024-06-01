@@ -48,7 +48,7 @@ const Controls = () => {
       left: 0,
       right: 0,
       maxW: "620px",
-      bg: useColorModeValue("whiteAlpha.800", "blackAlpha.800"),
+      bg: useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)"  ),  
       zIndex: "997",
       position: "fixed",
       bottom: 0,

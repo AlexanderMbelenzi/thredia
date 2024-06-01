@@ -115,7 +115,7 @@
 	opacity: 0; /* Hide the button */
   }
   
-  @media (min-width: 621px) { /* Adjust based on your large screen breakpoint */
+  @media (min-width: 700px) { /* Adjust based on your large screen breakpoint */
 	.round-button {
 	  display: none;
 	}
@@ -150,7 +150,7 @@
 	opacity: 0; /* Hide the button */
   }
   
-  @media (min-width: 621px) { /* Adjust based on your large screen breakpoint */
+  @media (min-width: 700px) { /* Adjust based on your large screen breakpoint */
 	.header-box {
 	  display: none;
 	}

@@ -37,7 +37,7 @@ const HeaderBox2 = () => {
     });
 
     return (
-        <Box className="header-box2">
+        <Box className="header-box2"   >
              <Flex justify="center" align="center" gap={2}>
                 <Link
                     mb={1}

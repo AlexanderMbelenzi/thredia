@@ -100,18 +100,19 @@
 
 
     return (
-        <Box>
-            <Box
-                left={0}
-                right={0}
-                borderBottom={borderBottom}
-                borderBottomColor={colorMode === "light" ? "gray.300" : "gray.800"}
-                bg={colorMode === "dark" ? "blackAlpha.800" : "whiteAlpha.800"}
-                zIndex="995"
-                position="fixed"
-                top={0}
-                marginX="auto"
-            >
+      <Box>
+      <Box
+        left={0}
+        right={0}
+        borderBottom={borderBottom}
+        borderBottomColor={colorMode === "light" ? "gray.300" : "gray.800"}
+        bg={colorMode === "dark" ? "rgba(1, 1, 2, 0.7)" : "rgba(245, 248, 250, 0.7)"}
+        zIndex="995"
+        position="fixed"
+        top={0}
+        marginX="auto"
+      >
+    
                 <Box py={1} pb={2} pt={2} className="header" pl="7"  pr="8"  maxW="1500"  marginX="auto">
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
