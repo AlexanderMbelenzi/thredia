@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Box, Flex, Image, Button, Link, useColorMode, useBreakpointValue } from "@chakra-ui/react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-
+import pizza2 from "/public/pizza4.png";
+import pizza1 from "/public/pizza6.png";
 import userAtom from "../atoms/userAtom";
 
 const HeaderBox2 = () => {
@@ -37,19 +38,40 @@ const HeaderBox2 = () => {
 
     return (
         <Box className="header-box2">
-             <Flex justify="center" align="center" gap={8}>
+             <Flex justify="center" align="center" gap={2}>
                 <Link
                     mb={1}
+                
+                    mr={2}
                     fontSize="md"
                     as={RouterLink}
                     to="/"
                     onClick={() => handleLinkClick("foryou")}
                     sx={linkStyles("foryou")}
                 >
-                    For you
+                    Foryou
                 </Link>
+
+                    
+        <Box flexBasis="27%">
+           
+           <Box borderRadius="100%" mr={-12} overflow="hidden">
+             <Image src={pizza2} alt="Pizza 1" width="30px" />
+           </Box>
+         </Box>
+         <Box flexBasis="27%" >
+           <Box borderRadius="100%" mr={-12} overflow="hidden">
+             <Image src={pizza1} alt="Pizza 2" width="30px" />
+           </Box>
+         </Box>
+         <Box flexBasis="27%">
+           <Box borderRadius="100%" mr={-12} overflow="hidden">
+             <Image src={pizza2} alt="Pizza 3" width="30px" />
+           </Box>
+         </Box>
                 <Link
                     mb={1}
+                    ml={8}
                     fontSize="md"
                     as={RouterLink}
                     to="/Home2"

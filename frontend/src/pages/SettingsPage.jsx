@@ -33,7 +33,7 @@ export const SettingsPage = () => {
 
 		< > 
 		
-			<Text my={5} fontWeight={"bold"}>
+			<Text mt={5} my={5} fontWeight={"bold"}>
 				Freeze Your Account
 			</Text>
 			<Text my={1}>You can unfreeze your account anytime by logging in.</Text>
