@@ -77,11 +77,12 @@ export default function SignupCard() {
                         Sign up
                     </Heading>
                 </Stack>
-                <Box rounded={"lg"} bg={useColorModeValue("white", "gray.dark")} boxShadow={"lg"} p={8}>
+                <Box rounded={"lg"} bg={useColorModeValue("gray.200", "#101014 ")}
+                 boxShadow={"lg"}  p={8}>
                     <Stack spacing={4}>
                         <HStack>
                             <Box>
-                                <FormControl isRequired>
+                                <FormControl isRequired   borderColor={useColorModeValue("gray.400", "gray.700 ")} > 
                                     <FormLabel>Full name</FormLabel>
                                     <Input
                                         type='text'
@@ -93,7 +94,7 @@ export default function SignupCard() {
                                 </FormControl>
                             </Box>
                             <Box>
-                                <FormControl isRequired>
+                                <FormControl isRequired borderColor={useColorModeValue("gray.400", "gray.700 ")}  >
                                     <FormLabel>Username</FormLabel>
                                     <Input
                                         type='text'
@@ -114,7 +115,7 @@ export default function SignupCard() {
                                 </FormControl>
                             </Box>
                         </HStack>
-                        <FormControl isRequired>
+                        <FormControl isRequired borderColor={useColorModeValue("gray.400", "gray.700 ")}  >
                             <FormLabel>Email address</FormLabel>
                             <Input
                                 type='email'
@@ -122,9 +123,9 @@ export default function SignupCard() {
                                 value={inputs.email}
                             />
                         </FormControl>
-                        <FormControl isRequired>
+                        <FormControl isRequired   >
                             <FormLabel>Password</FormLabel>
-                            <InputGroup>
+                            <InputGroup  borderColor={useColorModeValue("gray.400", "gray.700 ")}  >
                                 <Input
                                     type={showPassword ? "text" : "password"}
                                     onChange={(e) => handleInputChange("password", e.target.value)}
@@ -144,11 +145,11 @@ export default function SignupCard() {
                             <Button
                                 loadingText='Submitting'
                                 size='lg'
-                                bg={useColorModeValue("gray.600", "gray.700")}
-                                color={"white"}
-                                _hover={{
-                                    bg: useColorModeValue("gray.700", "gray.800"),
-                                }}
+                            	bg={useColorModeValue("#1D88F2  ", "#1D88F2")}
+								color={"white"}
+								_hover={{
+									bg: useColorModeValue("#176DC1", "#176DC1"),
+								}}
                                 onClick={handleSignup}
                             >
                                 Sign up

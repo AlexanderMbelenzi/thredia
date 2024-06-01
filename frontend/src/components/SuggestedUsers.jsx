@@ -133,16 +133,17 @@ const SuggestedUsers = () => {
 			<Box pb={4} pt={2}  >
 
 					<Text pl={2} fontFamily="'Noto Sans', Arial, sans-serif"  fontWeight={"bold"}  fontSize={"xl"}   >
-                <p    >buy me coffee</p>
+                <p    >Comming soon </p>
 				</Text>
                 <Text mt={2}  pl={2} mb={2} pr={2}  prefix="2"  fontSize={"md"}fontFamily="'Noto Sans', Arial, sans-serif"    fontWeight={"normal"}>
-				We are depedent your support to keep this site ruunning. 
+				We are excited to announce that we will be releasing new features every week until our final prosdduct.
+				 watcch out  for the next featyure on our features list.
 					 
                 </Text>
 				<Text     pl={2}   >
                 <Button       backgroundColor={colorMode === "light" ? "#edf1f5" : "#000000"}      
 				      as={RouterLink} to="/Donate"
-   style={{ borderRadius: "20px", fontSize: "xs",      fontFamily:"'Noto Sans', Arial, sans-serif" , color:"#1D88F2",    Left: " 2" }}>Buy Now</Button>
+   style={{ borderRadius: "20px", fontSize: "xs",      fontFamily:"'Noto Sans', Arial, sans-serif" , color:"#1D88F2",    Left: " 2" }}>Check it out</Button>
 				</Text>
 				</Box>
 			</Text>

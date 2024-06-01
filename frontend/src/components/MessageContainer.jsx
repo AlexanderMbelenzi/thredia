@@ -1,5 +1,7 @@
 import { Avatar, Divider, Flex, Image, Skeleton, SkeletonCircle, Text, useColorModeValue } from "@chakra-ui/react";
 import Message from "./Message";
+import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import MessageInput from "./MessageInput";
 import { useEffect, useRef, useState } from "react";
 import useShowToast from "../hooks/useShowToast";
@@ -114,10 +116,14 @@ const MessageContainer = () => {
 		>
 			{/* Message header */}
 			<Flex w={"full"} h={12} alignItems={"center"} gap={2}>
-				<Avatar src={selectedConversation.userProfilePic} size={"sm"} />
+				
+			
+			<RouterLink to={`/${selectedConversation.username}`}>
+          <Avatar src={selectedConversation.userProfilePic} size={"sm"} />
+		  </RouterLink>
 				<Text display={"flex"} alignItems={"center"}>
 					{selectedConversation.username} <Image src='/verified.png' w={4} h={4} ml={1} />
-				</Text>
+				</Text> 
 			</Flex>
 
 			<Divider />

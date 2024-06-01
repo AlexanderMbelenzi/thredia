@@ -30,8 +30,8 @@ const Conversation = ({ conversation, isOnline }) => {
 			p={"1"}
 			_hover={{
 				cursor: "pointer",
-				bg: useColorModeValue("gray.600", "gray.dark"),
-				color: "white",
+				bg: useColorModeValue("gray.200", "gray.dark"),
+				color:useColorModeValue("black", "white"),
 			}}
 			onClick={() =>
 				setSelectedConversation({
@@ -43,7 +43,7 @@ const Conversation = ({ conversation, isOnline }) => {
 				})
 			}
 			bg={
-				selectedConversation?._id === conversation._id ? (colorMode === "light" ? "gray.400" : "gray.dark") : ""
+				selectedConversation?._id === conversation._id ? (colorMode === "light" ? "green.400" : "green.dark") : ""
 			}
 			borderRadius={"md"}
 		>
@@ -61,7 +61,7 @@ const Conversation = ({ conversation, isOnline }) => {
 			</WrapItem>
 
 			<Stack direction={"column"} fontSize={"sm"}>
-				<Text fontWeight='700' display={"flex"} alignItems={"center"} className="truncate-text"  >
+				<Text fontWeight='700' display={"flex"} alignItems={"center"}   >
 					{user.username} <Image src='/verified.png' w={4} h={4} ml={1} />
 				</Text>
 				<Text fontSize={"xs"} display={"flex"} alignItems={"center"} gap={1}>

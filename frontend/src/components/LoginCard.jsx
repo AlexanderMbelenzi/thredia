@@ -64,7 +64,7 @@ export default function LoginCard() {
 				</Stack>
 				<Box
 					rounded={"lg"}
-					bg={useColorModeValue("white", "gray.dark")}
+					bg={useColorModeValue("gray.200", "#101014 ")}
 					boxShadow={"lg"}
 					p={8}
 					w={{
@@ -73,7 +73,7 @@ export default function LoginCard() {
 					}}
 				>
 					<Stack spacing={4}>
-						<FormControl isRequired>
+						<FormControl isRequired borderColor={useColorModeValue("gray.400", "gray.700 ")}  >
 							<FormLabel>Username</FormLabel>
 							<Input
 								type='text'
@@ -81,9 +81,9 @@ export default function LoginCard() {
 								onChange={(e) => setInputs((inputs) => ({ ...inputs, username: e.target.value }))}
 							/>
 						</FormControl>
-						<FormControl isRequired>
-							<FormLabel>Password</FormLabel>
-							<InputGroup>
+						<FormControl isRequired    >
+							<FormLabel  >Password</FormLabel>
+							<InputGroup borderColor={useColorModeValue("gray.400", "gray.700 ")}   >
 								<Input
 									type={showPassword ? "text" : "password"}
 									value={inputs.password}
@@ -103,10 +103,10 @@ export default function LoginCard() {
 							<Button
 								loadingText='Logging in'
 								size='lg'
-								bg={useColorModeValue("gray.600", "gray.700")}
+								bg={useColorModeValue("#1D88F2  ", "#1D88F2")}
 								color={"white"}
 								_hover={{
-									bg: useColorModeValue("gray.700", "gray.800"),
+									bg: useColorModeValue("#176DC1", "#176DC1"),
 								}}
 								onClick={handleLogin}
 								isLoading={loading}

@@ -18,7 +18,7 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                         position="fixed"
                         top={0}
                         right={0}
-                        bg={colorMode === "light" ? "#F5F8FA" : "#000000"}
+                        bg={colorMode === "light" ? "gray.200" : "#010102"}
                         bottom={0}
                         borderLeft={2}
                         width={{ base: "75%", md: "30%" }}
@@ -30,7 +30,7 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                                 {/* Link to profile page */}
                                 <Link 
                                     as={RouterLink} 
-                                    to={`/profile/${currentUser.username}`} 
+                                    to={`/${currentUser.username}`} 
                                     onClick={closeSideMenu} 
                                     display="flex" 
                                     alignItems="center"
@@ -62,28 +62,28 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                                     </Flex>
                                 </Link>
                                 <Link as={RouterLink} onClick={closeSideMenu} marginLeft="auto">
-                                    <Image src={right} alt="toggle" cursor="pointer" w={2} />
+                                    <Image src={right} alt="toggle" cursor="pointer" w={3} />
                                 </Link>
                             </Flex>
 
                             {/* Menu items */}
                             <Flex flexDirection="column">
-                                <Link fontSize="md" as={RouterLink} to="/DiscoverDaily" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaSun} mr={2} />
                                     <Text>Discover Daily</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/Communities" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaPodcast} mr={2} />
                                     <Text>Podcast</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/Premium" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaStar} mr={2} />
                                     <Text>Premium</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/Communities" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaUsers} mr={2} />
                                     <Text>Communities</Text>
                                 </Link>
@@ -98,7 +98,7 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                                     <Text>About Us</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/Support" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaLifeRing} mr={2} />
                                     <Text>Support</Text>
                                 </Link>

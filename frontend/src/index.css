@@ -100,7 +100,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 18px;
+	font-size: 24px;
 	text-decoration: none;
 	z-index: 996;
 	transition: transform 0.3s ease;
@@ -120,6 +120,23 @@
 	  display: none;
 	}
   }
+
+  .round-button2 {
+	position: fixed;
+	bottom: 60px;
+	right: 5;
+
+  }
+
+  @media (max-width: 700px) { /* Adjust based on your large screen breakpoint */
+	.round-button2 {
+	  display: none;
+	}
+  }
+
+
+
+
 
   .header-box {
 	position: fixed;

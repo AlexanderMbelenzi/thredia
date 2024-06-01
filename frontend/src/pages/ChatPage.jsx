@@ -1,7 +1,10 @@
 import { SearchIcon } from "@chakra-ui/icons";
 import { Box, Button, Flex, Input, Skeleton, SkeletonCircle, Text, useColorModeValue } from "@chakra-ui/react";
 import Conversation from "../components/Conversation";
+import { InputGroup } from "@chakra-ui/react";
 import { GiConversation } from "react-icons/gi";
+import { InputRightElement } from "@chakra-ui/react";
+import { InputLeftElement } from "@chakra-ui/react";
 import MessageContainer from "../components/MessageContainer";
 import { useEffect, useState } from "react";
 import useShowToast from "../hooks/useShowToast";
@@ -133,22 +136,34 @@ const ChatPage = () => {
 				}}
 				mx={"auto"}
 			>
-				<Flex flex={30} gap={2} flexDirection={"column"} maxW={{ sm: "250px", md: "full" }} mx={"auto"}>
+				<Flex flex={30} gap={2} pt={{ base: "5px", md: "20px"  }} flexDirection={"column"} maxW={{ sm: "250px", md: "full" }} mx={"auto"}>
 					<Text fontWeight={700} color={useColorModeValue("gray.600", "gray.400")}>
 						Your Conversations
 					</Text>
 					<form onSubmit={handleConversationSearch}>
-						<Flex alignItems={"center"} gap={2}>
-							<Input placeholder='Search for a user' onChange={(e) => setSearchText(e.target.value)} />
-							<Button size={"sm"} onClick={handleConversationSearch} isLoading={searchingUser}>
-								<SearchIcon />
-							</Button>
-						</Flex>
+						<Flex alignItems={"center"} gap={2} rounded={"xl"}  bg={useColorModeValue("gray.200", "gray.dark")}  >
+						
+						
+
+
+						<InputGroup   >
+					<Input
+						w={"full"}
+						placeholder='Search for a user' onChange={(e) => setSearchText(e.target.value)} 
+						/>
+					<InputRightElement size={"sm"} cursor={"pointer"} onClick={handleConversationSearch} isLoading={searchingUser}>
+					<SearchIcon />
+					</InputRightElement>
+				</InputGroup>
+
+				</Flex>
+
+
 					</form>
 
 					{loadingConversations &&
 						[0, 1, 2, 3, 4].map((_, i) => (
-							<Flex key={i} gap={4} alignItems={"center"} p={"1"} borderRadius={"md"}>
+							<Flex key={i} gap={4} alignItems={"center"} p={"1"} borderRadius={"md"}    >
 								<Box>
 									<SkeletonCircle size={"10"} />
 								</Box>
@@ -161,7 +176,7 @@ const ChatPage = () => {
 
 					{!loadingConversations &&
 						conversations.map((conversation) => (
-							<Conversation
+							<Conversation 
 								key={conversation._id}
 								isOnline={onlineUsers.includes(conversation.participants[0]._id)}
 								conversation={conversation}
@@ -172,6 +187,7 @@ const ChatPage = () => {
 					<Flex
 						flex={70}
 						borderRadius={"md"}
+						
 						p={2}
 						flexDir={"column"}
 						alignItems={"center"}

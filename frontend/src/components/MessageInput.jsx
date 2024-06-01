@@ -1,6 +1,7 @@
 import {
 	Flex,
 	Image,
+	useColorMode,
 	Input,
 	InputGroup,
 	InputRightElement,
@@ -21,8 +22,10 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { BsFillImageFill } from "react-icons/bs";
 import usePreviewImg from "../hooks/usePreviewImg";
 
+
 const MessageInput = ({ setMessages }) => {
-	const [messageText, setMessageText] = useState("");
+	const { colorMode } = useColorMode();
+		const [messageText, setMessageText] = useState("");
 	const showToast = useShowToast();
 	const selectedConversation = useRecoilValue(selectedConversationAtom);
 	const setConversations = useSetRecoilState(conversationsAtom);
@@ -82,11 +85,15 @@ const MessageInput = ({ setMessages }) => {
 		}
 	};
 	return (
-		<Flex gap={2}   alignItems={"center"}>
-			<form onSubmit={handleSendMessage} style={{ flex: 95 }}>
-				<InputGroup>
+		<Flex gap={2}   alignItems={"center"} >
+			<form onSubmit={handleSendMessage} style={{ flex: 95 }}      >
+				<InputGroup   >
 					<Input
 						w={"full"}
+						border={"1px"}
+						borderColor={colorMode === "dark" ? "gray.600" : "#gray.600"} 
+					
+					
 						placeholder='Type a message'
 						onChange={(e) => setMessageText(e.target.value)}
 						value={messageText}

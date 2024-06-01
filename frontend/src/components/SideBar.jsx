@@ -45,12 +45,12 @@ const SideBar = () => {
               </Button>
             </Link>
 
-            <Link as={RouterLink} to="/notifications">
+            <Link as={RouterLink} to="/chat">
               <Button leftIcon={<FiBell />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
                 Notifications
               </Button>
             </Link>
-            <Link as={RouterLink} to={`/messages`}>
+            <Link as={RouterLink} to={`/chat`}>
               <Button leftIcon={<FiMessageSquare />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
                 Messages
               </Button>
@@ -85,7 +85,7 @@ const SideBar = () => {
             </Link>
             <Link as={RouterLink} to="/">
               <Button leftIcon={<FiSettings />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
-                Problems
+                Solve
               </Button>
             </Link>
 

@@ -1,8 +1,10 @@
 import { AddIcon } from "@chakra-ui/icons";
+import { Flex } from "@chakra-ui/react";
+import { FaFeather } from "react-icons/fa";
 import {
 	Button,
 	CloseButton,
-	Flex,
+	
 	FormControl,
 	Image,
 	Input,
@@ -25,7 +27,9 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import useShowToast from "../hooks/useShowToast";
 import postsAtom from "../atoms/postsAtom";
+import { useColorMode } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
+import { useMediaQuery} from "@chakra-ui/react";
 
 const MAX_CHAR = 1200;
 
@@ -83,34 +87,49 @@ const CreatePost = () => {
 			setLoading(false);
 		}
 	};
+	
+	const [isLargerThan700] = useMediaQuery("(min-width: 800px)");
+
 
 	return (
 		<>
-			<Button
-				position={"fixed"}
-				bottom={10}
-				right={5}
-				bg={useColorModeValue("gray.300", "gray.dark")}
-				onClick={onOpen}
-				size={{ base: "sm", sm: "md" }}
-			>
-				<AddIcon />
-			</Button>
+		{isLargerThan700 && (
+   <Button
+      position={"fixed"}
+      width={18}
+      rounded={"100%"}
+      right={5}
+      bg="#1D88F2"
+      onClick={onOpen}
+      size={{ base: "md", sm: "lg" }}
 
-			<Modal isOpen={isOpen} onClose={onClose}>
+	  _hover={{ bg: "#176DC1" }} // Define the hover state color here
+	  bottom={70}
+
+
+   >
+
+
+      <AddIcon color={"#FFFFFF"} />
+   </Button>
+)}
+
+			<Modal isOpen={isOpen} onClose={onClose}   
+    >
 				<ModalOverlay />
+				
 
-				<ModalContent>
+				<ModalContent  bg={useColorModeValue("gray.200", " #101014 ")}   >
 					<ModalHeader>Create Post</ModalHeader>
 					<ModalCloseButton />
 					<ModalBody pb={6}>
-						<FormControl>
+						<FormControl  borderColor={useColorModeValue("gray.400", "gray.600  ")}   >
 							<Textarea
 								placeholder='Post content goes here..'
 								onChange={handleTextChange}
 								value={postText}
 							/>
-							<Text fontSize='xs' fontWeight='bold' textAlign={"right"} m={"1"} color={"gray.800"}>
+							<Text fontSize='xs' fontWeight='bold' textAlign={"right"} m={"1"} color={useColorModeValue("gray.800", "gray.400  ")}>
 								{remainingChar}/{MAX_CHAR}
 							</Text>
 
@@ -140,7 +159,8 @@ const CreatePost = () => {
 					</ModalBody>
 
 					<ModalFooter>
-						<Button colorScheme='blue' mr={3} onClick={handleCreatePost} isLoading={loading}>
+						<Button bg=' #1D88F2' color={"#FFFFFF"} mr={3} _hover={{ bg: "#176DC1" }}   onClick={handleCreatePost} isLoading={loading}>
+							
 							Post
 						</Button>
 					</ModalFooter>

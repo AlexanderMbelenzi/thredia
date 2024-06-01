@@ -176,9 +176,8 @@ size={{
             </Flex>
             <Text
               mt={-2}
-              fontSize={{ base: "xs", md: "16px" }}
-              fontFamily="'Noto Sans', Arial, sans-serif"
-              fontWeight={"normal"}
+              fontSize={{ base: "xs", md: "md" }}
+              prefix="2"  fontFamily="'Noto Sans', Arial, sans-serif"    fontWeight={"normal"}
             >
               {renderText()}
               {post.text.split('. ').length > 1 && !showFullText && (
