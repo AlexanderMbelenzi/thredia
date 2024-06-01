@@ -67,10 +67,10 @@ const Post = ({ post, postedBy }) => {
 
   const renderText = () => {
     const sentences = post.text.split('. ');
-    if (sentences.length <= 1 || showFullText) {
+    if (sentences.length <= 3 || showFullText) {
       return post.text;
     }
-    return sentences.slice(0, 1).join('. ') + '...';
+    return sentences.slice(0, 3).join('. ') + '...';
   };
 
   if (!user) return null;
@@ -180,7 +180,7 @@ size={{
               prefix="2"  fontFamily="'Noto Sans', Arial, sans-serif"    fontWeight={"normal"}
             >
               {renderText()}
-              {post.text.split('. ').length > 1 && !showFullText && (
+              {post.text.split('. ').length > 3 && !showFullText && (
                 <Text
                   as="span"
                   color=" #1D88F2 "
