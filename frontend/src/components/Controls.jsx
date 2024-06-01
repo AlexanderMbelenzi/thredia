@@ -5,7 +5,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 import authScreenAtom from "../atoms/authAtom";
 import useLogout from "../hooks/useLogout";
-import { FaHome, FaSearch, FaEdit, FaUsers, FaEnvelope, FaUser } from 'react-icons/fa';
+import { FiHome, FiSearch, FiEdit, FiUsers, FiMail, FiUser } from 'react-icons/fi';
 
 const useScrollDirection = () => {
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -61,35 +61,37 @@ const Controls = () => {
         <Box py={2} px={0} maxW="620px" marginX="auto">
           <Flex justifyContent="space-between" alignItems="center">
             <Link as={RouterLink} to='/home' position="relative">
-              <Button height="auto" borderRadius="20px" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")}>
-                <Icon as={FaHome} boxSize={6} />
-                <Box position="absolute" top="0" right="0" width="10px" height="10px" bg="blue.500" borderRadius="50%" />
+              <Button height="auto" borderRadius="20px" bg="transparent">
+                <Icon as={FiHome} boxSize={6} />
+              
+            
+                <Box position="absolute" top="-4px" zIndex="994" right="18px" width="6px" height="6px" bg="#1D88F2" borderRadius="50%" />
               </Button>
             </Link>
 
             <Link as={RouterLink} to="/search">
               <Button height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
-                <Icon as={FaSearch} boxSize={6} />
+                <Icon as={FiSearch} boxSize={6} />
               </Button>
             </Link>
             <Link as={RouterLink} to="/edit">
               <Button height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
-                <Icon as={FaEdit} boxSize={6} />
+                <Icon as={FiEdit} boxSize={6} />
               </Button>
             </Link>
             <Link as={RouterLink} to="/communities">
               <Button height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
-                <Icon as={FaUsers} boxSize={6} />
+                <Icon as={FiUsers} boxSize={6} />
               </Button>
             </Link>
             <Link as={RouterLink} to="/messages">
               <Button height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
-                <Icon as={FaEnvelope} boxSize={6} />
+                <Icon as={FiMail} boxSize={6} />
               </Button>
             </Link>
             <Link as={RouterLink} to={`/${user.username}`}>
               <Button height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
-                <Icon as={FaUser} boxSize={6} />
+                <Icon as={FiUser} boxSize={6} />
               </Button>
             </Link>
           </Flex>
