@@ -65,7 +65,7 @@ const Controls = () => {
           <Flex justifyContent="space-between" alignItems="center" mx="4">
             <Link as={RouterLink} to='/' position="relative" height="auto" borderRadius="20px" bg="transparent">
               <Icon as={FiHome} boxSize={6} color={isActive('/') ? "#1D88F2" : undefined} />
-              <Box position="absolute" top="-4px" zIndex="994" right="18px" width="6px" height="6px" bg="#1D88F2" borderRadius="50%" />
+              <Box position="absolute" top="-4px" zIndex="994" right="2px" width="6px" height="6px" bg="#1D88F2" borderRadius="50%" />
             </Link>
             <Link as={RouterLink} to="/chat" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
               <Icon as={FiSearch} boxSize={6} color={isActive('/chat') ? "#1D88F2" : undefined} />
