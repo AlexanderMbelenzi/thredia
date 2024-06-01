@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { Box, Flex, Button, Link, useColorMode, useBreakpointValue, Icon, useColorModeValue } from "@chakra-ui/react";
+import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Box, Flex, Link, useColorMode, useBreakpointValue, Icon, useColorModeValue } from "@chakra-ui/react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 import authScreenAtom from "../atoms/authAtom";
@@ -37,6 +37,7 @@ const Controls = () => {
     const user = useRecoilValue(userAtom);
     const setAuthScreen = useSetRecoilState(authScreenAtom);
     const logout = useLogout();
+    const location = useLocation();
 
     const isVisibleOnSmallScreen = useBreakpointValue({ base: true, md: false });
     const scrollDirection = useScrollDirection();
@@ -56,37 +57,30 @@ const Controls = () => {
       transform: scrollDirection === "down" ? "translateY(100%)" : "translateY(0)",
     };
 
+    const isActive = (path) => location.pathname === path;
+
     return (
       <Box sx={controlBoxStyles}>
         <Box py={2} px={0} maxW="620px" marginX="auto">
-          <Flex justifyContent="space-between" alignItems="center">
+          <Flex justifyContent="space-between" alignItems="center" mx="4">
             <Link as={RouterLink} to='/' position="relative" height="auto" borderRadius="20px" bg="transparent">
-                <Icon as={FiHome} boxSize={6} />
-              
-            
-                <Box position="absolute" top="-4px" zIndex="994" right="18px" width="6px" height="6px" bg="#1D88F2" borderRadius="50%" />
-          
-            </Link>
-
-            <Link as={RouterLink} to="/chat"height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
-                <Icon as={FiSearch} boxSize={6} />
-              
-            </Link>
-            <Link as={RouterLink} to="/CreatePost" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
-                <Icon as={FiEdit} boxSize={6} />
-          
-            </Link>
-            <Link as={RouterLink} to="/communities" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
-                <Icon as={FiUsers} boxSize={6} />
-            
+              <Icon as={FiHome} boxSize={6} color={isActive('/') ? "#1D88F2" : undefined} />
+              <Box position="absolute" top="-4px" zIndex="994" right="18px" width="6px" height="6px" bg="#1D88F2" borderRadius="50%" />
             </Link>
             <Link as={RouterLink} to="/chat" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
-                <Icon as={FiMail} boxSize={6} />
-            
+              <Icon as={FiSearch} boxSize={6} color={isActive('/chat') ? "#1D88F2" : undefined} />
+            </Link>
+            <Link as={RouterLink} to="/CreatePost" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
+              <Icon as={FiEdit} boxSize={6} color={isActive('/CreatePost') ? "#1D88F2" : undefined} />
+            </Link>
+            <Link as={RouterLink} to="/communities" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
+              <Icon as={FiUsers} boxSize={6} color={isActive('/communities') ? "#1D88F2" : undefined} />
+            </Link>
+            <Link as={RouterLink} to="/chat" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
+              <Icon as={FiMail} boxSize={6} color={isActive('/chat') ? "#1D88F2" : undefined} />
             </Link>
             <Link as={RouterLink} to={`/${user.username}`} height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
-                <Icon as={FiUser} boxSize={6} />
-           
+              <Icon as={FiUser} boxSize={6} color={isActive(`/${user.username}`) ? "#1D88F2" : undefined} />
             </Link>
           </Flex>
         </Box>
