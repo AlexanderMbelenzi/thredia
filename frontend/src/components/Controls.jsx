@@ -67,19 +67,19 @@ const Controls = () => {
               <Icon as={FiHome} boxSize={6} color={isActive('/') ? "#1D88F2" : undefined} />
               <Box position="absolute" top="-4px" zIndex="994" right="2px" width="6px" height="6px" bg="#1D88F2" borderRadius="50%" />
             </Link>
-            <Link as={RouterLink} to="/chat" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
+            <Link as={RouterLink} to="/chat" height="auto" bg={useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
               <Icon as={FiSearch} boxSize={6} color={isActive('/chat') ? "#1D88F2" : undefined} />
             </Link>
-            <Link as={RouterLink} to="/CreatePost" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
+            <Link as={RouterLink} to="/CreatePost" height="auto" bg={useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
               <Icon as={FiEdit} boxSize={6} color={isActive('/CreatePost') ? "#1D88F2" : undefined} />
             </Link>
-            <Link as={RouterLink} to="/communities" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
+            <Link as={RouterLink} to="/communities" height="auto" bg={useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
               <Icon as={FiUsers} boxSize={6} color={isActive('/communities') ? "#1D88F2" : undefined} />
             </Link>
-            <Link as={RouterLink} to="/chat" height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
+            <Link as={RouterLink} to="/chat" height="auto" bg={useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
               <Icon as={FiMail} boxSize={6} color={isActive('/chat') ? "#1D88F2" : undefined} />
             </Link>
-            <Link as={RouterLink} to={`/${user.username}`} height="auto" bg={useColorModeValue("whiteAlpha.800", "blackAlpha.800")} borderRadius="20px">
+            <Link as={RouterLink} to={`/${user.username}`} height="auto" bg={useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
               <Icon as={FiUser} boxSize={6} color={isActive(`/${user.username}`) ? "#1D88F2" : undefined} />
             </Link>
           </Flex>
