@@ -150,7 +150,7 @@ const Post = ({ post, postedBy }) => {
                 WebkitLineClamp: showFullText ? "none" : 4,
               }}
               mt={-2}
-              fontSize={{ base: "sm", md: "md" }}
+              fontSize={{ base: "xs", md: "md" }}
               fontFamily="'Noto Sans', Arial, sans-serif"
               fontWeight={"normal"}
             >
