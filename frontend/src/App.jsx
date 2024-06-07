@@ -8,7 +8,7 @@ import HomePage1 from "./pages/HomePage1";
 import AuthPage from "./pages/AuthPage";
 import { useRecoilValue } from "recoil";
 import userAtom from "./atoms/userAtom";
-import Controls from "./components/Controls";
+
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import CreatePost from "./components/CreatePost";
 import ChatPage from "./pages/ChatPage";
@@ -22,11 +22,11 @@ function App() {
 
 <Container maxW={pathname === "/" || pathname === "/Home2" ? { base: "620px", md: "1500px" } : "620px"}>
 <Header />
-<Controls />
+
 
 <Routes>                
-                    <Route path='/' element={user ? <HomePage1 /> : <Navigate to='/auth' />} />
-                    <Route path='/Home2' element={user ? <HomePage2 /> : <Navigate to='/auth' />} />
+                    <Route path='/' element={<HomePage1 />} />
+                    
 					<Route path='/CreatePage' element={user ? <CreatePage /> : <Navigate to='/auth' />} />
                     <Route path='/auth' element={!user ? <AuthPage /> : <Navigate to='/' />} />
 					<Route path='/update' element={user ? <UpdateProfilePage /> : <Navigate to='/auth' />} />

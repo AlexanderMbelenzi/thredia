@@ -4,26 +4,24 @@ import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Link, useNavigate } from "react-router-dom";
 import Actions from "./Actions";
 import { useColorMode } from "@chakra-ui/react";
-import { useEffect, useState, useRef } from "react"; // Added useRef for managing text truncation
+import { useEffect, useState, useRef } from "react";
 import useShowToast from "../hooks/useShowToast";
 import { formatDistanceToNow } from "date-fns";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import postsAtom from "../atoms/postsAtom";
-import emoji from "/public/emoji2.png"; // Import your PNG image
-import round from "/public/round.png"; // Import your PNG image
 
 const Post = ({ post, postedBy }) => {
-  const { colorMode } = useColorMode(); // Hook to access color mode
+  const { colorMode } = useColorMode();
 
   const [user, setUser] = useState(null);
-  const [showFullText, setShowFullText] = useState(false); // State to manage text display
+  const [showFullText, setShowFullText] = useState(false);
   const showToast = useShowToast();
   const currentUser = useRecoilValue(userAtom);
   const [posts, setPosts] = useRecoilState(postsAtom);
   const navigate = useNavigate();
-  const textRef = useRef(null); // Ref for managing text truncation
+  const textRef = useRef(null);
 
   useEffect(() => {
     const getUser = async () => {
@@ -68,7 +66,6 @@ const Post = ({ post, postedBy }) => {
 
   if (!user) return null;
 
-  // Logic to determine if text needs truncation
   const shouldTruncate = textRef.current && textRef.current.scrollHeight > textRef.current.clientHeight;
 
   return (
@@ -100,39 +97,20 @@ const Post = ({ post, postedBy }) => {
                 </Text>
               )}
               <Flex mt={4}>
-                {post.replies[0] && (
+                {post.replies.slice(0, 3).map((reply, index) => (
                   <Avatar
-                    size='xs'
+                    key={index}
+                    size={index === 1 ? '2xs' : 'xs'}
                     name='John doe'
-                    src={post.replies[0].userProfilePic}
+                    src={reply.userProfilePic}
                     position={"absolute"}
-                    top={"0px"}
-                    left='15px'
+                    top={index === 1 ? "auto" : "0px"}
+                    bottom={index === 1 ? "15px" : "auto"}
+                    left={index === 1 ? "auto" : "-1px"}
+                    right={index === 1 ? "8px" : "auto"}
                     padding={"2px"}
                   />
-                )}
-                {post.replies[1] && (
-                  <Avatar
-                    size='2xs'
-                    name='John doe'
-                    src={post.replies[1].userProfilePic}
-                    position={"absolute"}
-                    bottom={"15px"}
-                    right='8px'
-                    padding={"2px"}
-                  />
-                )}
-                {post.replies[2] && (
-                  <Avatar
-                    size='xs'
-                    name='John doe'
-                    src={post.replies[2].userProfilePic}
-                    position={"absolute"}
-                    bottom={"15px"}
-                    left='-1px'
-                    padding={"2px"}
-                  />
-                )}
+                ))}
               </Flex>
             </Box>
           </Flex>
@@ -164,19 +142,21 @@ const Post = ({ post, postedBy }) => {
             </Flex>
             <Text
               ref={textRef}
-              noOfLines={showFullText ? null : 3}
+              noOfLines={showFullText ? null : 4}
               overflow={showFullText ? "visible" : "hidden"}
               display={showFullText ? "block" : "-webkit-box"}
               style={{
                 WebkitBoxOrient: "vertical",
-                WebkitLineClamp: showFullText ? "none" : 3,
+                WebkitLineClamp: showFullText ? "none" : 4,
               }}
               mt={-2}
-              fontSize={{ base: "xs", md: "md" }}
-              prefix="2"  fontFamily="'Noto Sans', Arial, sans-serif"    fontWeight={"normal"}>
+              fontSize={{ base: "sm", md: "md" }}
+              fontFamily="'Noto Sans', Arial, sans-serif"
+              fontWeight={"normal"}
+            >
               {post.text}
             </Text>
-            {shouldTruncate && !showFullText && (
+            {shouldTruncate && (
               <Text
                 as="span"
                 fontSize={"xs"}
@@ -187,39 +167,55 @@ const Post = ({ post, postedBy }) => {
                   toggleTextDisplay();
                 }}
               >
-                Show more
+                {showFullText ? "Show less" : "Show more"}
               </Text>
             )}
-            {showFullText && (
-              <Text
-                as="span"
-                 fontSize={"xs"}
+              {post.img && (
+           
+              <Box
+                maxH={600}
+                overflow="hidden"
+                position="relative"
+                borderRadius={6}
+              >
+                <Box
+                  filter="blur(40px)"
+                  backgroundImage={`url(${post.img})`}
+                  backgroundSize="cover"
+                  backgroundPosition="center"
+                  w="full"
+                  h="full"
+                  position="absolute"
+                  top={0}
+                  left={0}
+                  borderRadius={6}
+                />
+                <Image
+                  src={post.img}
+                  w="full"
+                  h="full"
+                  objectFit="contain"
+                  borderRadius={6}
+                  boxShadow={`0px 0px 0px 15px ${
+                    colorMode === "light"
+                      ? "rgba(0, 0, 0, 0.1)"
+                      : "rgba(0, 0, 0, 0.5)"
+                  }`}
+                  position="relative"
+                />
+              </Box>
+            
 
-                color="#1D88F2"
-                cursor="pointer"
-                onClick={(e) => {
-                e.preventDefault();
-                toggleTextDisplay();
-                }}
-                >
-                Show less
-                </Text>
-                )}
-                {/* Moved the image rendering inside the main Flex container */}
-                {post.img && (
-                <Box borderRadius={6} overflow={"hidden"} border={"1px solid"} borderColor={colorMode === "light" ? "gray.400" : "#2B2B2B"}>
-                <Image src={post.img} w={"full"} />
-                </Box>
-                )}
-                <Flex gap={3} my={1}>
-                <Actions post={post} />
-                </Flex>
-                </Flex>
-                </Flex>
-                <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={4}></Box>
-                </Link>
-                </Box>
-                );
-                };
-                
-                export default Post;
+                  )}
+                  <Flex gap={3} my={1}>
+                  <Actions post={post} />
+                  </Flex>
+                  </Flex>
+                  </Flex>
+                  <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={4}></Box>
+                  </Link>
+                  </Box>
+                  );
+                  };
+                  
+                  export default Post;

@@ -11,6 +11,7 @@ import {
   useColorMode
 } from "@chakra-ui/react";
 import { FiHome, FiCompass, FiUser, FiBell, FiMessageSquare, FiSearch, FiMic, FiUsers, FiSettings, FiInfo, FiLogOut, FiPlusSquare } from 'react-icons/fi'; // Import icons from react-icons
+import { FiInbox } from "react-icons/fi";
 
 import useLogout from "../hooks/useLogout";
 import userAtom from "../atoms/userAtom";
@@ -20,10 +21,14 @@ const SideBar = () => {
   const user = useRecoilValue(userAtom);
   const logout = useLogout();
 
+
+
   return (
-    <Box position="fixed" >
-      <Flex direction="column" marginTop="50px" alignItems="flex-start">
-        <Box height="full"  position="fixed" display={{ base: "none", md: "block" }}>
+    <Box position="fixed"    >
+      <Flex direction="column" marginTop="50px"    alignItems="flex-start">
+        <Box   height="600px"
+    overflowY="scroll"    position="fixed" display={{ base: "none", md: "block" }}>
+      
           <Stack>
 
             <Link as={RouterLink} to='/'>

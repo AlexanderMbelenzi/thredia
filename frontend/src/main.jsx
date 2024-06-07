@@ -11,41 +11,39 @@ import { RecoilRoot } from "recoil";
 import { SocketContextProvider } from "./context/SocketContext.jsx";
 
 const styles = {
-	global: (props) => ({
-		body: {
-			color: mode("gray.900", "white")(props),
-			bg: mode("#F5F8FA", "#010102")(props),
-			
-		},
-	}),
+  global: (props) => ({
+    body: {
+      color: mode("gray.900", "white")(props),
+      bg: mode("#F5F8FA", "#010102")(props),
+    },
+  }),
 };
 
 const config = {
-	initialColorMode: "dark",
-	useSystemColorMode: true,
+  initialColorMode: "dark",
+  useSystemColorMode: true,
 };
 
 const colors = {
-	gray: {
-		light: "#616161",
-		dark: "#000000",
-	},
+  gray: {
+    light: "#616161",
+    dark: "#000000",
+  },
 };
 
 const theme = extendTheme({ config, styles, colors });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	// React.StrictMode renders every component twice (in the initial render), only in development.
-	<React.StrictMode>
-		<RecoilRoot>
-			<BrowserRouter>
-				<ChakraProvider theme={theme}>
-					<ColorModeScript initialColorMode={theme.config.initialColorMode} />
-					<SocketContextProvider>
-						<App />
-					</SocketContextProvider>
-				</ChakraProvider>
-			</BrowserRouter>
-		</RecoilRoot>
-	</React.StrictMode>
+  <React.StrictMode>
+    <RecoilRoot>
+      <BrowserRouter>
+        <ChakraProvider theme={theme}>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+          <SocketContextProvider>
+            <App />
+          </SocketContextProvider>
+        </ChakraProvider>
+      </BrowserRouter>
+    </RecoilRoot>
+  </React.StrictMode>
 );
