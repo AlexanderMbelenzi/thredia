@@ -173,7 +173,7 @@ const Post = ({ post, postedBy }) => {
               {post.img && (
            
               <Box
-                maxH={600}
+                maxH={{ base: "400", md: "600" }}
                 overflow="hidden"
                 position="relative"
                 borderRadius={6}
