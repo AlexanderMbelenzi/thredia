@@ -94,6 +94,7 @@ import {
             <Text
               pl={2}
               height="60px"
+              pt={"2%"}
               fontWeight={"bold"}
               fontFamily="'Noto Sans', Arial, sans-serif"
               fontSize={"xl"}
@@ -102,20 +103,20 @@ import {
               <p>Welcome to reddit</p>
             </Text>
             <Text
-              pt={"10%"}
+            
               pl={2}
-              pb={"8%"}
+              pb={"4%"}
               color={"white"}
               style={{ textShadow: "0 0 2px black" }}
               fontFamily="'Noto Sans', Arial, sans-serif"
               fontSize={{ base: "xs", md: "lg" }}
               fontWeight={"normal"}
             >
-              We are excited to announce that we will be releasing new features
-              every week until our final product.
+             We are excited to announce that we will be rolling out new features every week.
+              Stay tuned for regular updates and enhancements!
             </Text>
-            <Text pt={"8%"} pl={2}>
-              <Link
+            <Text pt={"1%"} pl={2} pb={"7%"}  >
+              <Link 
                 as={RouterLink}
                 to="/auth"
                 style={{
@@ -125,7 +126,7 @@ import {
                   color: "#1D88F2 ",
                 }}
               >
-                Check it out
+                Coming soon
               </Link>
             </Text>
           </Box>
@@ -137,13 +138,13 @@ import {
             backgroundColor={colorMode === "light" ? "#edf1f5" : "#101014"}
             rounded={"xl"}
             mb={4}
-            mt={85}
+            mt={90}
             padding={4}
             gap={4}
           >
             <Text
               mb={4}
-              fontSize={"xl"}
+              fontSize={"md"}
               fontFamily="'Noto Sans', Arial, sans-serif"
               fontWeight={"bold"}
             >
@@ -184,7 +185,7 @@ import {
               
                 fontFamily="'Noto Sans', Arial, sans-serif"
                 fontWeight={"bold"}
-                fontSize={"xl"}
+                fontSize={"md"}
               >
                 <p>Coming soon</p>
               </Text>

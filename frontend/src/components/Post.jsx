@@ -74,43 +74,66 @@ const Post = ({ post, postedBy }) => {
         <Flex gap={3} paddingTop={3}>
           <Flex flexDirection={"column"} alignItems={"center"}>
             <Box position="relative">
-              <Avatar
-                size={{
-                  base: "sm",
-                  sm: "sm",
-                  md: "md",
-                }}
-                name={user.name}
-                src={user?.profilePic}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(`/${user.username}`);
-                }}
-                zIndex={1}
-              />
-            </Box>
+            <Avatar
+
+size={{
+	base: "sm",
+	sm: "sm",
+	md: "md",
+}}
+  name={user.name}
+  src={user?.profilePic}
+  onClick={(e) => {
+    e.preventDefault();
+    navigate(`/${user.username}`);
+  }}
+  zIndex={1}
+/>
+
+
+</Box>
+
             <Box w='1px' h={"full"} bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} my={2} mb={4}></Box>
             <Box position={"relative"} w={"full"}>
               {post.replies.length === 0 && (
                 <Text textAlign={"center"}>
-                  <Text w={5} h={5} ml={3} mb={-2}>🥱</Text>
+                  <Text w={5} h={5} ml={3} mb={-2}  >🥱</Text> 
                 </Text>
               )}
               <Flex mt={4}>
-                {post.replies.slice(0, 3).map((reply, index) => (
+                {post.replies[0] && (
                   <Avatar
-                    key={index}
-                    size={index === 1 ? '2xs' : 'xs'}
+                    size='xs'
                     name='John doe'
-                    src={reply.userProfilePic}
+                    src={post.replies[0].userProfilePic}
                     position={"absolute"}
-                    top={index === 1 ? "auto" : "0px"}
-                    bottom={index === 1 ? "15px" : "auto"}
-                    left={index === 1 ? "auto" : "-1px"}
-                    right={index === 1 ? "8px" : "auto"}
+                    top={"0px"}
+                    left='15px'
                     padding={"2px"}
                   />
-                ))}
+                )}
+                {post.replies[1] && (
+                  <Avatar
+                    size='2xs'
+                    name='John doe'
+                    src={post.replies[1].userProfilePic}
+                    position={"absolute"}
+                    bottom={"15px"}
+                    right='8px'
+                    padding={"2px"}
+                  />
+                )}
+                {post.replies[2] && (
+                  <Avatar
+                    size='xs'
+                    name='John doe'
+                    src={post.replies[2].userProfilePic}
+                    position={"absolute"}
+                    bottom={"15px"}
+                    left='-1px'
+                    padding={"2px"}
+                  />
+                )}
               </Flex>
             </Box>
           </Flex>
@@ -119,6 +142,7 @@ const Post = ({ post, postedBy }) => {
               <Flex w={"full"} alignItems={"center"}>
                 <Text
                   fontSize={"sm"}
+				 
                   fontWeight={"bold"}
                   onClick={(e) => {
                     e.preventDefault();
@@ -129,12 +153,12 @@ const Post = ({ post, postedBy }) => {
                 </Text>
                 <Image src='/verified.png' w={4} h={4} ml={1} />
                 <Box w={0.5} h={0.5} mx={1} borderRadius={"full"} bg={"gray.light"}></Box>
-                <Text fontSize={"xs"} textAlign={"left"} color="#68717a">
+                <Text fontSize={"xs"} textAlign={"left"}  color="#68717a">
                   {formatDistanceToNow(new Date(post.createdAt))}
                 </Text>
               </Flex>
               <Flex gap={4} alignItems={"center"} marginLeft={"-20"}>
-                <Text fontSize={"sm"} textAlign={"right"} color="#68717a">
+                <Text fontSize={"sm"} textAlign={"right"}  color="#68717a">
                   ...
                 </Text>
                 {currentUser?._id === user._id && <DeleteIcon size={18} onClick={handleDeletePost} />}

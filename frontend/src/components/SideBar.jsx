@@ -24,10 +24,9 @@ const SideBar = () => {
 
 
   return (
-    <Box position="fixed"    >
-      <Flex direction="column" marginTop="50px"    alignItems="flex-start">
-        <Box   height="600px"
-    overflowY="scroll"    position="fixed" display={{ base: "none", md: "block" }}>
+   
+      <Box direction="column" marginTop="50px" width={"13%"}   
+        alignItems="flex-start"   position="fixed" display={{ base: "none", md: "block" }}>
       
           <Stack>
 
@@ -42,7 +41,7 @@ const SideBar = () => {
               </Button>
             </Link>
 
-            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
+            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.700"} mt={2}></Box>
 
             <Link as={RouterLink} to={`/${user.username}`}>
               <Button leftIcon={<FiUser />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
@@ -50,9 +49,12 @@ const SideBar = () => {
               </Button>
             </Link>
 
+        
             <Link as={RouterLink} to="/chat">
-              <Button leftIcon={<FiBell />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
-                Notifications
+              <Button leftIcon={<FiBell />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"}  borderRadius="20px">
+                Notifications 
+          
+
               </Button>
             </Link>
             <Link as={RouterLink} to={`/chat`}>
@@ -60,7 +62,7 @@ const SideBar = () => {
                 Messages
               </Button>
             </Link>
-            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
+            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.700"} mt={2}></Box>
 
             <Text pl={4} fontWeight="normal" color={colorMode === "dark" ? "gray.300" : "gray.600"}>Top Pics</Text>
 
@@ -95,7 +97,7 @@ const SideBar = () => {
             </Link>
 
 
-            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
+            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.700"}mt={2}></Box>
 
             <Text pl={4} color={colorMode === "dark" ? "gray.300" : "gray.600"} fontWeight="normal">Resources</Text>
             <Link as={RouterLink} to={`/settings`}>
@@ -112,14 +114,14 @@ const SideBar = () => {
 
 
 
-            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={2}></Box>
+            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.700"} mt={2}></Box>
 
             <Flex justifyContent="left">
               <Button
                 as={RouterLink} to="/create"
                 backgroundColor="#1D88F2"
                 style={{
-                  marginTop: "20%",
+                  marginTop: "25%",
                   borderRadius: "20px",
                   fontSize: "lg",
                   width: "80%",
@@ -129,11 +131,11 @@ const SideBar = () => {
               >
                 Post
               </Button>
-            </Flex>
+            </ Flex >
           </Stack>
-        </Box>
-      </Flex>
-    </Box>
+        
+      </Box>
+    
   );
 };
 

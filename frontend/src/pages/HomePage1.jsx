@@ -115,67 +115,31 @@ const HomePage1 = () => {
         <Box mt={6} mb={4}>
 <Flex><Box>
   <Flex justify="space-between">
-    <Box flexBasis="27%" marginRight="4"   display={{
-    base: "none", // Hide on small screens
-    lg: "block", // Show on large screens and above (>= 1000px)
-  }}  >
-      <Image src={pizza1} alt="Pizza 1" width="100%"   borderRadius="md" />
-    </Box>
-    <Box flexBasis="27%" marginRight="4"  display={{
-    base: "none", // Hide on small screens
-    lg: "block", // Show on large screens and above (>= 1000px)
-  }} >
-      <Image src={pizza2} alt="Pizza 2" width="100%"   borderRadius="md" />
-    </Box>
-    <Box flexBasis="27%" marginRight="4"   display={{
-    base: "none", // Hide on small screens
-    lg: "block", // Show on large screens and above (>= 1000px)
-  }}  >
-      <Image src={pizza3} alt="Pizza 3" width="100%"     borderRadius="md" />
-    </Box>
-    <Box flexBasis="27%"    display={{
-    base: "none", // Hide on small screens
-    lg: "block", // Show on large screens and above (>= 1000px)
-  }}  >
-      <Image src={pizza4} alt="Pizza 4" width="100%"   borderRadius="md" />
-    </Box>
 
 
 
 
     <Box
-  flexBasis="33%" mr="2"
-  display={{
-    base: "block", // Show on small screens
-    md: "none", 
-    lg: "none",    // Hide on large screens and above (>= 1000px)
-  }}
+  flexBasis="33%" mr="3"
+
 >
-  <Image src={pizza5} alt="Pizza 4" width="100%" borderRadius="md" />
+  <Image src={pizza5} alt="Pizza 4" width="100%" borderRadius="lg" />
 </Box>
 
 
 <Box
-  flexBasis="33%" mr="2"
-  display={{
-    base: "block", // Show on small screens
-    md: "none", 
-    lg: "none",    // Hide on large screens and above (>= 1000px)
-  }}
+  flexBasis="33%" mr="3"
+ 
 >
-  <Image src={pizza6} alt="Pizza 4" width="100%" borderRadius="md" />
+  <Image src={pizza6} alt="Pizza 4" width="100%" borderRadius="lg" />
 </Box>
 
 
 <Box
   flexBasis="33%"
-  display={{
-    base: "block", // Show on small screens
-    md: "none", 
-    lg: "none",    // Hide on large screens and above (>= 1000px)
-  }}
+
 >
-  <Image src={pizza7} alt="Pizza 4" width="100%" borderRadius="md" />
+  <Image src={pizza7} alt="Pizza 4" width="100%" borderRadius="lg" />
 </Box>
 
   </Flex>
