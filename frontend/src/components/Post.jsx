@@ -65,71 +65,81 @@ const Post = ({ post, postedBy }) => {
 
   if (!user) return null;
 
-  const TEXT_LIMIT = 200; // Character limit to truncate the text
+  const TEXT_LIMIT = 300; // Character limit to truncate the text
 
   const shouldTruncate = post.text.length > TEXT_LIMIT;
 
-  return (
-    <Box wordBreak="break-word">
-      <Link to={`/${user.username}/post/${post._id}`}>
-        <Flex gap={3} paddingTop={3}>
-          <Flex flexDirection={"column"} alignItems={"center"}>
-            <Box position="relative">
+  
+    return (
+      <Box wordBreak="break-word">
+        <Link to={`/${user.username}/post/${post._id}`}>
+          <Flex gap={3} paddingTop={3}>
+            <Flex flexDirection={"column"} alignItems={"center"}>
+              <Box position="relative">
               <Avatar
-                size={{ base: "sm", sm: "sm", md: "md" }}
-                name={user.name}
-                src={user?.profilePic}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(`/${user.username}`);
-                }}
-                zIndex={1}
-              />
-            </Box>
-            <Box w='1px' h={"full"} bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} my={2} mb={4}></Box>
-            <Box position={"relative"} w={"full"}>
-              {post.replies.length === 0 && (
-                <Text textAlign={"center"}>
-                  <Text w={5} h={5} ml={3} mb={-2}>🥱</Text>
-                </Text>
-              )}
-              <Flex mt={4}>
-                {post.replies[0] && (
-                  <Avatar
-                    size='xs'
-                    name='John doe'
-                    src={post.replies[0].userProfilePic}
-                    position={"absolute"}
-                    top={"0px"}
-                    left='15px'
-                    padding={"2px"}
-                  />
+  
+  size={{
+    base: "sm",
+    sm: "sm",
+    md: "md",
+  }}
+    name={user.name}
+    src={user?.profilePic}
+    onClick={(e) => {
+      e.preventDefault();
+      navigate(`/${user.username}`);
+    }}
+    zIndex={1}
+  />
+  
+  
+  </Box>
+  
+              <Box w='1px' h={"full"} bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} my={2} mb={4}></Box>
+              <Box position={"relative"} w={"full"}>
+                {post.replies.length === 0 && (
+                  <Text textAlign={"center"}>
+                    <Text w={5} h={5} ml={3} mb={-2}  >🥱</Text> 
+                  </Text>
                 )}
-                {post.replies[1] && (
-                  <Avatar
-                    size='2xs'
-                    name='John doe'
-                    src={post.replies[1].userProfilePic}
-                    position={"absolute"}
-                    bottom={"15px"}
-                    right='8px'
-                    padding={"2px"}
-                  />
-                )}
-                {post.replies[2] && (
-                  <Avatar
-                    size='xs'
-                    name='John doe'
-                    src={post.replies[2].userProfilePic}
-                    position={"absolute"}
-                    bottom={"15px"}
-                    left='-1px'
-                    padding={"2px"}
-                  />
-                )}
-              </Flex>
-            </Box>
-          </Flex>
+                <Flex mt={4}>
+                  {post.replies[0] && (
+                    <Avatar
+                      size='xs'
+                      name='John doe'
+                      src={post.replies[0].userProfilePic}
+                      position={"absolute"}
+                      top={"0px"}
+                      left='15px'
+                      padding={"2px"}
+                    />
+                  )}
+                  {post.replies[1] && (
+                    <Avatar
+                      size='2xs'
+                      name='John doe'
+                      src={post.replies[1].userProfilePic}
+                      position={"absolute"}
+                      bottom={"15px"}
+                      right='8px'
+                      padding={"2px"}
+                    />
+                  )}
+                  {post.replies[2] && (
+                    <Avatar
+                      size='xs'
+                      name='John doe'
+                      src={post.replies[2].userProfilePic}
+                      position={"absolute"}
+                      bottom={"15px"}
+                      left='-1px'
+                      padding={"2px"}
+                    />
+                  )}
+                </Flex>
+              </Box>
+            </Flex>
+
           <Flex flex={1} flexDirection={"column"} gap={2}>
             <Flex justifyContent={"space-between"} w={"full"}>
               <Flex w={"full"} alignItems={"center"}>
@@ -157,12 +167,12 @@ const Post = ({ post, postedBy }) => {
               </Flex>
             </Flex>
             <Text
-              noOfLines={showFullText ? null : 4}
+              noOfLines={showFullText ? null : 5}
               overflow={showFullText ? "visible" : "hidden"}
               display={showFullText ? "block" : "-webkit-box"}
               style={{
                 WebkitBoxOrient: "vertical",
-                WebkitLineClamp: showFullText ? "none" : 4,
+                WebkitLineClamp: showFullText ? "none" : 5,
               }}
               mt={-2}
               fontSize={{ base: "xs", md: "md" }}
