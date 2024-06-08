@@ -41,7 +41,7 @@ const SideBar = () => {
               </Button>
             </Link>
 
-            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.700"} mt={2}></Box>
+            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.800"} mt={2}></Box>
 
             <Link as={RouterLink} to={`/${user.username}`}>
               <Button leftIcon={<FiUser />} fontWeight="normal" size="md"bg={colorMode === "light" ? "#F5F8FA" : "#030304"} borderRadius="20px">
@@ -62,7 +62,7 @@ const SideBar = () => {
                 Messages
               </Button>
             </Link>
-            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.700"} mt={2}></Box>
+            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.800"} mt={2}></Box>
 
             <Text pl={4} fontWeight="normal" color={colorMode === "dark" ? "gray.300" : "gray.600"}>Top Pics</Text>
 
@@ -97,7 +97,7 @@ const SideBar = () => {
             </Link>
 
 
-            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.700"}mt={2}></Box>
+            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.800"}mt={2}></Box>
 
             <Text pl={4} color={colorMode === "dark" ? "gray.300" : "gray.600"} fontWeight="normal">Resources</Text>
             <Link as={RouterLink} to={`/settings`}>
@@ -114,7 +114,7 @@ const SideBar = () => {
 
 
 
-            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.700"} mt={2}></Box>
+            <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "gray.800"} mt={2}></Box>
 
             <Flex justifyContent="left">
               <Button

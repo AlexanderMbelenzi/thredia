@@ -25,7 +25,7 @@ function App() {
 <Controls />
 
 <Routes>                
-                    <Route path='/' element={<HomePage1 />} />
+                    <Route path='/' element={user ? <HomePage1 /> : <Navigate to='/auth' />} />
                     
 					<Route path='/CreatePage' element={user ? <CreatePage /> : <Navigate to='/auth' />} />
                     <Route path='/auth' element={!user ? <AuthPage /> : <Navigate to='/' />} />
