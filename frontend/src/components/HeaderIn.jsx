@@ -117,14 +117,46 @@
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>
+    <Link as={RouterLink} to="/">
+                                        <Image src={Logo2}  alt="Logo" cursor="pointer" className="logo" />
+                                    </Link>
+
                                 <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
         color: "blue.500" }}   onClick={() => setAuthScreen("login")}>
                                     Login
                                 </Link>
+
+
+
+                                <Link  fontSize="lg"
+                                      alt="theme"
+                                      onClick={toggleColorMode}
+                                         >
+                                         <SunIcon  />
+                                    </Link>
+                            
+
+
                                 <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
         color: "blue.500" }}  onClick={() => setAuthScreen("signup")}>
                                     Sign up
                                 </Link>
+
+                                 <Link  fontSize="2xl"
+                                        as={RouterLink}
+                                        to="/auth" >
+                                 
+                                  </Link>
+                           <Flex justifyContent="center" 
+                                 alignItems="center">
+                                
+                                <Link  fontSize="2xl"
+                                        as={RouterLink}
+                                        to="/auth" >
+                                  <HamburgerIcon  />
+                                 </Link>  </Flex>  
+
+
                             </>
                         ) : (
 

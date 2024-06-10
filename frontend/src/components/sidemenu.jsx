@@ -68,6 +68,15 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
 
                             {/* Menu items */}
                             <Flex flexDirection="column">
+
+
+                            <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                    <Icon as={FaStar} mr={2} />
+                                    <Text>Reddit 500</Text>
+                                </Link>
+                                <br />
+
+
                                 <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaSun} mr={2} />
                                     <Text>Discover Daily</Text>

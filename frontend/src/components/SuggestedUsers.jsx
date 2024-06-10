@@ -1,75 +1,93 @@
 import {
-    Box,
-    Flex,
-    Link,
-    Text,
-    Button,
-    Skeleton,
-    SkeletonCircle,
-    useColorMode,
-  } from "@chakra-ui/react";
-  import { useEffect, useState, useRef } from "react";
-  import SuggestedUser from "./SuggestedUser";
-  import useShowToast from "../hooks/useShowToast";
-  import { Link as RouterLink } from "react-router-dom";
-  
-  import pic1 from "/public/post1.png";
-  import pic2 from "/public/pic2.jpg";
-  import pic3 from "/public/pic.jpg";
-  
-  const SuggestedUsers = () => {
-    const { colorMode } = useColorMode();
-    const [bgIndex, setBgIndex] = useState(0);
-    const backgrounds = [pic1, pic2, pic3];
-    const [loading, setLoading] = useState(true);
-    const [suggestedUsers, setSuggestedUsers] = useState([]);
-    const showToast = useShowToast();
-    const welcomeSectionRef = useRef(null);
-    const [isScrolledOut, setIsScrolledOut] = useState(false);
-  
-    useEffect(() => {
-      const getSuggestedUsers = async () => {
-        setLoading(true);
-        try {
-          const res = await fetch("/api/users/suggested");
-          const data = await res.json();
-          if (data.error) {
-            showToast("Error", data.error, "error");
-            return;
-          }
-          setSuggestedUsers(data);
-        } catch (error) {
-          showToast("Error", error.message, "error");
-        } finally {
-          setLoading(false);
+  Box,
+  Flex,
+  Link,
+  Text,
+  Button,
+  Skeleton,
+  SkeletonCircle,
+  useColorMode,
+} from "@chakra-ui/react";
+import { useEffect, useState, useRef } from "react";
+import SuggestedUser from "./SuggestedUser";
+import useShowToast from "../hooks/useShowToast";
+import { Link as RouterLink } from "react-router-dom";
+
+import pic1 from "/public/post1.jpeg";
+import pic2 from "/public/post2.jpg";
+import pic3 from "/public/post3.jpg";
+
+const SuggestedUsers = () => {
+  const { colorMode } = useColorMode();
+  const [bgIndex, setBgIndex] = useState(0);
+  const backgrounds = [pic1, pic2, pic3];
+  const [loading, setLoading] = useState(true);
+  const [suggestedUsers, setSuggestedUsers] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const showToast = useShowToast();
+  const welcomeSectionRef = useRef(null);
+  const [isScrolledOut, setIsScrolledOut] = useState(false);
+
+  useEffect(() => {
+    // Function to check if user is logged in
+    const checkLoginStatus = async () => {
+      try {
+        const res = await fetch("/api/auth/status");
+        const data = await res.json();
+        setIsLoggedIn(data.isLoggedIn);
+      } catch (error) {
+        console.error("Error checking login status:", error);
+      }
+    };
+
+    checkLoginStatus();
+  }, []);
+
+  useEffect(() => {
+    const getSuggestedUsers = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(isLoggedIn ? "/api/users/suggested" : "/api/users/suggested");
+        const data = await res.json();
+        if (data.error) {
+          showToast("Error", data.error, "error");
+          return;
         }
-      };
+        setSuggestedUsers(data);
+      } catch (error) {
+        showToast("Error", error.message, "error");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getSuggestedUsers();
+  }, [isLoggedIn, showToast]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (welcomeSectionRef.current) {
+        const welcomeSection = welcomeSectionRef.current;
+        const rect = welcomeSection.getBoundingClientRect();
+        setIsScrolledOut(rect.bottom <= 0);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   
-      getSuggestedUsers();
-    }, [showToast]);
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-      }, 5000);
-  
-      return () => clearInterval(interval);
-    }, []);
-  
-    useEffect(() => {
-      const handleScroll = () => {
-        if (welcomeSectionRef.current) {
-          const welcomeSection = welcomeSectionRef.current;
-          const rect = welcomeSection.getBoundingClientRect();
-          setIsScrolledOut(rect.bottom <= 0);
-        }
-      };
-  
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }, []);
   
     return (
       <Box mr={"60"} position="absolute" ml={5} marginTop="50px">
@@ -132,18 +150,19 @@ import {
           </Box>
         </Box>
   
-        <Box  position={isScrolledOut ? "fixed" : "relative"} top={isScrolledOut ? "0px" : "auto"} mr={isScrolledOut ? "60" : "auto"}  >
+        <Box  position={isScrolledOut ? "fixed" : "relative"}          
+top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "60" : "auto"}  >
           <Flex
+         
             direction={"column"}
             backgroundColor={colorMode === "light" ? "#edf1f5" : "#101014"}
             rounded={"xl"}
             mb={4}
-            mt={90}
             padding={4}
             gap={4}
           >
             <Text
-              mb={4}
+        
               fontSize={"md"}
               fontFamily="'Noto Sans', Arial, sans-serif"
               fontWeight={"bold"}
@@ -156,8 +175,8 @@ import {
                 <SuggestedUser key={user._id} user={user} />
               ))}
             {loading &&
-              [0, 1, 2, 3, 4].map((_, idx) => (
-                <Flex key={idx} gap={2} alignItems={"center"} p={"1"} borderRadius={"md"}>
+              [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ].map((_, idx) => (
+                <Flex key={idx} gap={2} alignItems={"center"}            p={"1"} borderRadius={"md"}>
                   <Box>
                     <SkeletonCircle size={"10"} />
                   </Box>
@@ -193,27 +212,14 @@ import {
                 mt={2}
                 pl={2}
                 mb={2}
-                height="200px"
-                overflowY="scroll"
+              
                 pr={2}
                 fontSize={"md"}
                 fontFamily="'Noto Sans', Arial, sans-serif"
                 fontWeight={"normal"}
               >  
                We are excited to announce that we will be releasing new features
-                We are excited to announce that we will be releasing new features
-                every week until our final product. Watch out for the next feature on our features list.
-                We are excited to announce that we will be releasing new features
-                We are excited to announce that we will be releasing new features
-                every week u
-                We are excited to announce that we will be releasing new features
-                We are excited to announce that we will be releasing new features
-                every week until our final product. Watch out for the next feature on our features list.
-                We are excited to announce that we will be releasing new features
-                We are excited to announce that we will be releasing new features
-                every week until our final product. Watch out for the next feature on our features list.
-                every week until our final product. Watch out for the next feature on our features list.
-                every week until our final product. Watch out for the next feature on our features list.
+              
               </Text>
               <Text pl={2}>
                 <Button

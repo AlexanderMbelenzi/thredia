@@ -194,34 +194,62 @@ const updateUser = async (req, res) => {
 		console.log("Error in updateUser: ", err.message);
 	}
 };
-
 const getSuggestedUsers = async (req, res) => {
 	try {
-		// exclude the current user from suggested users array and exclude users that current user is already following
-		const userId = req.user._id;
+		if (req.user) {
+			// User is logged in
+			const userId = req.user._id;
 
-		const usersFollowedByYou = await User.findById(userId).select("following");
+			// Fetch the list of users followed by the logged-in user
+			const user = await User.findById(userId).select("following");
+			const usersFollowedByYou = user.following;
 
-		const users = await User.aggregate([
-			{
-				$match: {
-					_id: { $ne: userId },
+			// Find users who are not followed by the logged-in user
+			const users = await User.aggregate([
+				{
+					$match: {
+						_id: { $ne: userId },
+					},
 				},
-			},
-			{
-				$sample: { size: 10 },
-			},
-		]);
-		const filteredUsers = users.filter((user) => !usersFollowedByYou.following.includes(user._id));
-		const suggestedUsers = filteredUsers.slice(0, 4);
+				{
+					$sample: { size: 10 },
+				},
+			]);
+			const filteredUsers = users.filter((user) => !usersFollowedByYou.includes(user._id));
+			const suggestedUsers = filteredUsers.slice(0, 10);
 
-		suggestedUsers.forEach((user) => (user.password = null));
+			// Remove the password field from each user
+			suggestedUsers.forEach((user) => (user.password = null));
 
-		res.status(200).json(suggestedUsers);
+			res.status(200).json(suggestedUsers);
+		} else {
+			// User is not logged in
+			const users = await User.aggregate([
+				{
+					$sample: { size: 10 },
+				},
+			]);
+
+			// Remove the password field from each user
+			users.forEach((user) => (user.password = null));
+
+			res.status(200).json(users);
+		}
 	} catch (error) {
 		res.status(500).json({ error: error.message });
 	}
 };
+
+
+
+
+
+
+
+
+
+
+
 
 const freezeAccount = async (req, res) => {
 	try {
@@ -247,5 +275,7 @@ export {
 	updateUser,
 	getUserProfile,
 	getSuggestedUsers,
+	
+
 	freezeAccount,
 };
