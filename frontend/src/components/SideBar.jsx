@@ -65,7 +65,7 @@ const SideBar = () => {
 
   const topPicks2Links = [
     {
-      to: "/discover-daily",
+      to: "/explore",
       icon: FiCompass,
       label: "Explore",
       subtopics: [ "Posts", "Gallery","Reels"],
@@ -73,9 +73,9 @@ const SideBar = () => {
 
 
     {
-      to: "/podcast",
+      to: "/topics",
       icon: FiBookOpen,
-      label: "Topics",
+      label: "Topic",
       subtopics: ["topic A", "topic B", "topic C"],
     },
 
@@ -92,7 +92,7 @@ const SideBar = () => {
 
   const topPicksLinks = [
     {
-      to: "/discover-daily",
+      to: "/reddit500",
       icon: FiEdit,
       label: "Reddit 500",
       subtopics: ["Discover 500", "Startups", "Companies"],
@@ -100,7 +100,7 @@ const SideBar = () => {
 
 
     {
-      to: "/discover-daily",
+      to: "/discoverdaily",
       icon: FiSearch,
       label: "Discover Daily",
       subtopics: ["Technology news", "Business news", "Subtopic 3"],
@@ -173,23 +173,29 @@ const SideBar = () => {
 
 
       {sidebarLinks.map((link, index) => (
-          <Link key={index} as={RouterLink} to={link.to}>
-            <Button
-              leftIcon={React.createElement(link.icon)}
-              fontWeight="normal"
-              size="md"
-              bg={colorMode === "light" ? "#F5F8FA" : "#030304"}
-              borderRadius="10px"
-              width={"full"}
-              justifyContent={"left"}
-               backgroundColor={isActive(link.to) ? "gray.200" : undefined}
-              color={isActive(link.to) ? "blue.500" : undefined}
-            >
-              {!isCollapsed && link.label}
-            </Button>
-          </Link>
-        ))}
-
+        <Link key={index} as={RouterLink} to={link.to}>
+          <Button
+            leftIcon={React.createElement(link.icon)}
+            fontWeight="normal"
+            size="md"
+            bg={
+              isActive(link.to)
+                ? colorMode === "light"
+                  ? "gray.200"
+                  : "#1e1e1e"
+                : colorMode === "light"
+                ? "#F5F8FA"
+                : "#030304"
+            }
+            borderRadius="10px"
+            width="full"
+            justifyContent="left"
+            color={isActive(link.to) ? "blue.500" : undefined}
+          >
+            {!isCollapsed && link.label}
+          </Button>
+        </Link>
+      ))}
 
       {topPicks2Links.map((link, index) => (
           <Box key={index} width="full">
@@ -199,10 +205,17 @@ const SideBar = () => {
                   leftIcon={React.createElement(link.icon)}
                   fontWeight="normal"
                   size="md"
-                  bg={colorMode === "light" ? "#F5F8FA" : "#030304"}
+                 bg={
+              isActive(link.to)
+                ? colorMode === "light"
+                  ? "gray.200"
+                  : "#1e1e1e"
+                : colorMode === "light"
+                ? "#F5F8FA"
+                : "#030304"
+            }
                   borderRadius="10px"
                   width={"full"}
-                   backgroundColor={isActive(link.to) ? "gray.200" : undefined}
                   color={isActive(link.to) ? "blue.500" : undefined}
                   
                   textAlign="left"
@@ -250,11 +263,17 @@ const SideBar = () => {
                   leftIcon={React.createElement(link.icon)}
                   fontWeight="normal"
                   size="md"
-                  bg={colorMode === "light" ? "#F5F8FA" : "#030304"}
-                  borderRadius="10px"
+                 bg={
+              isActive(link.to)
+                ? colorMode === "light"
+                  ? "gray.200"
+                  : "#1e1e1e"
+                : colorMode === "light"
+                ? "#F5F8FA"
+                : "#030304"
+            }                  borderRadius="10px"
                   width={"full"}
                   justifyContent={"left"}
-                   backgroundColor={isActive(link.to) ? "gray.200" : undefined}                  
                    color={isActive(link.to) ? "blue.500" : undefined}
                 >
                   {!isCollapsed && link.label}
@@ -289,10 +308,16 @@ const SideBar = () => {
                   leftIcon={React.createElement(link.icon)}
                   fontWeight="normal"
                   size="md"
-                  bg={colorMode === "light" ? "#F5F8FA" : "#030304"}
-                  borderRadius="10px"
+                 bg={
+              isActive(link.to)
+                ? colorMode === "light"
+                  ? "gray.200"
+                  : "#1e1e1e"
+                : colorMode === "light"
+                ? "#F5F8FA"
+                : "#030304"
+            }                  borderRadius="10px"
                   width={"full"}
-                   backgroundColor={isActive(link.to) ? "gray.200" : undefined}
                   color={isActive(link.to) ? "blue.500" : undefined}
                   
                   textAlign="left"
@@ -346,11 +371,21 @@ const SideBar = () => {
               leftIcon={React.createElement(link.icon)}
               fontWeight="normal"
               size="md"
-              bg={colorMode === "light" ? "#F5F8FA" : "#030304"}
-              borderRadius="10px"
+
+                   bg={
+              isActive(link.to)
+                ? colorMode === "light"
+                  ? "gray.200"
+                  : "#1e1e1e"
+                : colorMode === "light"
+                ? "#F5F8FA"
+                : "#030304"
+            }  
+
+             borderRadius="10px"
               width={"full"}
               justifyContent={"left"}
-               backgroundColor={isActive(link.to) ? "gray.200" : undefined}         
+          
                     color={isActive(link.to) ? "blue.500" : undefined}
             >
               {!isCollapsed && link.label}
@@ -369,7 +404,7 @@ const SideBar = () => {
         <Button
             as={RouterLink}
             to="/create"
-            backgroundColor="#1D88F2"
+            backgroundColor="#007bff"
             _hover={{ textDecoration: "none", backgroundColor: "blue.400" }}
             justifyContent="center"
             style={{

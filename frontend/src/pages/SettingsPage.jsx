@@ -42,7 +42,7 @@ export const SettingsPage = () => {
 				Freeze Your Account
 			</Text>
 			<Text my={1}>You can unfreeze your account anytime by logging in.</Text>
-			<Button my={2} size={"sm"} bg="#1D88F2"  color={'#ffffff'}  _hover={{ bg: "#176DC1" }}   onClick={freezeAccount}>
+			<Button my={2} size={"sm"} bg="#007bff"  color={'#ffffff'}  _hover={{ bg: "#176DC1" }}   onClick={freezeAccount}>
 				Freeze
 			</Button>
 			<br />
@@ -53,7 +53,7 @@ export const SettingsPage = () => {
 			</Text>
 		
 			<Text my={2}>You can log in again at any time .</Text>
-			<Button size={"sm"}  bg="#1D88F2" _hover={{ bg: "#176DC1" }}   color={'#ffffff'} onClick={logout}>
+			<Button size={"sm"}  bg="#007bff" _hover={{ bg: "#176DC1" }}   color={'#ffffff'} onClick={logout}>
 				log out
 			</Button>
 

@@ -3,14 +3,14 @@ import { Box, Flex, Link, Text, Image, Icon } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { Avatar } from "@chakra-ui/avatar";
 import { useRecoilValue } from "recoil";
-import { FaSun, FaPodcast, FaStar, FaUsers, FaCogs, FaInfoCircle, FaLifeRing } from "react-icons/fa";
+import { FaSun, FaPodcast, FaStar, FaUsers, FaCogs, FaInfoCircle, FaLifeRing, FaEdit } from "react-icons/fa";
 import userAtom from "../atoms/userAtom";
 import right from "/public/right.svg";
 
 const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
     const currentUser = useRecoilValue(userAtom); // Fetch current user data from userAtom
 
-    return (
+    return ( 
         <>
             {isSideMenuOpen && (
                 <>
@@ -70,36 +70,36 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                             <Flex flexDirection="column">
 
 
-                            <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
-                                    <Icon as={FaStar} mr={2} />
+                            <Link fontSize="md" as={RouterLink} to="/reddit500" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                    <Icon as={FaEdit} mr={2} />
                                     <Text>Reddit 500</Text>
                                 </Link>
                                 <br />
 
 
-                                <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/comingsoon" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaSun} mr={2} />
-                                    <Text>Discover Daily</Text>
+                                    <Text>Coming soon </Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/podcast" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaPodcast} mr={2} />
                                     <Text>Podcast</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/premium" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaStar} mr={2} />
                                     <Text>Premium</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/communities" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaUsers} mr={2} />
                                     <Text>Communities</Text>
                                 </Link>
                                 <br />
                                 <Link fontSize="md" as={RouterLink} to="/settings" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaCogs} mr={2} />
-                                    <Text>Settings & Help</Text>
+                                    <Text>Settings</Text>
                                 </Link>
                                 <br />
                                 <Link fontSize="md" as={RouterLink} to="/AboutUs" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
@@ -107,9 +107,9 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                                     <Text>About Us</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/support" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaLifeRing} mr={2} />
-                                    <Text>Support</Text>
+                                    <Text>Support & Help</Text>
                                 </Link>
                             </Flex>
                         </Flex>

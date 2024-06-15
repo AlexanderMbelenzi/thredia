@@ -91,7 +91,7 @@
             height: "4px",
             bottom: "-6px",
             left: 0,
-            bg: "#1D88F2 ",
+            bg: "#007bff ",
             borderRadius: "4px",
             display: activeLink === link ? "block" : "none",
             

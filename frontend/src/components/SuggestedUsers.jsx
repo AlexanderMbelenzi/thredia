@@ -90,7 +90,7 @@ const SuggestedUsers = () => {
   
   
     return (
-      <Box mr={"60"} position="absolute" ml={5} marginTop="50px">
+      <Box mr={"60"} position="absolute"   ml={5} marginTop="50px">
         <Box
           ref={welcomeSectionRef}
         
@@ -101,6 +101,7 @@ const SuggestedUsers = () => {
           position="relative"
         >
           <Box
+          padding={"4"}
             mb={3}
             mt={2}
             backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgrounds[bgIndex]})`}
@@ -123,17 +124,16 @@ const SuggestedUsers = () => {
             <Text
             
               pl={2}
-              pb={"4%"}
               color={"white"}
               style={{ textShadow: "0 0 2px black" }}
               fontFamily="'Noto Sans', Arial, sans-serif"
               fontSize={{ base: "xs", md: "lg" }}
               fontWeight={"normal"}
             >
-             We are excited to announce that we will be rolling out new features every week.
+             We  will be rolling out new features every week.
               Stay tuned for regular updates and enhancements!
             </Text>
-            <Text pt={"1%"} pl={2} pb={"7%"}  >
+            <Text pt={"1%"} pl={2} pb={"4%"}  >
               <Link 
                 as={RouterLink}
                 to="/auth"
@@ -141,7 +141,7 @@ const SuggestedUsers = () => {
                   borderRadius: "20px",
                   fontFamily: "'Noto Sans', Arial, sans-serif",
                   fontSize: "lg",
-                  color: "#1D88F2 ",
+                  color: "#007bff ",
                 }}
               >
                 Coming soon
@@ -158,7 +158,7 @@ top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "60" : "auto"}  >
             backgroundColor={colorMode === "light" ? "#edf1f5" : "#101014"}
             rounded={"xl"}
             mb={4}
-            padding={4}
+            padding={8}
             gap={4}
           >
             <Text
@@ -193,12 +193,13 @@ top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "60" : "auto"}  >
   
           <Text
             mb={4}
+            padding={"4"}
             mt={4}
             backgroundColor={colorMode === "light" ? "#edf1f5" : "#101014"}
             rounded={"xl"}
             fontWeight={"bold"}
           >
-            <Box pb={4} pt={2}>
+            <Box pb={4}  pt={2}>
               <Text
                 pl={2}
               
@@ -206,7 +207,7 @@ top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "60" : "auto"}  >
                 fontWeight={"bold"}
                 fontSize={"md"}
               >
-                <p>Coming soon</p>
+                <p>Reddit community</p>
               </Text>
               <Text
                 mt={2}
@@ -218,7 +219,7 @@ top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "60" : "auto"}  >
                 fontFamily="'Noto Sans', Arial, sans-serif"
                 fontWeight={"normal"}
               >  
-               We are excited to announce that we will be releasing new features
+               join our community network of high growth individuals and top CEOs
               
               </Text>
               <Text pl={2}>
@@ -230,11 +231,11 @@ top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "60" : "auto"}  >
                     borderRadius: "20px",
                     fontSize: "xs",
                     fontFamily: "'Noto Sans', Arial, sans-serif",
-                    color: "#1D88F2",
+                    color: "#007bff",
                     left: "2",
                   }}
                 >
-                  Check it out
+                  Join now
                 </Button>
               </Text>
             </Box>

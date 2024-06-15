@@ -184,7 +184,7 @@ const Post = ({ post, postedBy }) => {
                 <Text
                   as="span"
                   fontSize={"xs"}
-                  color="#1D88F2"
+                  color="#007bff"
                   cursor="pointer"
                   onClick={(e) => {
                     e.preventDefault();
@@ -198,7 +198,7 @@ const Post = ({ post, postedBy }) => {
                 <Text
                   as="span"
                   fontSize={"xs"}
-                  color="#1D88F2"
+                  color="#007bff"
                   cursor="pointer"
                   onClick={(e) => {
                     e.preventDefault();

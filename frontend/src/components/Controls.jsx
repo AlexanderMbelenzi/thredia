@@ -64,23 +64,23 @@ const Controls = () => {
         <Box py={2} px={0} maxW="620px" marginX="auto">
           <Flex justifyContent="space-between" alignItems="center" mx="4">
             <Link as={RouterLink} to='/' position="relative" height="auto" borderRadius="20px" bg="transparent">
-              <Icon as={FiHome} boxSize={6} color={isActive('/') ? "#1D88F2" : undefined} />
-              <Box position="absolute" top="-4px" zIndex="994" right="2px" width="6px" height="6px" bg="#1D88F2" borderRadius="50%" />
+              <Icon as={FiHome} boxSize={6} color={isActive('/') ? "#007bff" : undefined} />
+              <Box position="absolute" top="-4px" zIndex="994" right="2px" width="6px" height="6px" bg="#007bff" borderRadius="50%" />
             </Link>
             <Link as={RouterLink} to="/chat" height="auto" bg={useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
-              <Icon as={FiSearch} boxSize={6} color={isActive('/chat') ? "#1D88F2" : undefined} />
+              <Icon as={FiSearch} boxSize={6} color={isActive('/chat') ? "#007bff" : undefined} />
             </Link>
             <Link as={RouterLink} to="/CreatePost" height="auto" bg={useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
-              <Icon as={FiEdit} boxSize={6} color={isActive('/CreatePost') ? "#1D88F2" : undefined} />
+              <Icon as={FiEdit} boxSize={6} color={isActive('/CreatePost') ? "#007bff" : undefined} />
             </Link>
             <Link as={RouterLink} to="/communities" height="auto" bg={useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
-              <Icon as={FiUsers} boxSize={6} color={isActive('/communities') ? "#1D88F2" : undefined} />
+              <Icon as={FiUsers} boxSize={6} color={isActive('/communities') ? "#007bff" : undefined} />
             </Link>
             <Link as={RouterLink} to="/chat" height="auto" bg={useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
-              <Icon as={FiMail} boxSize={6} color={isActive('/chat') ? "#1D88F2" : undefined} />
+              <Icon as={FiMail} boxSize={6} color={isActive('/chat') ? "#007bff" : undefined} />
             </Link>
             <Link as={RouterLink} to={`/${user.username}`} height="auto" bg={useColorModeValue( "rgba(245, 248, 250, 0.7)" , "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
-              <Icon as={FiUser} boxSize={6} color={isActive(`/${user.username}`) ? "#1D88F2" : undefined} />
+              <Icon as={FiUser} boxSize={6} color={isActive(`/${user.username}`) ? "#007bff" : undefined} />
             </Link>
           </Flex>
         </Box>

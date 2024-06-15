@@ -145,7 +145,7 @@ export default function SignupCard() {
                             <Button
                                 loadingText='Submitting'
                                 size='lg'
-                            	bg={useColorModeValue("#1D88F2  ", "#1D88F2")}
+                            	bg={useColorModeValue("#007bff  ", "#007bff")}
 								color={"white"}
 								_hover={{
 									bg: useColorModeValue("#176DC1", "#176DC1"),

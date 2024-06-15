@@ -92,7 +92,7 @@
 	position: fixed;
 	bottom: 60px;
 	right: 20px;
-	background-color: #1D88F2; 
+	background-color: #007bff; 
 	color: white;
 	width: 60px;
 	height: 60px;
@@ -143,7 +143,7 @@
 	top:45px;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: #1D88F2; 
+	background-color: #007bff; 
 	color: white;
 	width: 150px;
 	height: 43px;
@@ -179,7 +179,7 @@
 	top:90px;
 	left: 40%;
 	
-	background-color: #1D88F2; 
+	background-color: #007bff; 
 	color: white;
 	width: 250px;
 	height: 44px;
@@ -215,4 +215,124 @@
   .blur-background {
 	filter: blur(10px); /* Adjust the blur radius as needed */
   }
+  /* Add/Update styles as needed for improved visual appeal */
+
+.about-us-container {
+    font-family: Arial, sans-serif;
+}
+
+.hero-section {
+    background: #007bff;
+    padding: 42px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.team2 {
   
+	text-align: center;
+	color: #007bff;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+	
+}
+
+.team {
+  
+	text-align: center;
+
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.our-team-section .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 200px;
+	margin-left: 15%;
+
+    height: 200px;
+	align-items: center;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    margin-top: 10px;
+    font-size: 1.8em;
+}
+
+.team-member p {
+}
+
+.join-us-section {
+    padding: 100px 0;
+}
+
+.join-us-section h2 {
+	text-align: center;
+}
+
+.join-us-section p {
+    font-size: 1.2em;
+}
+
+.social-links-section {
+    background: #007bff;
+    padding: 80px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 5em; /* Adjust the font size of the icon */
+    width: 40px; /* Set the width and height of the background */
+    height: 40px;
+    border-radius: 50%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the icon inside the background */
+}
+

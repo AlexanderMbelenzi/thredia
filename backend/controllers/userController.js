@@ -194,6 +194,7 @@ const updateUser = async (req, res) => {
 		console.log("Error in updateUser: ", err.message);
 	}
 };
+
 const getSuggestedUsers = async (req, res) => {
 	try {
 		if (req.user) {
@@ -244,6 +245,51 @@ const getSuggestedUsers = async (req, res) => {
 
 
 
+const getSuggestedUsers2 = async (req, res) => {
+	try {
+		if (req.user) {
+			// User is logged in
+			const userId = req.user._id;
+
+			// Fetch the list of users followed by the logged-in user
+			const user = await User.findById(userId).select("following");
+			const usersFollowedByYou = user.following;
+
+			// Find users who are not followed by the logged-in user
+			const users = await User.aggregate([
+				{
+					$match: {
+						_id: { $ne: userId },
+					},
+				},
+				{
+					$sample: { size: 5 },
+				},
+			]);
+			const filteredUsers = users.filter((user) => !usersFollowedByYou.includes(user._id));
+			const suggestedUsers2 = filteredUsers.slice(0, 5);
+
+			// Remove the password field from each user
+			suggestedUsers2.forEach((user) => (user.password = null));
+
+			res.status(200).json(suggestedUsers2);
+		} else {
+			// User is not logged in
+			const users = await User.aggregate([
+				{
+					$sample: { size: 5 },
+				},
+			]);
+
+			// Remove the password field from each user
+			users.forEach((user) => (user.password = null));
+
+			res.status(200).json(users);
+		}
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+};
 
 
 
@@ -276,6 +322,7 @@ export {
 	getUserProfile,
 	getSuggestedUsers,
 	
+	getSuggestedUsers2,
 
 	freezeAccount,
 };

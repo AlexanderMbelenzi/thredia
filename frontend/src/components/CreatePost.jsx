@@ -99,7 +99,7 @@ const CreatePost = () => {
       width={18}
       rounded={"100%"}
       right={5}
-      bg="#1D88F2"
+      bg="#007bff"
       onClick={onOpen}
       size={{ base: "md", sm: "lg" }}
 
@@ -159,7 +159,7 @@ const CreatePost = () => {
 					</ModalBody>
 
 					<ModalFooter>
-						<Button bg=' #1D88F2' color={"#FFFFFF"} mr={3} _hover={{ bg: "#176DC1" }}   onClick={handleCreatePost} isLoading={loading}>
+						<Button bg=' #007bff' color={"#FFFFFF"} mr={3} _hover={{ bg: "#176DC1" }}   onClick={handleCreatePost} isLoading={loading}>
 							
 							Post
 						</Button>
