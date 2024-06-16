@@ -83,7 +83,7 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                                 </Link>
                                 <br />
 
-                                <Link fontSize="md" as={RouterLink} to="/commingsoon" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/comingsoon" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaSun} mr={2} />
                                     <Text>Coming soon </Text>
                                 </Link>
