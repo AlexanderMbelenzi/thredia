@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Box, Flex, Link, Text, Image, Icon, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, useDisclosure, Button } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
+
 import { Avatar } from "@chakra-ui/avatar";
 import { useRecoilValue } from "recoil";
 import { FaSun, FaPodcast, FaStar, FaUsers, FaCogs, FaInfoCircle, FaLifeRing, FaEdit } from "react-icons/fa";
+import { FiChevronRight } from "react-icons/fi";
 import userAtom from "../atoms/userAtom";
 import right from "/public/right.svg";
 
@@ -68,8 +70,8 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                                         <Text fontSize="xs" color="gray.light" _hover={{ color: "blue.500" }}>@{currentUser.username}</Text>
                                     </Flex>
                                 </Link>
-                                <Link as={RouterLink} onClick={closeSideMenu} marginLeft="auto">
-                                    <Image src={right} alt="toggle" cursor="pointer" w={3} />
+                                <Link  onClick={closeSideMenu} marginLeft="auto">
+                                <Icon as={FiChevronRight} alt="toggle" cursor="pointer" height={10} />
                                 </Link>
                             </Flex>
 

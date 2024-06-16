@@ -321,14 +321,14 @@ ul li {
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .social-icon {
     color: #fff;
-    font-size: 5em; /* Adjust the font size of the icon */
-    width: 40px; /* Set the width and height of the background */
-    height: 40px;
+    font-size: 4em; /* Adjust the font size of the icon */
+    width: 35px; /* Set the width and height of the background */
+    height: 35px;
     border-radius: 50%;
     background: #000;
     display: flex;
