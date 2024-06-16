@@ -136,7 +136,7 @@ const SuggestedUsers = () => {
             <Text pt={"1%"} pl={2} pb={"4%"}  >
               <Link 
                 as={RouterLink}
-                to="/auth"
+                to="/comingsoon"
                 style={{
                   borderRadius: "20px",
                   fontFamily: "'Noto Sans', Arial, sans-serif",

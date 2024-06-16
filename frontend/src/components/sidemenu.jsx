@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Flex, Link, Text, Image, Icon } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Flex, Link, Text, Image, Icon, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, useDisclosure, Button } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { Avatar } from "@chakra-ui/avatar";
 import { useRecoilValue } from "recoil";
@@ -9,6 +9,13 @@ import right from "/public/right.svg";
 
 const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
     const currentUser = useRecoilValue(userAtom); // Fetch current user data from userAtom
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [message, setMessage] = useState("");
+
+    const handleLinkClick = (message) => {
+        setMessage(message);
+        onOpen();
+    };
 
     return ( 
         <>
@@ -68,31 +75,28 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
 
                             {/* Menu items */}
                             <Flex flexDirection="column">
-
-
-                            <Link fontSize="md" as={RouterLink} to="/reddit500" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" onClick={() => handleLinkClick("Reddit500 coming soon ")} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaEdit} mr={2} />
                                     <Text>Reddit 500</Text>
                                 </Link>
                                 <br />
 
-
-                                <Link fontSize="md" as={RouterLink} to="/comingsoon" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/commingsoon" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaSun} mr={2} />
                                     <Text>Coming soon </Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/podcast" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" onClick={() => handleLinkClick("Podcast Coming soon")} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaPodcast} mr={2} />
                                     <Text>Podcast</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/premium" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" onClick={() => handleLinkClick("Premium Coming soon")} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaStar} mr={2} />
                                     <Text>Premium</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/communities" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" onClick={() => handleLinkClick("Communities Coming soon")} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaUsers} mr={2} />
                                     <Text>Communities</Text>
                                 </Link>
@@ -102,12 +106,12 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                                     <Text>Settings</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/AboutUs" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" as={RouterLink} to="/about" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
                                     <Icon as={FaInfoCircle} mr={2} />
                                     <Text>About Us</Text>
                                 </Link>
                                 <br />
-                                <Link fontSize="md" as={RouterLink} to="/support" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center">
+                                <Link fontSize="md" onClick={() => handleLinkClick("Support & Help Coming soon")} _hover={{ textDecoration: "none", color: "blue.500" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaLifeRing} mr={2} />
                                     <Text>Support & Help</Text>
                                 </Link>
@@ -126,8 +130,21 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                     />
                 </>
             )}
+            
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent bg="#007bff" color="white">
+                    <ModalHeader>Notice</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <Text>{message}</Text>
+                    </ModalBody>
+                   
+                </ModalContent>
+            </Modal>
         </>
     );
 };
 
 export default SideMenu;
+

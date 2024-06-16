@@ -23,6 +23,8 @@ import Premiumpage from "./pages/Premiumpage";
 import Communitiespage from "./pages/Communitiespage";
 import Podcastpage from "./pages/Podcastpage";
 import Reddit500page from "./pages/Reddit500page";
+import Careerspage from "./pages/Careerspage";
+import Supportpage from "./pages/Supportpage";
 import Contactuspage from "./pages/Contactuspage";
 import Comingsoonpage from "./pages/Comingsoonpage";
 function App() {
@@ -39,6 +41,8 @@ function App() {
 					<Route path='/about' element={ <AboutUs /> } />
 					<Route path='/topics' element={ <Topicspage /> } />
 					<Route path='/explore' element={ <Explorepage /> } />
+					<Route path='/support' element={ <Supportpage /> } />
+					<Route path='/careers' element={ <Careerspage /> } />
 					<Route path='/premium' element={ <Premiumpage /> } />
 					<Route path='/podcast' element={ <Podcastpage /> } />
 					<Route path='/contactus' element={ <Contactuspage /> } />

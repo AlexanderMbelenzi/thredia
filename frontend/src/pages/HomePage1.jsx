@@ -153,7 +153,7 @@ const HomePage1 = () => {
 
         </Box>
         {!loading && posts.length === 0 && (
-          <h1   >Welcome to bidoi, share your ideas</h1>
+          <h1   >Welcome to bidoi, share your ideas <br /> An error occured please  refresh the page and try again</h1>
         )}
 
         {loading && (

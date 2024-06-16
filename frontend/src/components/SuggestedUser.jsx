@@ -19,7 +19,6 @@ const SuggestedUser = ({ user }) => {
 					</Text>
 				</Box>
 			</Flex>
-
 			{/* right side */}
 			
 		</Flex>

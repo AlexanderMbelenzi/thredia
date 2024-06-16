@@ -36,7 +36,7 @@ Accesciblity and customization <br />
 Visualization map <br />
 Edit Post <br />
 Longer videos and posts <br />
-Verification .</li>
+Verification badge .</li>
                       
                     </ul>
                 </div>

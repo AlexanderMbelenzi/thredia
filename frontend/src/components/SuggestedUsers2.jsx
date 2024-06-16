@@ -1,21 +1,32 @@
 import {
-    Box,
-    Flex,
-    Link,
-    Text,
-    Button,
-    Skeleton,
-    SkeletonCircle,
-    useColorMode,
-  } from "@chakra-ui/react";
-  import { useEffect, useState, useRef } from "react";
+  Box,
+  Flex,
+  Link,
+  Text,
+  Button,
+  Skeleton,
+  SkeletonCircle,
+  useColorMode,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+} from "@chakra-ui/react";
+import { useEffect, useRef, useState } from "react";
   import SuggestedUser from "./SuggestedUser";
   import useShowToast from "../hooks/useShowToast";
   import { Link as RouterLink } from "react-router-dom";
-  
+
   import pic1 from "/public/post1.jpeg";
   import pic2 from "/public/post2.jpg";
   import pic3 from "/public/post3.jpg";
+
+
+
+
   
   const SuggestedUsers2 = () => {
     const { colorMode } = useColorMode();
@@ -27,6 +38,18 @@ import {
     const showToast = useShowToast();
     const welcomeSectionRef = useRef(null);
     const [isScrolledOut, setIsScrolledOut] = useState(false);
+
+
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [message, setMessage] = useState("");
+    
+    const handleLinkClick = (message) => {
+        setMessage(message);
+        onOpen();
+    };
+
+
   
     useEffect(() => {
       // Function to check if user is logged in
@@ -112,8 +135,8 @@ import {
             >
               <Text
                 pl={2}
-                heigt="60px"
-                pt={"2%"}
+                heigt="80px"
+                pt={"3%"}
                 fontWeight={"bold"}
                 fontFamily="'Noto Sans', Arial, sans-serif"
                 fontSize={"xl"}
@@ -124,6 +147,7 @@ import {
               <Text
               
                 pl={2}
+                pt={"3%"}
                
                 color={"white"}
                 fontFamily="'Noto Sans', Arial, sans-serif"
@@ -133,10 +157,10 @@ import {
                We will be rolling out new features every week.
                 Stay tuned for regular updates and enhancements! 
               </Text>
-              <Text pt={"1%"} pl={2} pb={"4%"}  >
+              <Text pt={"2%"} pl={2} pb={"4.5%"}  >
                 <Link 
                   as={RouterLink}
-                  to="/auth"
+                  to="/comingsoon"
                   style={{
                     borderRadius: "20px",
                     fontFamily: "'Noto Sans', Arial, sans-serif",
@@ -152,20 +176,10 @@ import {
     
           <Box  position={isScrolledOut ? "fixed" : "relative"}          
   top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "60" : "auto"}  >
-            <Flex
-           
-              direction={"column"}
-              backgroundColor={colorMode === "light" ? "#edf1f5" : "#101014"}
-              rounded={"xl"}
-              mb={4}
-              padding={4}
-              gap={4}
-            >
-             
+       
     
          
-            </Flex>
-    
+              
             <Text
               mb={4}
               mt={4}
@@ -199,19 +213,34 @@ check out our features list and get to know what is coming next
         <Link href="/comingsoon" color="#007bff">Coming soon</Link><br /><br />
         <Link href="/privacypolicy">Privacy Policy</Link><br /><br />
         <Link href="/termsofservice" color="#007bff">Terms of service</Link><br /><br />
-        <Link href="/support" >Support</Link><br /><br />
-        <Link href="/androidapp" color="#007bff">Android App</Link><br /><br />
-        <Link href="/iphoneapp" >iPhone App</Link><br /><br />
-        <Link href="/premium" color="#007bff">Premuim</Link><br /><br />
-        <Link href="/careers" >Explore carrers</Link><br /><br />
+        <Link onClick={() => handleLinkClick("Support Coming soon")} >Support</Link><br /><br />
+        <Link onClick={() => handleLinkClick("Andropid app Coming soon")} color="#007bff">Android App</Link><br /><br />
+        <Link onClick={() => handleLinkClick("Iphone app Coming soon")} >iPhone App</Link><br /><br />
+        <Link onClick={() => handleLinkClick("Premuim Coming soon")}color="#007bff">Premuim</Link><br /><br />
+        <Link onClick={() => handleLinkClick("Careers Coming soon")}>Explore carrers</Link><br /><br />
 
       </Text>
               </Box>
             </Text>
           </Box>
+
+          <Modal isOpen={isOpen} onClose={onClose}>
+    <ModalOverlay />
+    <ModalContent bg="#007bff" color="white">
+        <ModalHeader>Notice</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+            <Text>{message}</Text>
+        </ModalBody>
+       
+    </ModalContent>
+</Modal>
+
+
         </Box>
       );
     };
+
     
     export default SuggestedUsers2;
     

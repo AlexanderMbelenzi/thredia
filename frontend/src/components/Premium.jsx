@@ -24,7 +24,7 @@ const Premium = () => {
                      Visualization map <br />
                      Edit Post <br />
                      Longer videos and posts   <br />
-                     Verification <br />
+                     Verification badge <br />
                                    </p>
                      
                 </div>

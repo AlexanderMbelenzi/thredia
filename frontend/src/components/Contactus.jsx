@@ -14,29 +14,16 @@ const Contactus = () => {
         
             <section className="our-values-section">
                 <div className="content-wrapper">
-                    <h2>reach out</h2>
+                   
                     <ul>
-                        <li><strong>Topics:</strong> This feature wil alow users to expore each topic of interest  in depth and find new exciting content.</li>
-                        <li><strong>Explore:</strong> This feature wil allow  users to dicscover and explore new content that haven't interacted with before.</li>
-                        <li><strong>Discover Daily:</strong> Discovery page will be the front page of tech and businesss news on the internent.
-                         A palace where people can get to know at first hand what is happenning in the businesss and tech world.</li>
-                        <li><strong>Reddit500:</strong> Reddit500 will a be a list of the top 500 most promising companies and startups in the world.
-                         it help both investors and interested parties to dicover the big fat pitch they would be mising on.
-                          both startups and companies and users wil be allowed to create their own company profiles for others to be able to  discover them</li>
-                        <li><strong>Podacst:</strong> The podacst feature will allow users to stream the latest news from our discover page in a soothing AI generated audio.
-                         big time enterprenuer interviews will also be offered in the package</li>
-                        <li><strong>Communities:</strong>Thehe private network for high-growth founders  will allow intrested users to interact with the most 
-                        succesfull founders, CEOs and enterprenuerrs and learn from the them. This feature wil also allow users to create their own standalone
-                         communities which will come as an independed website.</li>
-                        <li><strong>Premium:</strong>            Access to communities <br />
-No advertisement  <br />
-Data structured and semantic search <br />
-Data analytics and performance tracking <br />
-Accesciblity and customization <br />
-Visualization map <br />
-Edit Post <br />
-Longer videos and posts <br />
-Verification .</li>
+                        <h3>Telephone</h3>
+                        <li><strong>+254 703394794</strong> </li>
+                        <h3>Email</h3>
+                        <li><strong>Reddit.info@gmail.com</strong></li>
+                        <h3>Offices</h3>
+                        <li><strong>Westend towers. 3rd floor. Waiyaki way/ Westlands NRB KNY</strong></li>
+                        <li><strong></strong>Opposite safaricom house</li>
+                        <li><strong>Open hours</strong> 8:00 AM - 5:00 PM</li>
                       
                     </ul>
                 </div>

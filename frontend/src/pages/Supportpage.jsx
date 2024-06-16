@@ -11,6 +11,7 @@ import {  useColorMode ,    } from "@chakra-ui/react";
 import { px } from "framer-motion";
 import Empty from "../components/empty";
 import About from "../components/About";
+import Support from "../components/Support";
 import { Image } from "@chakra-ui/react";
 
 
