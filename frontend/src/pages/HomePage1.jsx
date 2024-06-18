@@ -31,7 +31,7 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
         fontWeight="bold"
         whiteSpace="nowrap"
         overflow="hidden"
-        textOverflow={"ellipsis"}
+        textOverflow="ellipsis"
         fontSize={{ base: "20px", md: "25px", lg: "25px" }}
       >
         {topic}
@@ -40,8 +40,7 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
         color="white"
         whiteSpace="nowrap"
         overflow="hidden"
-        textOverflow={"ellipsis"}
-        
+        textOverflow="ellipsis"
 
         fontSize={{ base: "15px", md: "18x", lg: "18px" }}
       >
@@ -58,6 +57,7 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
         fontWeight="bold"
         whiteSpace="nowrap"
         overflow="hidden"
+        textOverflow="ellipsis"
         fontSize={{ base: "12px", md: "14px", lg: "16px" }}
       >
         {name}
@@ -142,7 +142,7 @@ const HomePage1 = () => {
         <Empty />
       </Box>
 
-      <Box flex={33} marginTop={35} marginLeft={"5%"} marginBottom={35}>
+      <Box flex={33} marginTop={35}  marginBottom={35}>
         <Box mt={6} mb={4}>
           <Flex justify="space-between">
             <ImageBox

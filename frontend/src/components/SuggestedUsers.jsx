@@ -112,7 +112,7 @@ const SuggestedUsers = () => {
           >
             <Text
               pl={2}
-              height="60px"
+              maxHeight="28px"
               pt={"2%"}
               fontWeight={"bold"}
               fontFamily="'Noto Sans', Arial, sans-serif"
@@ -125,13 +125,12 @@ const SuggestedUsers = () => {
             
               pl={2}
               color={"white"}
-              style={{ textShadow: "0 0 2px black" }}
               fontFamily="'Noto Sans', Arial, sans-serif"
               fontSize={{ base: "xs", md: "lg" }}
               fontWeight={"normal"}
             >
              We  will be rolling out new features every week.
-              Stay tuned for regular updates and enhancements!
+              Stay tuned for regular updates!
             
             </Text>
             <Text pt={"1%"} pl={2} pb={"4%"}  >
