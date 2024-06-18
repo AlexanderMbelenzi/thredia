@@ -18,55 +18,59 @@ import pizza7 from "/public/s1.png";
 import pizza6 from "/public/s3.png";
 import pizza5 from "/public/s2.jpg";
 
-// Helper function to render the image box with overlay
+// Helper function to render the image box with overlayimport { Box, Image, Text } from '@chakra-ui/react';
+
 const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
   return (
     <Box position="relative" flexBasis="33%" mr="3">
-    <Image src={src} alt={alt} width="100%" borderRadius="lg" />
-    <Box  position="absolute" left="4"  bottom={"8%"}  >
-    <Box  right={1}>
-      <Text
-      mb={"-1"}
-        color="white"
-        fontWeight="bold"
-        whiteSpace="nowrap"
-        overflow="hidden"
-        textOverflow="ellipsis"
-        fontSize={{ base: "20px", md: "25px", lg: "25px" }}
-      >
-        {topic}
-      </Text>
-      <Text
-        color="white"
-        whiteSpace="nowrap"
-        overflow="hidden"
-        textOverflow="ellipsis"
+      <Image src={src} alt={alt} width="100%" borderRadius="lg" />
+      <Box position="absolute" left={{ base: "2", md: "4", lg: "4" }} bottom={{ base: "4%", md: "8%", lg: "8%" }} overflow="hidden">
+        <Box>
+          <Text
+            mb="-1"
+            color="white"
+            fontWeight="bold"
+            whiteSpace="nowrap"
+            overflow="hidden"
+            textOverflow="ellipsis"
+            fontSize={{ base: "18px", md: "25px", lg: "25px" }}
+            maxWidth="100%" // Add this to ensure text does not overflow the parent container
+          >
+            {topic}
+          </Text>
+          <Text
+          mb={"-1"}
+            color="white"
+            whiteSpace="nowrap"
+            overflow="hidden"
+            textOverflow="ellipsis"
+            fontSize={{ base: "12px", md: "18px", lg: "18px" }}
+            maxWidth="100%" // Add this to ensure text does not overflow the parent container
+          >
+            {subtopic}
+          </Text>
+        </Box>
 
-        fontSize={{ base: "15px", md: "18x", lg: "18px" }}
-      >
-        {subtopic}
-      </Text>
+        <Box display="flex" alignItems="center" mt="2">
+          <Image src={smallSrc} alt={name} boxSize={{ base: "25px", md: "35px", lg: "35px" }} borderRadius="full" />
+          <Text
+            ml="2"
+            color="white"
+            fontWeight="bold"
+            whiteSpace="nowrap"
+            overflow="hidden"
+            textOverflow="ellipsis"
+            fontSize={{ base: "11px", md: "14px", lg: "16px" }}
+            maxWidth="calc(100% - 45px)" // Adjust width considering the space taken by the image and margin
+          >
+            {name}
+          </Text>
+        </Box>
+      </Box>
     </Box>
-
-    <Box   display="flex" alignItems="center">
-      <Image src={smallSrc}  alt={name} boxSize={{ base: "25px", md: "35px", lg: "35px" }}  borderRadius="full" />
-      <Text
-        ml="2"
-        
-        color="white"
-        fontWeight="bold"
-        whiteSpace="nowrap"
-        overflow="hidden"
-        textOverflow="ellipsis"
-        fontSize={{ base: "12px", md: "14px", lg: "16px" }}
-      >
-        {name}
-      </Text>
-    </Box>
-   </Box>
-  </Box>
   );
 };
+
 
 const HomePage1 = () => {
   const { colorMode } = useColorMode(); // Hook to access color mode
