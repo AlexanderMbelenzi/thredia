@@ -43,7 +43,7 @@ const Conversation = ({ conversation, isOnline }) => {
 				})
 			}
 			bg={
-				selectedConversation?._id === conversation._id ? (colorMode === "light" ? "blue.400" : "blue.dark") : ""
+				selectedConversation?._id === conversation._id ? (colorMode === "light" ? "#007bff" : "blue.dark") : ""
 			}
 			borderRadius={"md"}
 		>
@@ -56,7 +56,7 @@ const Conversation = ({ conversation, isOnline }) => {
 					}}
 					src={user.profilePic}
 				>
-					{isOnline ? <AvatarBadge boxSize='1em' bg='blue.500' /> : ""}
+					{isOnline ? <AvatarBadge boxSize='1em' bg='#007bff' /> : ""}
 				</Avatar>
 			</WrapItem>
 
@@ -66,7 +66,7 @@ const Conversation = ({ conversation, isOnline }) => {
 				</Text>
 				<Text fontSize={"xs"} display={"flex"} alignItems={"center"} gap={1}>
 					{currentUser._id === lastMessage.sender ? (
-						<Box color={lastMessage.seen ? "blue.400" : ""}>
+						<Box color={lastMessage.seen ? "#007bff" : ""}>
 							<BsCheck2All size={16} />
 						</Box>
 					) : (

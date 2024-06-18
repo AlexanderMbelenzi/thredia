@@ -33,7 +33,7 @@ function App() {
 	return (
 		<Box position={"relative"} w='full'>
 
-<Container maxW={ { base: "620px", md: "1500px" }  }>
+<Container maxW={ { base: "620px", md: "1800px" }  }>
 <Header />
 
 <Routes>                

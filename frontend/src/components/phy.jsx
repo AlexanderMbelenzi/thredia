@@ -118,11 +118,11 @@ return (
                     {!user ? (
                         <>
                             <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
-    color: "blue.500" }}   onClick={() => setAuthScreen("login")}>
+    color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
                                 Login
                             </Link>
                             <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
-    color: "blue.500" }}  onClick={() => setAuthScreen("signup")}>
+    color: "#007bff" }}  onClick={() => setAuthScreen("signup")}>
                                 Sign up
                             </Link>
                         </>
@@ -288,7 +288,7 @@ lg: "block",    // Hide on large screens and above (>= 1000px)
 fontSize="md"
 as={RouterLink}
 _hover={{ textDecoration: "none", 
-color: "blue.500" }}
+color: "#007bff" }}
 to="/"
 onClick={() => handleLinkClick("foryou")}
 sx={linkStyles("foryou")}
@@ -303,7 +303,7 @@ For you
 fontSize="md"
 as={RouterLink}
 _hover={{ textDecoration: "none", 
-color: "blue.500" }}
+color: "#007bff" }}
 to="/Home2"
 onClick={() => handleLinkClick("following")}
 sx={linkStyles("following")}

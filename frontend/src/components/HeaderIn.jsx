@@ -113,7 +113,7 @@
         marginX="auto"
       >
     
-                <Box py={1} pb={2} pt={2} className="header" pl="7"  pr="8"  maxW="1500"  marginX="auto">
+                <Box py={1} pb={1} pt={1} className="header"   px={4}  maxW="1800"  marginX="auto">
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>
@@ -122,7 +122,7 @@
                                     </Link>
 
                                 <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
-        color: "blue.500" }}   onClick={() => setAuthScreen("login")}>
+        color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
                                     Login
                                 </Link>
 
@@ -138,7 +138,7 @@
 
 
                                 <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
-        color: "blue.500" }}  onClick={() => setAuthScreen("signup")}>
+        color: "#007bff" }}  onClick={() => setAuthScreen("signup")}>
                                     Sign up
                                 </Link>
 
@@ -172,7 +172,17 @@
                                     </Link>
                                 </Box>
 
-                                <Box  ml={12 } width="40%"> {/* Adjust the width as needed */}
+
+                                <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
+        color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
+                                </Link>
+
+                                <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
+        color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
+                                </Link>
+
+
+                                <Box  mr={12 } width="40%"> {/* Adjust the width as needed */}
             <Flex alignItems="center" gap={2} as={RouterLink} to="/chat">
             <InputGroup size="lg">
             <InputLeftElement   color={colorMode === "light" ? "gray.500" : "gray.400"}  pointerEvents="none">
@@ -320,7 +330,7 @@
     fontSize="md"
     as={RouterLink}
     _hover={{ textDecoration: "none", 
-    color: "blue.500" }}
+    color: "#007bff" }}
     to="/"
     onClick={() => handleLinkClick("foryou")}
     sx={linkStyles("foryou")}
@@ -335,7 +345,7 @@
     fontSize="md"
     as={RouterLink}
     _hover={{ textDecoration: "none", 
-    color: "blue.500" }}
+    color: "#007bff" }}
     to="/Home2"
     onClick={() => handleLinkClick("following")}
     sx={linkStyles("following")}
