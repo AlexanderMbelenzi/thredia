@@ -24,7 +24,7 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
   return (
     <Box position="relative" flexBasis="33%" mr="3">
       <Image src={src} alt={alt} width="100%" borderRadius="lg" />
-      <Box position="absolute" left={{ base: "2", md: "4", lg: "4" }} bottom={{ base: "4%", md: "8%", lg: "8%" }} overflow="hidden">
+      <Box position="absolute" left={{ base: "2", md: "4", lg: "4" }} right="1" bottom={{ base: "4%", md: "8%", lg: "8%" }} overflow="hidden">
         <Box>
           <Text
             mb="-1"
