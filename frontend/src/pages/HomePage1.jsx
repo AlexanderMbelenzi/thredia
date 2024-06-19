@@ -10,7 +10,7 @@ import { useColorMode } from "@chakra-ui/react";
 import Empty from "../components/empty";
 
 // Import images
-import pizza2 from "/public/sec1.png";
+import error from "/public/error.png";
 import pizza1 from "/public/pizza6.png";
 import pizza3 from "/public/34.png";
 import pizza4 from "/public/pizza4.png";
@@ -54,7 +54,7 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
         <Box display="flex" alignItems="center" mt="2">
           <Image src={smallSrc} alt={name} boxSize={{ base: "25px", md: "35px", lg: "35px" }} borderRadius="full" />
           <Text
-            ml="2"
+            ml="1"
             color="white"
             fontWeight="bold"
             whiteSpace="nowrap"
@@ -146,7 +146,7 @@ const HomePage1 = () => {
         <Empty />
       </Box>
 
-      <Box flex={33} marginTop={35}  marginBottom={35}>
+      <Box flex={35} marginTop={35}  marginBottom={55}>
         <Box mt={6} mb={4}>
           <Flex justify="space-between">
             <ImageBox
@@ -174,12 +174,28 @@ const HomePage1 = () => {
               subtopic="Nvidiaa has envailed it new Gforce  RTX GPU"
             />
           </Flex>
-        </Box>
+        </Box  >
 
+<Box   marginTop={55}>
         {!loading && posts.length === 0 && (
           <h1>
-            Welcome to bidoi, share your ideas <br /> An error occurred please refresh the page and try again
-          </h1>
+            <Flex justify="center">
+            Welcome to bidoi, share your ideas    
+             </Flex><br />     
+                  
+           <Flex justify="center">
+          Opps! An error occurred please refresh the page and try again     
+           </Flex> <br />
+           <Flex justify={"center"}>
+           <Image src={error} alt={error} height={{ base: "50", md: "150", lg: "150" }}  borderRadius="lg" />
+           </Flex>
+        </h1>
+
+        
+ 
+
+       
+
         )}
 
         {loading && (
@@ -192,9 +208,28 @@ const HomePage1 = () => {
           <Post key={post._id} post={post} postedBy={post.postedBy} />
         ))}
       </Box>
+      </Box>
+
+
+
+
 
       <Box
-        flex={25}
+        borderLeft={"8px"}
+        borderLeftColor={colorMode === "light" ? "gray.200" : "#2B2B2B"}
+        flex={1}
+        px={8}
+        mt={35}
+        display={{
+          base: "none",
+          md: "block",
+        }}
+      >
+        <Empty />
+      </Box>
+
+      <Box
+        flex={17}
         display={{
           base: "none",
           lg: "block",

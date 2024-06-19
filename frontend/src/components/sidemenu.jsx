@@ -133,17 +133,27 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                 </>
             )}
             
-            <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent bg="#007bff" color="white">
-                    <ModalHeader>Notice</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                        <Text>{message}</Text>
-                    </ModalBody>
-                   
-                </ModalContent>
-            </Modal>
+       
+    <Modal isOpen={isOpen} onClose={onClose}>
+    <ModalOverlay />
+    <ModalContent bg="#007bff" color="white">
+    <Flex justify="center">
+        <ModalHeader> Notice</ModalHeader>
+        </Flex>
+
+        <ModalCloseButton />
+        <ModalBody>
+       
+            <Text> <Flex justify="center">{message}</Flex>
+             <Flex justify="center">
+               <Link href="/comingsoon" color="ffffff">Check out what's comming soon! </Link > 
+             </Flex>  <br />
+            </Text>
+
+        </ModalBody>
+       
+    </ModalContent>
+</Modal>
         </>
     );
 };

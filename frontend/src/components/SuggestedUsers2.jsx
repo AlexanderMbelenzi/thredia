@@ -224,13 +224,22 @@ check out our features list and get to know what is coming next
             </Text>
           </Box>
 
-          <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose}>
     <ModalOverlay />
     <ModalContent bg="#007bff" color="white">
-        <ModalHeader>Notice</ModalHeader>
+    <Flex justify="center">
+        <ModalHeader> Notice</ModalHeader>
+        </Flex>
+
         <ModalCloseButton />
         <ModalBody>
-            <Text>{message}</Text>
+       
+            <Text> <Flex justify="center">{message}</Flex>
+             <Flex justify="center">
+               <Link href="/comingsoon" color="ffffff">Check out what's comming soon! </Link > 
+             </Flex>  <br />
+            </Text>
+
         </ModalBody>
        
     </ModalContent>

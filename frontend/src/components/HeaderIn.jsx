@@ -177,9 +177,7 @@
         color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
                                 </Link>
 
-                                <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
-        color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
-                                </Link>
+                             
 
 
                                 <Box  mr={12 } width="40%"> {/* Adjust the width as needed */}

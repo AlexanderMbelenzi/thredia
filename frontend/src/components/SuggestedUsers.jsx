@@ -20,7 +20,7 @@ import pic3 from "/public/post3.jpg";
 const SuggestedUsers = () => {
   const { colorMode } = useColorMode();
   const [bgIndex, setBgIndex] = useState(0);
-  const backgrounds = [pic1, pic2, pic3];
+  const backgrounds = [pic1, pic2];
   const [loading, setLoading] = useState(true);
   const [suggestedUsers, setSuggestedUsers] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -90,7 +90,7 @@ const SuggestedUsers = () => {
   
   
     return (
-      <Box mr={"72"} position="absolute"   ml={5} marginTop="50px">
+      <Box mr={"20"} position="absolute"   marginTop="50px">
         <Box
           ref={welcomeSectionRef}
         
@@ -102,6 +102,8 @@ const SuggestedUsers = () => {
         >
           <Box
           padding={"4"}
+          
+
             mb={3}
             mt={2}
             backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgrounds[bgIndex]})`}
@@ -112,7 +114,6 @@ const SuggestedUsers = () => {
           >
             <Text
               pl={2}
-              maxHeight="28px"
               pt={"2%"}
               fontWeight={"bold"}
               fontFamily="'Noto Sans', Arial, sans-serif"
@@ -122,18 +123,19 @@ const SuggestedUsers = () => {
               <p>Welcome to reddit</p>
             </Text>
             <Text
-            
+              pt={"6%"}
               pl={2}
               color={"white"}
+              style={{ textShadow: "0 0 2px black" }}
               fontFamily="'Noto Sans', Arial, sans-serif"
               fontSize={{ base: "xs", md: "lg" }}
               fontWeight={"normal"}
             >
              We  will be rolling out new features every week.
-              Stay tuned for regular updates!
+              Stay tuned for regular updates and enhancements!
             
             </Text>
-            <Text pt={"1%"} pl={2} pb={"4%"}  >
+            <Text pt={"6%"} pl={2} pb={"13%"}  >
               <Link 
                 as={RouterLink}
                 to="/comingsoon"
@@ -151,7 +153,7 @@ const SuggestedUsers = () => {
         </Box>
   
         <Box  position={isScrolledOut ? "fixed" : "relative"}          
-top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "60" : "auto"}  >
+top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "20" : "auto"}  >
           <Flex
          
             direction={"column"}
@@ -226,7 +228,7 @@ top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "60" : "auto"}  >
                 <Button
                   backgroundColor={colorMode === "light" ? "#edf1f5" : "#000000"}
                   as={RouterLink}
-                  to="/Donate"
+                  to="/comingsoon"
                   style={{
                     borderRadius: "20px",
                     fontSize: "xs",
