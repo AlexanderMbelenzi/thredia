@@ -22,8 +22,8 @@ import pizza5 from "/public/s2.jpg";
 
 const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
   return (
-    <Box position="relative" flexBasis="33%" mr="3">
-      <Image src={src} alt={alt} width="100%" borderRadius="lg" />
+    <Box position="relative" flexBasis={{ base: "33%", md: "32.5%", lg: "32.5%" }}     >
+      <Image src={src} alt={alt} width="100%"  borderRadius="lg" />
       <Box position="absolute" left={{ base: "2", md: "4", lg: "4" }} right="1" bottom={{ base: "4%", md: "8%", lg: "8%" }} overflow="hidden">
         <Box>
           <Text
@@ -171,12 +171,16 @@ const HomePage1 = () => {
               name="Technology"
               smallSrc={pizza4}
               topic="Nvidia"
-              subtopic="Nvidiaa has envailed it new Gforce  RTX GPU"
+              subtopic="Nvidia has envailed it new Gforce  RTX GPU"
             />
           </Flex>
         </Box  >
+        
+        
+   <Box>
 
-<Box   marginTop={55}>
+<Box   marginTop={5}>
+  
         {!loading && posts.length === 0 && (
           <h1>
             <Flex justify="center">
@@ -190,19 +194,15 @@ const HomePage1 = () => {
            <Image src={error} alt={error} height={{ base: "50", md: "150", lg: "150" }}  borderRadius="lg" />
            </Flex>
         </h1>
-
-        
- 
-
-       
-
-        )}
+ )}
 
         {loading && (
           <Flex justify="center">
             <Spinner size="xl" />
           </Flex>
         )}
+
+      </Box>
 
         {posts.map((post) => (
           <Post key={post._id} post={post} postedBy={post.postedBy} />
