@@ -37,6 +37,7 @@ const Post = ({ post, postedBy }) => {
         setUser(null);
       }
     };
+
     getUser();
   }, [postedBy, showToast]);
 
@@ -71,7 +72,7 @@ const Post = ({ post, postedBy }) => {
   return (
     <Box wordBreak="break-word">
       <Link to={`/${user.username}/post/${post._id}`}>
-        <Flex gap={3} paddingTop={3} flexDirection={{ base: "column", md: "row" }}>
+        <Flex gap={3} paddingTop={3}>
           <Flex flexDirection={"column"} alignItems={"center"}>
             <Box position="relative">
               <Avatar
@@ -89,34 +90,109 @@ const Post = ({ post, postedBy }) => {
                 zIndex={1}
               />
             </Box>
-            <Box
-              w='1px'
-              h={{ base: "1px", md: "full" }}
-              bg={colorMode === "light" ? "gray.300" : "#2B2B2B"}
-              my={2}
-              mb={4}
-            ></Box>
-            <Box position={"relative"} w={"full"}>
+            <Box w='1px' h={"full"} bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} my={2} mb={4}></Box>
+
+            <Box position={"relative"} w={"full"}    
+              display={{
+              base: "none",
+              md: "block",
+             }}>
               {post.replies.length === 0 && (
                 <Text textAlign={"center"}>
-                  <Text w={5} h={5} ml={3} mb={-2}>🥱</Text>
+            <Text w={5} h={5} ml={3} mb={-2}  >🥱</Text>
                 </Text>
               )}
-              <Flex mt={4} justifyContent="center">
-                {post.replies.slice(0, 3).map((reply, index) => (
+              <Flex mt={4}   >
+                {post.replies[0] && (
                   <Avatar
-                    key={index}
                     size='xs'
-                    name='John Doe'
-                    src={reply.userProfilePic}
-                    position={"relative"}
-                    marginLeft={index !== 0 ? -2 : 0}
+                    name='John doe'
+                    src={post.replies[0].userProfilePic}
+                    position={"absolute"}
+                    top={"0px"}
+                    left='15px'
+                    padding={"2px"}
                   />
-                ))}
+                )}
+                {post.replies[1] && (
+                  <Avatar
+                    size='2xs'
+                    name='John doe'
+                    src={post.replies[1].userProfilePic}
+                    position={"absolute"}
+                    bottom={"15px"}
+                    right='8px'
+                    padding={"2px"}
+                  />
+                )}
+                {post.replies[2] && (
+                  <Avatar
+                    size='xs'
+                    name='John doe'
+                    src={post.replies[2].userProfilePic}
+                    position={"absolute"}
+                    bottom={"15px"}
+                    left='-1px'
+                    padding={"2px"}
+                  />
+                )}
               </Flex>
             </Box>
-          </Flex>
 
+
+
+
+            <Box position={"relative"} w={"full"}    
+              display={{
+              base: "block",
+              md: "none",
+             }}>
+              {post.replies.length === 0 && (
+                <Text textAlign={"center"}>
+            <Text w={5} h={5} ml={2} mb={-2}  >🥱</Text>
+                </Text>
+              )}
+              <Flex mt={4}   >
+                {post.replies[0] && (
+                  <Avatar
+                    size='xs'
+                    name='John doe'
+                    src={post.replies[0].userProfilePic}
+                    position={"absolute"}
+                    top={"-2px"}
+                    left='8px'
+                    padding={"3px"}
+                  />
+                )}
+                {post.replies[1] && (
+                  <Avatar
+                    size='2xs'
+                    name='John doe'
+                    src={post.replies[1].userProfilePic}
+                    position={"absolute"}
+                    bottom={"15px"}
+                    right='-2px'
+                    padding={"3px"}
+                  />
+                )}
+                {post.replies[2] && (
+                  <Avatar
+                    size='xs'
+                    name='John doe'
+                    src={post.replies[2].userProfilePic}
+                    position={"absolute"}
+                    bottom={"15px"}
+                    left='-1px'
+                    padding={"3px"}
+                  />
+                )}
+              </Flex>
+            </Box>
+
+
+
+
+          </Flex>
           <Flex flex={1} flexDirection={"column"} gap={2}>
             <Flex justifyContent={"space-between"} w={"full"}>
               <Flex w={"full"} alignItems={"center"}>
@@ -125,24 +201,22 @@ const Post = ({ post, postedBy }) => {
                   fontWeight={"bold"}
                   onClick={(e) => {
                     e.preventDefault();
-                    navigate(`/${user.username}`);
+                    navigate(`/${user.name}`);
                   }}
                 >
                   {user?.name}
                 </Text>
                 <Image src='/verified.png' w={4} h={4} ml={1} />
                 <Box w={0.5} h={0.5} mx={1} borderRadius={"full"} bg={"gray.light"}></Box>
-                <Text fontSize={"xs"} textAlign={"left"} color="#68717a">
+                <Text fontSize={"xs"} textAlign={"left"} color={"gray.light"}>
                   {formatDistanceToNow(new Date(post.createdAt))}
                 </Text>
               </Flex>
-              <Flex gap={4} alignItems={"center"}>
-                <Text fontSize={"sm"} textAlign={"right"} color="#68717a">
+              <Flex gap={4} alignItems={"center"} marginLeft={"-20"}>
+                <Text fontSize={"sm"} textAlign={"right"} color={"gray.light"}>
                   ...
                 </Text>
-                {currentUser?._id === user._id && (
-                  <DeleteIcon size={18} onClick={handleDeletePost} />
-                )}
+                {currentUser?._id === user._id && <DeleteIcon size={18} onClick={handleDeletePost} />}
               </Flex>
             </Flex>
             <Text
@@ -190,7 +264,7 @@ const Post = ({ post, postedBy }) => {
             </Text>
             {post.img && (
               <Box
-                maxH={{ base: "300px", md: "600px" }}
+                maxH={{ base: "300", md: "600" }}
                 overflow="hidden"
                 position="relative"
                 borderRadius={6}
@@ -214,7 +288,9 @@ const Post = ({ post, postedBy }) => {
                   objectFit="contain"
                   borderRadius={6}
                   boxShadow={`0px 0px 0px 15px ${
-                    colorMode === "light" ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0.5)"
+                    colorMode === "light"
+                      ? "rgba(0, 0, 0, 0.1)"
+                      : "rgba(0, 0, 0, 0.5)"
                   }`}
                   position="relative"
                 />
@@ -225,12 +301,7 @@ const Post = ({ post, postedBy }) => {
             </Flex>
           </Flex>
         </Flex>
-        <Box
-          w="full"
-          h="1px"
-          bg={colorMode === "light" ? "gray.300" : "#2B2B2B"}
-          mt={4}
-        ></Box>
+        <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={4}></Box>
       </Link>
     </Box>
   );
