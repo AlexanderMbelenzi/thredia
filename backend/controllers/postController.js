@@ -13,7 +13,7 @@ const createPost = async (req, res) => {
 
 		const user = await User.findById(postedBy);
 		if (!user) {
-			return res.status(404).json({ error: "User not found" });
+			return res.status(404).json({ error: "Users not found" });
 		}
 
 		if (user._id.toString() !== req.user._id.toString()) {
@@ -140,7 +140,7 @@ const getFeedPosts2 = async (req, res) => {
 		const userId = req.user._id;
 		const user = await User.findById(userId);
 		if (!user) {
-			return res.status(404).json({ error: "User not found" });
+			return res.status(404).json({ error: "Users not found" });
 		}
 
 		const following = user.following;
@@ -182,7 +182,7 @@ const getUserPosts = async (req, res) => {
 	try {
 		const user = await User.findOne({ username });
 		if (!user) {
-			return res.status(404).json({ error: "User not found" });
+			return res.status(404).json({ error: "Users not found" });
 		}
 
 		const posts = await Post.find({ postedBy: user._id }).sort({ createdAt: -1 });

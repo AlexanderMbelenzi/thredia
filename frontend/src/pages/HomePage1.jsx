@@ -180,7 +180,7 @@ const HomePage1 = () => {
         {!loading && posts.length === 0 && (
           <h1>
             <Flex justify="center">
-            Welcome to bidoi, share your ideas    
+            Welcome to reddit, share your ideas    
              </Flex><br />     
                   
            <Flex justify="center">

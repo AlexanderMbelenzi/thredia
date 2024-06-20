@@ -5,9 +5,10 @@ import generateTokenAndSetCookie from "../utils/helpers/generateTokenAndSetCooki
 import { v2 as cloudinary } from "cloudinary";
 import mongoose from "mongoose";
 
+     
+
+
 const getUserProfile = async (req, res) => {
-	// We will fetch user profile either with username or userId
-	// query is either username or userId
 	const { query } = req.params;
 
 	try {
@@ -21,7 +22,7 @@ const getUserProfile = async (req, res) => {
 			user = await User.findOne({ username: query }).select("-password").select("-updatedAt");
 		}
 
-		if (!user) return res.status(404).json({ error: "User not found" });
+		if (!user) return res.status(404).json({ error: "user not found" });
 
 		res.status(200).json(user);
 	} catch (err) {

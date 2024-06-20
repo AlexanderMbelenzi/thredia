@@ -117,12 +117,12 @@
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>
-    <Link as={RouterLink} to="/">
+                                     <Link as={RouterLink} to="/">
                                         <Image src={Logo2}  alt="Logo" cursor="pointer" className="logo" />
                                     </Link>
 
                                 <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
-        color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
+                                   color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
                                     Login
                                 </Link>
 

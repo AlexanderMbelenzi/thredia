@@ -54,13 +54,12 @@ const HomePage2 = () => {
           md: "block",
         }}
       >
-        <SideBar /> {/* Corrected the component name */}
       </Box>
       <Box flex={58}  marginBottom={35}     marginTop={35}>
       <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"}  mt={4}></Box>
 
         {!loading && posts.length === 0 && (
-          <h1>Welcome to bidoi, share your ideas</h1>
+          <h1>Welcome to reddit, share your ideas</h1>
         )}
 
         {loading && (
@@ -80,7 +79,6 @@ const HomePage2 = () => {
           md: "block",
         }}
       >
-    				<SuggestedUsers />
 
       </Box>
     </Flex>
