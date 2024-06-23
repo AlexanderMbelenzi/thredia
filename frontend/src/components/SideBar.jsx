@@ -81,7 +81,7 @@ const SideBar = () => {
   ];
 
   const userLinks = [
-    { to: user ? `/${user.username}` : "/", icon: FiUser, label: "Profile" },
+    { to: user ? `/t/${user.username}` : "/", icon: FiUser, label: "Profile" },
     { to: "/chat", icon: FiBell, label: "Notifications" },
   ];
 

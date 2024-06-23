@@ -1,4 +1,4 @@
-import { Box, Container } from "@chakra-ui/react";
+import { Box, Container, useBreakpointValue } from "@chakra-ui/react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import UserPage from "./pages/UserPage";
 import PostPage from "./pages/PostPage";
@@ -26,68 +26,62 @@ import Careerspage from "./pages/Careerspage";
 import Supportpage from "./pages/Supportpage";
 import Contactuspage from "./pages/Contactuspage";
 import Comingsoonpage from "./pages/Comingsoonpage";
+
+
 function App() {
-	const user = useRecoilValue(userAtom);
-	const { pathname } = useLocation();
-	return (
-		<Box position={"relative"} w='full'>
+    const user = useRecoilValue(userAtom);
+    const { pathname } = useLocation();
+    const isSmallScreen = useBreakpointValue({ base: true, md: false });
 
-<Container maxW={ { base: "620px", md: "1800px" }  }>
-<Header />
+    
 
-<Routes>                
+
+    return (
+        <Box position={"relative"} w='full'>
+            <Container maxW={{ base: "620px", md: "1800px" }}>
+             <Header />
+                <Routes>                
                     <Route path='/' element={ <HomePage1 /> } />
-					<Route path='/about' element={ <AboutUs /> } />
-					<Route path='/topics' element={ <Topicspage /> } />
-					<Route path='/explore' element={ <Explorepage /> } />
-					<Route path='/support' element={ <Supportpage /> } />
-					<Route path='/careers' element={ <Careerspage /> } />
-					<Route path='/premium' element={ <Premiumpage /> } />
-					<Route path='/podcast' element={ <Podcastpage /> } />
-					<Route path='/contactus' element={ <Contactuspage /> } />
-					<Route path='/ideas' element={ <Ideaspage /> } />
-					<Route path='/solve' element={ <Solvepage /> } />
-					<Route path='/comingsoon' element={ <Comingsoonpage /> } />
-					<Route path='/communities' element={ <Communitiespage /> } />
-					<Route path='/reddit500' element={ <Reddit500page /> } />
+                    <Route path='/about' element={ <AboutUs /> } />
+                    <Route path='/topics' element={ <Topicspage /> } />
+                    <Route path='/explore' element={ <Explorepage /> } />
+                    <Route path='/support' element={ <Supportpage /> } />
+                    <Route path='/careers' element={ <Careerspage /> } />
+                    <Route path='/premium' element={ <Premiumpage /> } />
+                    <Route path='/podcast' element={ <Podcastpage /> } />
+                    <Route path='/contactus' element={ <Contactuspage /> } />
+                    <Route path='/ideas' element={ <Ideaspage /> } />
+                    <Route path='/solve' element={ <Solvepage /> } />
+                    <Route path='/comingsoon' element={ <Comingsoonpage /> } />
+                    <Route path='/communities' element={ <Communitiespage /> } />
+                    <Route path='/reddit500' element={ <Reddit500page /> } />
                     <Route path='/discoverdaily' element={ <Discoverdailypage /> } />
 
-
                     <Route path='/auth' element={!user ? <AuthPage /> : <Navigate to='/' />} />
-					<Route path='/update' element={user ? <UpdateProfilePage /> : <Navigate to='/auth' />} />
-					
-					<Route
-						path='/:username'
-						element={
-							user ? (
-								<>
-									<UserPage />
-									<CreatePost />
-								</>
-							) : (
-								<UserPage />
-							)
-						}
-					/>
-					<Route path='/:username/post/:pid' element={<PostPage />} />
-					<Route path='/chat' element={user ? <ChatPage /> : <Navigate to={"/auth"} />} />
-					<Route path='/settings' element={user ? <SettingsPage /> : <Navigate to={"/auth"} />} />
-				
-					<Route path='/about' element={ <AboutUs /> } />
-
-					
-				</Routes>
-				</Container>
-
-				
-	
-		
-
-
-
-
-		</Box>
-	);
+                    <Route path='/update' element={user ? <UpdateProfilePage /> : <Navigate to='/auth' />} />
+                    
+                    <Route
+                        path='/t/:username'
+                        element={
+                            user ? (
+                                <>
+                                    <UserPage />
+                                    <CreatePost />
+                                </>
+                            ) : (
+                                <UserPage />
+                            )
+                        }
+                    />
+                    <Route path='/t/:username/post/:pid' element={<PostPage />} />
+                    <Route path='/chat' element={user ? <ChatPage /> : <Navigate to={"/auth"} />} />
+                    <Route path='/settings' element={user ? <SettingsPage /> : <Navigate to={"/auth"} />} />
+                
+                    <Route path='/about' element={ <AboutUs /> } />
+                </Routes>
+            </Container>
+        </Box>
+    );
 }
 
 export default App;

@@ -1,89 +1,80 @@
-import { Avatar, Box, Flex, Link, Text, VStack, Button, IconButton, useToast, HStack } from "@chakra-ui/react";
+import { Avatar } from "@chakra-ui/avatar";
+import { Box, Flex, Link, Text, VStack } from "@chakra-ui/layout";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
-import { Portal } from "@chakra-ui/react";
-import { BsCamera } from "react-icons/bs";
+import { Portal } from "@chakra-ui/portal";
+import { Button, useToast } from "@chakra-ui/react";
+import { BsCamera } from "react-icons/bs"; 
 import { CgMoreO } from "react-icons/cg";
-import { IoIosArrowBack } from "react-icons/io";
 import { useRecoilValue } from "recoil";
-import { Link as RouterLink } from "react-router-dom";
 import userAtom from "../atoms/userAtom";
+import { Link as RouterLink } from "react-router-dom";
 import useFollowUnfollow from "../hooks/useFollowUnfollow";
 import { useColorMode } from "@chakra-ui/react";
 
+
 const UserHeader = ({ user }) => {
-    const { colorMode } = useColorMode();
-    const toast = useToast();
-    const currentUser = useRecoilValue(userAtom); // logged in user
-    const { handleFollowUnfollow, following, updating } = useFollowUnfollow(user);
+	const { colorMode } = useColorMode();
+	const toast = useToast();
+	const currentUser = useRecoilValue(userAtom); // logged in user
+	const { handleFollowUnfollow, following, updating } = useFollowUnfollow(user);
 
-    const copyURL = () => {
-        const currentURL = window.location.href;
-        navigator.clipboard.writeText(currentURL).then(() => {
-            toast({
-                title: "Success.",
-                status: "success",
-                description: "Profile link copied.",
-                duration: 3000,
-                isClosable: true,
-            });
-        });
-    };
+	const copyURL = () => {
+		const currentURL = window.location.href;
+		navigator.clipboard.writeText(currentURL).then(() => {
+			toast({
+				title: "Success.",
+				status: "success",
+				description: "Profile link copied.",
+				duration: 3000,
+				isClosable: true,
+			});
+		});
+	};
 
-    return (
-        <VStack mt={50} gap={4} alignItems="start">
-            <Flex w="full" alignItems="center" justifyContent="space-between">
-                <IconButton
-                    as={RouterLink}
-                    to="/"
-                    icon={<IoIosArrowBack />}
-                    variant="ghost"
-                    aria-label="Back"
-                />
-                <Text fontSize="xl" fontWeight="bold">
-                    {user.name}
-                </Text>
-                <Menu>
-                    <MenuButton as={IconButton} icon={<CgMoreO />} variant="ghost" />
-                    <Portal>
-                        <MenuList>
-                            <MenuItem onClick={copyURL}>Copy link</MenuItem>
-                        </MenuList>
-                    </Portal>
-                </Menu>
-            </Flex>
+	return (
+		<VStack  mt={5} gap={4} alignItems={"start"}>
+			
+			<Flex justifyContent={"space-between"} mt={4} w={"full"}>
 
-            <Flex w="full" alignItems="center">
-                <Box mt={2}>
-                    <Avatar
-                        name={user.name}
-                        src={user.profilePic || "https://bit.ly/broken-link"}
-                        size={{ base: "md", md: "xl" }}
-                    />
-                </Box>
-                <Flex direction="column" ml={4} flex={1} justifyContent="center" alignItems="center">
-                    <HStack spacing={4} mb={2}>
-                        <Box textAlign="center">
-                            <Text fontWeight="bold">{user.posts?.length || 0}</Text>
-                            <Text fontSize="sm" color="gray.500">posts</Text>
-                        </Box>
-                        <Box textAlign="center">
-                            <Text fontWeight="bold">{user.followers?.length || 0}</Text>
-                            <Text fontSize="sm" color="gray.500">followers</Text>
-                        </Box>
-                        <Box textAlign="center">
-                            <Text fontWeight="bold">{user.following?.length || 0}</Text>
-                            <Text fontSize="sm" color="gray.500">following</Text>
-                        </Box>
-                    </HStack>
-                    <Text fontSize="sm" color="gray.500">
-                        @{user.username}
-                    </Text>
-                </Flex>
-            </Flex>
+				<Box wordBreak="break-all"   >
+					<Text fontSize={"xl"} fontWeight={"bold"}>
+						{user.name}
+					</Text>
+					<Flex gap={2} alignItems={"center"}>
+						<Text fontSize={"sm"}     >{user.username}</Text>
+						<Text fontSize={"xs"} bg={"gray.dark"} color={"gray.light"} p={1} borderRadius={"full"}>
+							
+						</Text>
+					</Flex>
+				</Box>
+				<Box mt={2}>
+					{user.profilePic && (
+						<Avatar
+							name={user.name}
+							src={user.profilePic}
+							size={{
+								base: "md",
+								md: "xl",
+							}}
+						/>
+					)}
+					{!user.profilePic && (
+						<Avatar
+							name={user.name}
+							src='https://bit.ly/broken-link'
+							size={{
+								base: "md",
+								md: "xl",
+							}}
+						/>
+					)}
+				</Box>
+				
+			</Flex>
 
-            <Text>{user.bio}</Text>
+			<Text    >{user.bio}</Text>
 
-            <Flex w="full" justifyContent="center" mt={2}>
+			<Flex w="full" justifyContent="flex-start" mt={2}>
                 {currentUser?._id === user._id ? (
                     <>
                         <Link as={RouterLink} to="/update">
@@ -100,28 +91,60 @@ const UserHeader = ({ user }) => {
                         <Button size="sm" onClick={handleFollowUnfollow} isLoading={updating} mr={2}>
                             {following ? "Unfollow" : "Follow"}
                         </Button>
-                        <Button size="sm">Message</Button>
-                    </>
+						<Link as={RouterLink} to="/chat">
+                            <Button size="sm" mr={2}>
+                                message
+                           </Button>
+                        </Link>                    </>
                 )}
             </Flex>
 
-            <Flex w="full" mt={4}>
-                <Flex flex={1} borderBottom="1.5px solid white" justifyContent="center" pb="3" cursor="pointer">
-                    <Text fontWeight="bold">Posts</Text>
-                </Flex>
-                <Flex
-                    flex={1}
-                    borderBottom="1px solid gray"
-                    justifyContent="center"
-                    color={colorMode === "light" ? "gray.300" : "#2B2B2B"}
-                    pb="3"
-                    cursor="pointer"
-                >
-                    <Text fontWeight="bold">Replies</Text>
-                </Flex>
-            </Flex>
-        </VStack>
-    );
+
+			<Flex w={"full"} justifyContent={"space-between"}>
+				<Flex gap={2} alignItems={"center"}>
+					<Text color={"gray.light"}>{user.followers.length} followers</Text>
+					<Text color={"gray.light"}>{user.following.length} following</Text>
+
+					<Box w='1' h='1' bg={"gray.light"} borderRadius={"full"}></Box>
+				</Flex>
+				<Flex>
+					<Box className='icon-container'>
+						<BsCamera size={24} cursor={"pointer"} />
+					</Box>
+					<Box className='icon-container'>
+						<Menu>
+							<MenuButton>
+								<CgMoreO size={24} cursor={"pointer"} />
+							</MenuButton>
+							<Portal>
+								<MenuList bg={"gray.dark"}>
+									<MenuItem bg={"gray.dark"} onClick={copyURL}>
+										Copy link
+									</MenuItem>
+								</MenuList>
+							</Portal>
+						</Menu>
+					</Box>
+				</Flex>
+			</Flex>
+
+			<Flex w={"full"}>
+				<Flex flex={1} borderBottom={"1.5px solid white"} justifyContent={"center"} pb='3' cursor={"pointer"}>
+					<Text fontWeight={"bold"}> Posts</Text>
+				</Flex>
+				<Flex
+					flex={1}
+					borderBottom={"1px solid gray"}
+					justifyContent={"center"}
+					color={colorMode === "light" ? "gray.300" : "#2B2B2B"} 
+					pb='3'
+					cursor={"pointer"}
+				>
+					<Text fontWeight={"bold"}> Replies</Text>
+				</Flex>
+			</Flex>
+		</VStack>
+	);
 };
 
 export default UserHeader;

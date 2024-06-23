@@ -52,7 +52,7 @@ const PostPage = () => {
 				return;
 			}
 			showToast("Success", "Post deleted", "success");
-			navigate(`/${user.username}`);
+			navigate(`/t/${user.username}`);
 		} catch (error) {
 			showToast("Error", error.message, "error");
 		}
@@ -78,14 +78,14 @@ const PostPage = () => {
 				<Flex w={"full"} alignItems={"center"}  gap={3}>
 					<Avatar src={user.profilePic}   onClick={(e) => {
                   e.preventDefault();
-                  navigate(`/${user.username}`);
+                  navigate(`/t/${user.username}`);
                 }} size={"md"} name='Mark Zuckerberg'   
 				      _hover={{ transform: 'scale(1.1)', cursor: 'pointer' }}
 				/>
 					<Flex>
 						<Text fontSize={"sm"}   onClick={(e) => {
                   e.preventDefault();
-                  navigate(`/${user.username}`);
+                  navigate(`/t/${user.username}`);
                 }} fontWeight={"bold"}     
 				    _hover={{ transform: 'scale(1.1)', cursor: 'pointer' }}
 				>

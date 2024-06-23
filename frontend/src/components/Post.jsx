@@ -71,7 +71,7 @@ const Post = ({ post, postedBy }) => {
 
   return (
     <Box wordBreak="break-word">
-      <Link to={`/${user.username}/post/${post._id}`}>
+      <Link to={`/t/${user.username}/post/${post._id}`}>
         <Flex gap={3} paddingTop={3}>
           <Flex flexDirection={"column"} alignItems={"center"}>
             <Box position="relative">
@@ -85,7 +85,7 @@ const Post = ({ post, postedBy }) => {
                 src={user?.profilePic}
                 onClick={(e) => {
                   e.preventDefault();
-                  navigate(`/${user.username}`);
+                  navigate(`/t/${user.username}`);
                 }}
                 zIndex={1}
               />

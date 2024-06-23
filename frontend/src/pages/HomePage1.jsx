@@ -179,7 +179,7 @@ const HomePage1 = () => {
         
    <Box>
 
-<Box   marginTop={5}>
+<Box   marginTop={5}> 
   
         {!loading && posts.length === 0 && (
           <h1>

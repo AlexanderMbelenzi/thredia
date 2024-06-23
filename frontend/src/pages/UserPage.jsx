@@ -3,6 +3,10 @@ import { Box } from "@chakra-ui/react";
 import UserHeader from "../components/UserHeader";
 import { useParams } from "react-router-dom";
 import useShowToast from "../hooks/useShowToast";
+import SuggestedUsers2 from "../components/SuggestedUsers2";
+import SideBar from "../components/SideBar";
+import { useColorMode } from "@chakra-ui/react";
+import Empty from "../components/empty";
 import { Flex, Spinner } from "@chakra-ui/react";
 import Post from "../components/Post";
 import useGetUserProfile from "../hooks/useGetUserProfile";
@@ -10,6 +14,8 @@ import { useRecoilState } from "recoil";
 import postsAtom from "../atoms/postsAtom";
 
 const UserPage = () => {
+	const { colorMode } = useColorMode();
+
 	const { user, loading } = useGetUserProfile();
 	const { username } = useParams();
 	const showToast = useShowToast();
@@ -44,10 +50,39 @@ const UserPage = () => {
 		);
 	}
 
-	if (!user && !loading) return <h1>User not found</h1>;
+	if (!user && !loading) return <h1>User not found</h1>; 
 
 	return (
-		<Box ml={{ base: 0, lg: "-15%" }} marginBottom={35}   >
+
+
+<Flex maxWidth={1800} mt={6} alignItems="flex-start">
+<Box
+  flex={15}
+  display={{
+	base: "none",
+	md: "block",
+  }}
+>
+  <SideBar />
+</Box>
+
+<Box
+  borderLeft={"2px"}
+  borderLeftColor={colorMode === "light" ? "gray.200" : "#2B2B2B"}
+  flex={1}
+  px={8}
+  mt={35}
+  display={{
+	base: "none",
+	md: "block",
+  }}
+>
+  <Empty />
+</Box>
+
+<Box flex={35} marginTop={5}  marginBottom={55}>
+
+<Box  marginBottom={35}   >
 					<>
 
 			<UserHeader user={user} />
@@ -65,7 +100,36 @@ const UserPage = () => {
 </>
 </Box>
 
-		
+</Box>
+
+
+
+
+
+<Box
+  borderLeft={"8px"}
+  borderLeftColor={colorMode === "light" ? "gray.200" : "#2B2B2B"}
+  flex={1}
+  px={8}
+  mt={35}
+  display={{
+	base: "none",
+	md: "block",
+  }}
+>
+  <Empty />
+</Box>
+
+<Box
+  flex={17}
+  display={{
+	base: "none",
+	lg: "block",
+  }}
+>
+  <SuggestedUsers2 />
+</Box>
+</Flex>		
 		
 	);
 };

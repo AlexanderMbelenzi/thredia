@@ -78,7 +78,7 @@ const CreatePage = () => {
       setImgUrl("");
       
       // Navigate to the user's profile page
-      window.location.href = `/${user.username}`;
+      window.location.href = `/t/${user.username}`;
     } catch (error) {
       showToast("Error", error, "error");
     } finally {

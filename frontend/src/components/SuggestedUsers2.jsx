@@ -113,7 +113,7 @@ import { useEffect, useRef, useState } from "react";
     
     
       return (
-        <Box mr={"60"} position="absolute"  ml={5} marginTop="50px">
+        <Box mr={"20"} position="absolute"  ml={5} marginTop="50px">
           <Box
             ref={welcomeSectionRef}
           
