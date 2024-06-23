@@ -322,7 +322,27 @@
                               
                             </Link>
 
- {(location.pathname === "/" || location.pathname === "/Home2") && (
+
+
+{(location.pathname === "/discoverdaily" || location.pathname === "/") && (
+  <Link
+
+    fontSize="md"
+    as={RouterLink}
+    _hover={{ textDecoration: "none", 
+    color: "#007bff" }}
+    to="/discoverdaily"
+    onClick={() => handleLinkClick("discoverdaily")}
+    sx={linkStyles("discoverdaily")}
+  >
+    DiscoverDaily
+  </Link>
+)}
+      
+      
+      
+      
+      {(location.pathname === "/" || location.pathname === "/Home2") && (
   <Link
 
     fontSize="md"
@@ -350,9 +370,7 @@
   >
     Following
   </Link>
-)}
-
-                            <Link
+)}                      <Link
                                 fontSize="md"
                                 as={RouterLink}
                                 to="/Home2"

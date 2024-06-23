@@ -60,7 +60,7 @@ const PostPage = () => {
 
 	if (!user && loading) {
 		return (
-			<Flex justifyContent={"center"}>
+			<Flex mt={55} justifyContent={"center"}>
 				<Spinner size={"xl"} />
 			</Flex>
 		);
@@ -76,9 +76,19 @@ const PostPage = () => {
 		
 			<Flex>
 				<Flex w={"full"} alignItems={"center"}  gap={3}>
-					<Avatar src={user.profilePic} size={"md"} name='Mark Zuckerberg' />
+					<Avatar src={user.profilePic}   onClick={(e) => {
+                  e.preventDefault();
+                  navigate(`/${user.username}`);
+                }} size={"md"} name='Mark Zuckerberg'   
+				      _hover={{ transform: 'scale(1.1)', cursor: 'pointer' }}
+				/>
 					<Flex>
-						<Text fontSize={"sm"}  fontWeight={"bold"}>
+						<Text fontSize={"sm"}   onClick={(e) => {
+                  e.preventDefault();
+                  navigate(`/${user.username}`);
+                }} fontWeight={"bold"}     
+				    _hover={{ transform: 'scale(1.1)', cursor: 'pointer' }}
+				>
 							{user.username}
 						</Text>
 						<Image src='/verified.png' w='4' h={4} ml={4} />
@@ -97,10 +107,15 @@ const PostPage = () => {
 
 			<Text my={3}    fontSize={{ base: "xs", md: "15.5px" }}>{currentPost.text}   </Text>
 
+
+
+
+
 			{currentPost.img && (
 				<Box borderRadius={6} overflow={"hidden"} border={"1px solid"} borderColor={"gray.light"}>
-					<Image src={currentPost.img} w={"full"} />
-				</Box>
+  <a href={currentPost.img} target="_blank" rel="noopener noreferrer">
+			<Image src={currentPost.img} alt="Post Image" />
+		  </a>				</Box>
 			)}
 
 			<Flex gap={3} my={3}>
@@ -119,11 +134,12 @@ const PostPage = () => {
 
 			<Divider my={4} />
 			{currentPost.replies.map((reply) => (
-				<Comment   
-					key={reply._id}
-					reply={reply}
-					lastReply={reply._id === currentPost.replies[currentPost.replies.length - 1]._id}
-				/>
+			  <Comment
+			  key={reply._id}
+			  reply={reply}
+			  lastReply={reply._id === currentPost.replies[currentPost.replies.length - 1]._id}
+			  navigate={navigate}
+			/>
 
 
 			))}

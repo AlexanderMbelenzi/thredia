@@ -1,4 +1,4 @@
- import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import {
@@ -35,21 +35,24 @@ import {
   FiUsers,
   FiSettings,
   FiInfo,
-  FiMenu,
   FiChevronLeft,
   FiChevronDown,
   FiChevronUp,
 } from "react-icons/fi";
 import useLogout from "../hooks/useLogout";
 import userAtom from "../atoms/userAtom";
+import PostModal from "./Postmodal";
 
 const SideBar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const user = useRecoilValue(userAtom);
-  const logout = useLogout();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [expandedItems, setExpandedItems] = useState({});
+  const [message, setMessage] = useState("");
   const location = useLocation();
+
+  const { isOpen: isPostModalOpen, onOpen: onOpenPostModal, onClose: onClosePostModal } = useDisclosure();
+  const { isOpen: isNoticeModalOpen, onOpen: onOpenNoticeModal, onClose: onCloseNoticeModal } = useDisclosure();
 
   const handleToggleExpand = (label) => {
     setExpandedItems((prev) => ({
@@ -73,13 +76,13 @@ const SideBar = () => {
       onClick: () => handleLinkClick("Topics Coming soon"),
       icon: FiBookOpen,
       label: "Topics",
-      subtopics: ["Cyrpto", " Gaming", " Computing"],
+      subtopics: ["Crypto", "Gaming", "Computing"],
     },
   ];
 
   const userLinks = [
     { to: user ? `/${user.username}` : "/", icon: FiUser, label: "Profile" },
-    { to: "/notifications", icon: FiBell, label: "Notifications" },
+    { to: "/chat", icon: FiBell, label: "Notifications" },
   ];
 
   const topPicksLinks = [
@@ -126,26 +129,24 @@ const SideBar = () => {
     { to: "/about", icon: FiInfo, label: "About Us" },
   ];
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [message, setMessage] = useState("");
-
   const handleLinkClick = (message) => {
-  setMessage(message);
-  onOpen();
+    setMessage(message);
+    onOpenNoticeModal();
   };
-  
-  
+
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <Box
       direction="column"
-      
       marginTop="55px"
       maxH={850}
       width={isCollapsed ? "5%" : "13%"}
       alignItems="flex-start"
       position="fixed"
       display={{ base: "none", md: "block" }}
-     
       overflowY="scroll"
       onMouseEnter={(e) => {
         e.currentTarget.style.overflowY = "auto";
@@ -170,86 +171,187 @@ const SideBar = () => {
       }}
     >
       <Stack>
-  {sidebarLinks.map((link, index) => (
-  <Link key={index} as={RouterLink} to={link.to}>
-  <Button
-  leftIcon={React.createElement(link.icon)}
-  fontWeight="normal"
-  size="md"
-  bg={
-  isActive(link.to)
-  ? colorMode === "light"
-  ? "gray.200"
-  : "#1e1e1e"
-  : colorMode === "light"
-  ? "#F5F8FA"
-  : "#030304"
-  }
-  borderRadius="10px"
-  width="full"
-  justifyContent="left"
-  color={isActive(link.to) ? "#007bff" : undefined}
-  >
-  {!isCollapsed && link.label}
-  </Button>
-  </Link>
-  ))}
-      {topPicks2Links.map((link, index) => (
-      <Box key={index} width="full">
-        <Flex justifyContent="space-between" alignItems="center">
-          <Button
-            onClick={link.onClick}
-            leftIcon={React.createElement(link.icon)}
-            fontWeight="normal"
-            size="md"
-            bg={
-              isActive(link.to)
-                ? colorMode === "light"
-                  ? "gray.200"
-                  : "#1e1e1e"
-                : colorMode === "light"
-                ? "#F5F8FA"
-                : "#030304"
-            }
-            borderRadius="10px"
-            width={"full"}
-            color={isActive(link.to) ? "#007bff" : undefined}
-            textAlign="left"
-            justifyContent="flex-start"
-          >
-            {!isCollapsed && link.label}
-          </Button>
-          <IconButton
-            aria-label="Toggle Expand"
-            icon={
-              expandedItems[link.label] ? <FiChevronUp /> : <FiChevronDown />
-            }
-            onClick={() => handleToggleExpand(link.label)}
-            size="sm"
-            variant="ghost"
-          />
-        </Flex>
-        <Collapse in={expandedItems[link.label]} animateOpacity>
-          <Stack pl={8} mt={2} spacing={2}>
-            {link.subtopics.map((subtopic, subIndex) => (
-              <Text key={subIndex} fontSize="sm">
-                {subtopic}
-              </Text>
+        {sidebarLinks.map((link, index) => (
+          <Link key={index} as={RouterLink} to={link.to}>
+            <Button
+              leftIcon={React.createElement(link.icon)}
+              fontWeight="normal"
+              size="md"
+              bg={
+                isActive(link.to)
+                  ? colorMode === "light"
+                    ? "gray.200"
+                    : "#1e1e1e"
+                  : colorMode === "light"
+                  ? "#F5F8FA"
+                  : "#030304"
+              }
+              borderRadius="10px"
+              width="full"
+              justifyContent="left"
+              color={isActive(link.to) ? "#007bff" : undefined}
+            >
+              {!isCollapsed && link.label}
+            </Button>
+          </Link>
+        ))}
+        {topPicks2Links.map((link, index) => (
+          <Box key={index} width="full">
+            <Flex justifyContent="space-between" alignItems="center">
+              <Button
+                onClick={link.onClick}
+                leftIcon={React.createElement(link.icon)}
+                fontWeight="normal"
+                size="md"
+                bg={
+                  isActive(link.to)
+                    ? colorMode === "light"
+                      ? "gray.200"
+                      : "#1e1e1e"
+                    : colorMode === "light"
+                    ? "#F5F8FA"
+                    : "#030304"
+                }
+                borderRadius="10px"
+                width={"full"}
+                color={isActive(link.to) ? "#007bff" : undefined}
+                textAlign="left"
+                justifyContent="flex-start"
+              >
+                {!isCollapsed && link.label}
+              </Button>
+              <IconButton
+                aria-label="Toggle Expand"
+                icon={
+                  expandedItems[link.label] ? <FiChevronUp /> : <FiChevronDown />
+                }
+                onClick={() => handleToggleExpand(link.label)}
+                size="sm"
+                variant="ghost"
+              />
+            </Flex>
+            <Collapse in={expandedItems[link.label]} animateOpacity>
+              <Stack pl={8} mt={2} spacing={2}>
+                {link.subtopics.map((subtopic, subIndex) => (
+                  <Text key={subIndex} fontSize="sm">
+                    {subtopic}
+                  </Text>
+                ))}
+              </Stack>
+            </Collapse>
+          </Box>
+        ))}
+        {user && (
+          <>
+            <Box
+              w="full"
+              h="1px"
+              bg={colorMode === "light" ? "gray.300" : "gray.800"}
+              mt={2}
+            ></Box>
+            {userLinks.map((link, index) => (
+              <Link key={index} as={RouterLink} to={link.to}>
+                <Button
+                  leftIcon={React.createElement(link.icon)}
+                  fontWeight="normal"
+                  size="md"
+                  bg={
+                    isActive(link.to)
+                      ? colorMode === "light"
+                        ? "gray.200"
+                        : "#1e1e1e"
+                      : colorMode === "light"
+                      ? "#F5F8FA"
+                      : "#030304"
+                  }
+                  borderRadius="10px"
+                  width={"full"}
+                  justifyContent={"left"}
+                  color={isActive(link.to) ? "#007bff" : undefined}
+                >
+                  {!isCollapsed && link.label}
+                </Button>
+              </Link>
             ))}
-          </Stack>
-        </Collapse>
-      </Box>
-    ))}
-
-    {user && (
-      <>
+          </>
+        )}
         <Box
           w="full"
           h="1px"
           bg={colorMode === "light" ? "gray.300" : "gray.800"}
           mt={2}
         ></Box>
-        {userLinks.map((link, index) => (
+        {!isCollapsed && (
+          <Text
+            pl={4}
+            fontWeight="normal"
+            color={colorMode === "dark" ? "gray.300" : "gray.600"}
+          >
+            Top Picks
+          </Text>
+        )}
+        {topPicksLinks.map((link, index) => (
+          <Box key={index} width="full">
+            <Flex justifyContent="space-between" alignItems="center">
+              <Button
+                onClick={link.onClick}
+                leftIcon={React.createElement(link.icon)}
+                fontWeight="normal"
+                size="md"
+                bg={
+                  isActive(link.to)
+                    ? colorMode === "light"
+                      ? "gray.200"
+                      : "#1e1e1e"
+                    : colorMode === "light"
+                    ? "#F5F8FA"
+                    : "#030304"
+                }
+                borderRadius="10px"
+                width={"full"}
+                color={isActive(link.to) ? "#007bff" : undefined}
+                textAlign="left"
+                justifyContent="flex-start"
+              >
+                {!isCollapsed && link.label}
+              </Button>
+              <IconButton
+                aria-label="Toggle Expand"
+                icon={
+                  expandedItems[link.label] ? <FiChevronUp /> : <FiChevronDown />
+                }
+                onClick={() => handleToggleExpand(link.label)}
+                size="sm"
+                variant="ghost"
+              />
+            </Flex>
+            <Collapse in={expandedItems[link.label]} animateOpacity>
+              <Stack pl={8} mt={2} spacing={2}>
+                {link.subtopics.map((subtopic, subIndex) => (
+                  <Text key={subIndex} fontSize="sm">
+                    {subtopic}
+                  </Text>
+                ))}
+              </Stack>
+            </Collapse>
+          </Box>
+        ))}
+        <Box
+          w="full"
+          h="1px"
+          bg={colorMode === "light" ? "gray.300" : "gray.800"}
+          mt={2}
+        ></Box>
+        {!isCollapsed && (
+          <Text
+            pl={4}
+            color={colorMode === "dark" ? "gray.300" : "gray.600"}
+            fontWeight="normal"
+          >
+            Resources
+          </Text>
+        )}
+        {resourcesLinks.map((link, index) => (
           <Link key={index} as={RouterLink} to={link.to}>
             <Button
               leftIcon={React.createElement(link.icon)}
@@ -273,177 +375,52 @@ const SideBar = () => {
             </Button>
           </Link>
         ))}
-      </>
-    )}
+        <Box
+          w="full"
+          h="1px"
+          bg={colorMode === "light" ? "gray.300" : "gray.800"}
+          mt={2}
+        ></Box>
+        <Flex justifyContent="left" mt={4} direction="column" alignItems="center" width="full">
+          <Button
+            backgroundColor="#007bff"
+            _hover={{ textDecoration: "none", backgroundColor: "blue.400" }}
+            justifyContent="center"
+            style={{
+              borderRadius: "20px",
+              fontSize: "lg",
+              width: isCollapsed ? "80px" : "100%",
+              padding: "0.5rem 1rem",
+              color: "white",
+            }}
+            onClick={onOpenPostModal}
+          >
+            {!isCollapsed && " Post"}
+          </Button>
+          <PostModal isOpen={isPostModalOpen} onClose={onClosePostModal} />
 
-    <Box
-      w="full"
-      h="1px"
-      bg={colorMode === "light" ? "gray.300" : "gray.800"}
-      mt={2}
-    ></Box>
-
-    {!isCollapsed && (
-      <Text
-        pl={4}
-        fontWeight="normal"
-        color={colorMode === "dark" ? "gray.300" : "gray.600"}
-      >
-        Top Picks
-      </Text>
-    )}
-
-    {topPicksLinks.map((link, index) => (
-      <Box key={index} width="full">
-        <Flex justifyContent="space-between" alignItems="center">
-        <Button
-            onClick={link.onClick}
-            leftIcon={React.createElement(link.icon)}
-            fontWeight="normal"
-            size="md"
-              bg={
-                isActive(link.to)
-                  ? colorMode === "light"
-                    ? "gray.200"
-                    : "#1e1e1e"
-                  : colorMode === "light"
-                  ? "#F5F8FA"
-                  : "#030304"
-              }
-              borderRadius="10px"
-              width={"full"}
-              color={isActive(link.to) ? "#007bff" : undefined}
-              textAlign="left"
-              justifyContent="flex-start"
-            >
-              {!isCollapsed && link.label}
-            </Button>
-          <IconButton
-            aria-label="Toggle Expand"
-            icon={
-              expandedItems[link.label] ? <FiChevronUp /> : <FiChevronDown />
-            }
-            onClick={() => handleToggleExpand(link.label)}
-            size="sm"
-            variant="ghost"
-          />
+          <Modal isOpen={isNoticeModalOpen} onClose={onCloseNoticeModal}>
+            <ModalOverlay />
+            <ModalContent bg="#007bff" color="white">
+              <Flex justify="center">
+                <ModalHeader> Notice</ModalHeader>
+              </Flex>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text>
+                  <Flex justify="center">{message}</Flex>
+                  <Flex justify="center">
+                    <Link href="/comingsoon" color="ffffff">Check out what's coming soon! </Link> 
+                  </Flex>
+                  <br />
+                </Text>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
         </Flex>
-        <Collapse in={expandedItems[link.label]} animateOpacity>
-          <Stack pl={8} mt={2} spacing={2}>
-            {link.subtopics.map((subtopic, subIndex) => (
-              <Text key={subIndex} fontSize="sm">
-                {subtopic}
-              </Text>
-            ))}
-          </Stack>
-        </Collapse>
-      </Box>
-    ))}
-
-    <Box
-      w="full"
-      h="1px"
-      bg={colorMode === "light" ? "gray.300" : "gray.800"}
-      mt={2}
-    ></Box>
-
-    {!isCollapsed && (
-      <Text
-        pl={4}
-        color={colorMode === "dark" ? "gray.300" : "gray.600"}
-        fontWeight="normal"
-      >
-        Resources
-      </Text>
-    )}
-
-    {resourcesLinks.map((link, index) => (
-      <Link key={index} as={RouterLink} to={link.to}>
-        <Button
-          leftIcon={React.createElement(link.icon)}
-          fontWeight="normal"
-          size="md"
-          bg={
-            isActive(link.to)
-              ? colorMode === "light"
-                ? "gray.200"
-                : "#1e1e1e"
-              : colorMode === "light"
-              ? "#F5F8FA"
-              : "#030304"
-          }
-          borderRadius="10px"
-          width={"full"}
-          justifyContent={"left"}
-          color={isActive(link.to) ? "#007bff" : undefined}
-        >
-          {!isCollapsed && link.label}
-        </Button>
-      </Link>
-    ))}
-
-    <Box
-      w="full"
-      h="1px"
-      bg={colorMode === "light" ? "gray.300" : "gray.800"}
-      mt={2}
-    ></Box>
-
-    <Flex justifyContent="left">
-      <Button
-        as={RouterLink}
-        to="/create"
-        backgroundColor="#007bff"
-        _hover={{ textDecoration: "none", backgroundColor: "blue.400" }}
-        justifyContent="center"
-        style={{
-          marginTop: "20%",
-          borderRadius: "20px",
-          fontSize: "lg",
-          width: isCollapsed ? "100%" : "80%",
-          padding: "0.5rem 1rem",
-          color: "white",
-        }}
-      >
-        {!isCollapsed && "Post"}
-      </Button>
-
- 
-      <Modal isOpen={isOpen} onClose={onClose}>
-    <ModalOverlay />
-    <ModalContent bg="#007bff" color="white">
-    <Flex justify="center">
-        <ModalHeader> Notice</ModalHeader>
-        </Flex>
-
-        <ModalCloseButton />
-        <ModalBody>
-       
-            <Text> <Flex justify="center">{message}</Flex>
-             <Flex justify="center">
-               <Link href="/comingsoon" color="ffffff">Check out what's comming soon! </Link > 
-             </Flex>  <br />
-            </Text>
-
-        </ModalBody>
-       
-    </ModalContent>
-</Modal>
-    </Flex>
-  </Stack>
-   
-</Box>
-);
+      </Stack>
+    </Box>
+  );
 };
 
 export default SideBar;
-
-
-
-
-
-
-
-
-
-

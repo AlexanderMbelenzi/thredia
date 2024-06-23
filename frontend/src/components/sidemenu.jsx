@@ -146,7 +146,7 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
        
             <Text> <Flex justify="center">{message}</Flex>
              <Flex justify="center">
-               <Link href="/comingsoon" color="ffffff">Check out what's comming soon! </Link > 
+               <Link href="/comingsoon" color="ffffff">Check out what's comming soon here! </Link > 
              </Flex>  <br />
             </Text>
 

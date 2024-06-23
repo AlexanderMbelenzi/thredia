@@ -3,7 +3,6 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import UserPage from "./pages/UserPage";
 import PostPage from "./pages/PostPage";
 import Header from "./components/HeaderIn";
-import CreatePage from "./pages/CreatePage";
 import HomePage1 from "./pages/HomePage1";
 import AuthPage from "./pages/AuthPage";
 import Ideaspage from "./pages/Ideaspage";
@@ -54,7 +53,6 @@ function App() {
                     <Route path='/discoverdaily' element={ <Discoverdailypage /> } />
 
 
-					<Route path='/CreatePage' element={user ? <CreatePage /> : <Navigate to='/auth' />} />
                     <Route path='/auth' element={!user ? <AuthPage /> : <Navigate to='/' />} />
 					<Route path='/update' element={user ? <UpdateProfilePage /> : <Navigate to='/auth' />} />
 					
