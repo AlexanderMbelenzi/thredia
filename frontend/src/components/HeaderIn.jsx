@@ -335,7 +335,7 @@
     onClick={() => handleLinkClick("discoverdaily")}
     sx={linkStyles("discoverdaily")}
   >
-    DiscoverDaily
+    Discover
   </Link>
 )}
       
