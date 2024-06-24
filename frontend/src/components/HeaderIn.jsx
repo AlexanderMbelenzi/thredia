@@ -105,7 +105,7 @@
         left={0}
         right={0}
         borderBottom={borderBottom}
-        borderBottomColor={colorMode === "light" ? "gray.300" : "gray.800"}
+        borderBottomColor={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
         bg={colorMode === "dark" ? "rgba(1, 1, 2, 0.7)" : "rgba(245, 248, 250, 0.7)"}
         zIndex="995"
         position="fixed"
@@ -113,7 +113,7 @@
         marginX="auto"
       >
     
-                <Box py={1} pb={1} pt={1} className="header"   px={4}  maxW="1800"  marginX="auto">
+                <Box py={1} pb={1} pt={1} className="header"   px={4}  maxW="1690"  marginX="auto">
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>

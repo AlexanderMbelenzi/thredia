@@ -246,7 +246,7 @@ const SideBar = () => {
             <Box
               w="full"
               h="1px"
-              bg={colorMode === "light" ? "gray.300" : "gray.800"}
+              bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
               mt={2}
             ></Box>
             {userLinks.map((link, index) => (
@@ -278,7 +278,7 @@ const SideBar = () => {
         <Box
           w="full"
           h="1px"
-          bg={colorMode === "light" ? "gray.300" : "gray.800"}
+          bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
           mt={2}
         ></Box>
         {!isCollapsed && (
@@ -339,7 +339,7 @@ const SideBar = () => {
         <Box
           w="full"
           h="1px"
-          bg={colorMode === "light" ? "gray.300" : "gray.800"}
+          bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
           mt={2}
         ></Box>
         {!isCollapsed && (
@@ -378,10 +378,10 @@ const SideBar = () => {
         <Box
           w="full"
           h="1px"
-          bg={colorMode === "light" ? "gray.300" : "gray.800"}
+          bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
           mt={2}
         ></Box>
-        <Flex justifyContent="left" mt={4} direction="column" alignItems="center" width="full">
+        <Flex justifyContent="left" mt={12} direction="column" alignItems="center" width="full">
           <Button
             backgroundColor="#007bff"
             _hover={{ textDecoration: "none", backgroundColor: "blue.400" }}

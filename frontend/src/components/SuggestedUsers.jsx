@@ -90,7 +90,7 @@ const SuggestedUsers = () => {
   
   
     return (
-      <Box mr={"20"} position="absolute"   marginTop="50px">
+      <Box mr={"32"} position="absolute"   marginTop="50px">
         <Box
           ref={welcomeSectionRef}
         
@@ -106,7 +106,7 @@ const SuggestedUsers = () => {
 
             mb={3}
             mt={2}
-            backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgrounds[bgIndex]})`}
+            backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${backgrounds[bgIndex]})`}
             roundedLeft={"xl"}
             bgSize="cover"
             bgPos="center"
@@ -132,10 +132,10 @@ const SuggestedUsers = () => {
               fontWeight={"normal"}
             >
              We  will be rolling out new features every week.
-              Stay tuned for regular updates and enhancements!
+              Stay tuned for regular updates!
             
             </Text>
-            <Text pt={"6%"} pl={2} pb={"13%"}  >
+            <Text pt={"6%"} pl={2} pb={"7%"}  >
               <Link 
                 as={RouterLink}
                 to="/comingsoon"

@@ -22,13 +22,26 @@ import pizza5 from "/public/s2.jpg";
 
 const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
   return (
-    <Box position="relative" flexBasis={{ base: "33%", md: "32.5%", lg: "32.5%" }}     >
-      <Image src={src} alt={alt} width="100%"  borderRadius="lg" />
-      <Box position="absolute" left={{ base: "2", md: "4", lg: "4" }} right="1" bottom={{ base: "4%", md: "8%", lg: "8%" }} overflow="hidden">
+    <Box position="relative" flexBasis={{ base: "33%", md: "32.5%", lg: "32.5%" }}>
+      <Image src={src} alt={alt} width="100%" borderRadius="lg" />
+      
+      {/* Dark overlay */}
+      <Box
+        position="absolute"
+        top="0"
+        left="0"
+        width="100%"
+        height="100%"
+        backgroundColor="rgba(0, 0, 0, 0.1)" // Adjust the opacity as needed
+        borderRadius="lg"
+        zIndex="1"
+      />
+
+      <Box position="absolute" left={{ base: "2", md: "4", lg: "4" }} right="1" bottom={{ base: "4%", md: "8%", lg: "8%" }} overflow="hidden" zIndex="2">
         <Box>
           <Text
             mb="-1"
-            color="white"
+            color= "#E1E8ED"
             fontWeight="bold"
             whiteSpace="nowrap"
             overflow="hidden"
@@ -39,8 +52,8 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
             {topic}
           </Text>
           <Text
-          mb={"-1"}
-            color="white"
+            mb={"-1"}
+            color="#ccd6de"
             whiteSpace="nowrap"
             overflow="hidden"
             textOverflow="ellipsis"
@@ -55,7 +68,7 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
           <Image src={smallSrc} alt={name} boxSize={{ base: "25px", md: "35px", lg: "35px" }} borderRadius="full" />
           <Text
             ml="1"
-            color="white"
+            color="#E1E8ED "
             fontWeight="bold"
             whiteSpace="nowrap"
             overflow="hidden"
@@ -121,7 +134,7 @@ const HomePage1 = () => {
   }, [prevScrollPos]);
 
   return (
-    <Flex maxWidth={1800} mt={6} alignItems="flex-start">
+    <Flex maxWidth={1700} mt={6} alignItems="flex-start">
       <Box
         flex={15}
         display={{

@@ -90,7 +90,7 @@ const Post = ({ post, postedBy }) => {
                 zIndex={1}
               />
             </Box>
-            <Box w='1px' h={"full"} bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} my={2} mb={4}></Box>
+            <Box w='1px' h={"full"} bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"} my={2} mb={4}></Box>
 
             <Box position={"relative"} w={"full"}    
               display={{
@@ -197,6 +197,7 @@ const Post = ({ post, postedBy }) => {
             <Flex justifyContent={"space-between"} w={"full"}>
               <Flex w={"full"} alignItems={"center"}>
                 <Text
+
                   fontSize={"sm"}
                   fontWeight={"bold"}
                   onClick={(e) => {
@@ -208,15 +209,15 @@ const Post = ({ post, postedBy }) => {
                 </Text>
                 <Image src='/verified.png' w={4} h={4} ml={1} />
                 <Box w={0.5} h={0.5} mx={1} borderRadius={"full"} bg={"gray.light"}></Box>
-                <Text fontSize={"xs"} textAlign={"left"} color={"gray.light"}>
+                <Text fontSize={"xs"} textAlign={"left"} color={colorMode === "dark" ? "#8899A6 " : "#657786"}>
                   {formatDistanceToNow(new Date(post.createdAt))}
                 </Text>
               </Flex>
               <Flex gap={4} alignItems={"center"} marginLeft={"-20"}>
-                <Text fontSize={"sm"} textAlign={"right"} color={"gray.light"}>
+                <Text fontSize={"sm"} textAlign={"right"} color={colorMode === "dark" ? "#8899A6 " : "#657786"}>
                   ...
                 </Text>
-                {currentUser?._id === user._id && <DeleteIcon size={18} onClick={handleDeletePost} />}
+                {currentUser?._id === user._id && <DeleteIcon size={18} color={colorMode === "dark" ? "#8899A6 " : "#657786"} onClick={handleDeletePost} />}
               </Flex>
             </Flex>
             <Text
@@ -230,6 +231,7 @@ const Post = ({ post, postedBy }) => {
               mt={-2}
               fontSize={{ base: "xs", md: "md" }}
               fontFamily="'Noto Sans', Arial, sans-serif"
+              color={colorMode === "dark" ? "#E1E8ED " : "#0F1419"}
               fontWeight={"normal"}
             >
               {showFullText ? post.text : `${post.text.slice(0, TEXT_LIMIT)}`}
@@ -301,7 +303,7 @@ const Post = ({ post, postedBy }) => {
             </Flex>
           </Flex>
         </Flex>
-        <Box w="full" h="1px" bg={colorMode === "light" ? "gray.300" : "#2B2B2B"} mt={4}></Box>
+        <Box w="full" h="1px" bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"} mt={4}></Box>
       </Link>
     </Box>
   );
