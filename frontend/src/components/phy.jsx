@@ -10,7 +10,7 @@ import userAtom from "../atoms/userAtom";
 import authScreenAtom from "../atoms/authAtom";
 import useLogout from "../hooks/useLogout";
 import Logo2 from "/public/logo.png";
-import Logo3 from "/public/logo3.png";
+import Logo3 from "/public/logo3.svg";
 import emoji2 from "/public/emoji2.png";
 import right from "/public/right.svg";
 import SideMenu from "./sidemenu";

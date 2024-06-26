@@ -162,7 +162,7 @@ const HomePage1 = () => {
         <Empty />
       </Box>
 
-      <Box flex={35} marginTop={35}  marginBottom={55}>
+      <Box flex={33} marginTop={35}  marginBottom={55}>
         <Box mt={6} mb={4}>
           <Flex justify="space-between">
             <ImageBox
