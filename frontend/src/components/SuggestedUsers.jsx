@@ -90,7 +90,7 @@ const SuggestedUsers = () => {
   
   
     return (
-      <Box mr={"32"} position="absolute"   marginTop="50px">
+      <Box maxWidth={"380"} position="absolute"   marginTop="50px">
         <Box
           ref={welcomeSectionRef}
         
@@ -123,7 +123,7 @@ const SuggestedUsers = () => {
               <p>Welcome to reddit</p>
             </Text>
             <Text
-              pt={"6%"}
+              pt={"5%"}
               pl={2}
               color={"white"}
               style={{ textShadow: "0 0 2px black" }}
@@ -135,7 +135,7 @@ const SuggestedUsers = () => {
               Stay tuned for regular updates!
             
             </Text>
-            <Text pt={"6%"} pl={2} pb={"7%"}  >
+            <Text pt={"5%"} pl={2} pb={"6%"}  >
               <Link 
                 as={RouterLink}
                 to="/comingsoon"
@@ -153,7 +153,7 @@ const SuggestedUsers = () => {
         </Box>
   
         <Box  position={isScrolledOut ? "fixed" : "relative"}          
-top={isScrolledOut ? "80px" : "auto"} mr={isScrolledOut ? "20" : "auto"}  >
+top={isScrolledOut ? "80px" : "auto"} maxWidth={isScrolledOut ? "380" : "auto"}  >
           <Flex
          
             direction={"column"}

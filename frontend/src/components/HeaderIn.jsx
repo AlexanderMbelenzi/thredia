@@ -113,7 +113,7 @@
         marginX="auto"
       >
     
-                <Box py={1} pb={1} pt={1} className="header"   px={4}  maxW="1690"  marginX="auto">
+                <Box py={1} pb={1} pt={1} className="header"   px={4}  maxW="1600"  marginX="auto">
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>

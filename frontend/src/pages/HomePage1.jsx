@@ -1,4 +1,4 @@
-import { Box, Flex, Spinner, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Spinner, Text, Image, Container } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import SideBar from "../components/SideBar";
 import useShowToast from "../hooks/useShowToast";
@@ -134,7 +134,9 @@ const HomePage1 = () => {
   }, [prevScrollPos]);
 
   return (
-    <Flex maxWidth={1700} mt={6} alignItems="flex-start">
+    
+    <Flex maxWidth={1600} mt={6} alignItems="flex-start">
+      
       <Box
         flex={15}
         display={{
@@ -142,14 +144,15 @@ const HomePage1 = () => {
           md: "block",
         }}
       >
+        
         <SideBar />
       </Box>
 
       <Box
-        borderLeft={"2px"}
+      
         borderLeftColor={colorMode === "light" ? "gray.200" : "#2B2B2B"}
         flex={1}
-        px={8}
+        
         mt={35}
         display={{
           base: "none",
@@ -228,10 +231,10 @@ const HomePage1 = () => {
 
 
       <Box
-        borderLeft={"8px"}
+        borderLeft={"2px"}
         borderLeftColor={colorMode === "light" ? "gray.200" : "#2B2B2B"}
         flex={1}
-        px={8}
+        pl={"4"}
         mt={35}
         display={{
           base: "none",

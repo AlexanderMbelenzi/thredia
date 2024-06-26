@@ -38,7 +38,7 @@ function App() {
 
     return (
         <Box position={"relative"} w='full'>
-            <Container maxW={{ base: "620px", md: "1700px" }}>
+            <Container maxW={{ base: "620px", md: "1600px" }}>
              <Header />
                 <Routes>                
                     <Route path='/' element={ <HomePage1 /> } />
