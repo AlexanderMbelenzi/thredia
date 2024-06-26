@@ -1,44 +1,34 @@
+import React, { useState, useEffect, useRef } from "react";
+import { Box, Flex, Image, Link, useColorMode, useBreakpointValue, Avatar } from "@chakra-ui/react";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { Link as RouterLink, useLocation } from "react-router-dom";
+import { SunIcon, HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
+import userAtom from "../atoms/userAtom";
+import authScreenAtom from "../atoms/authAtom";
+import useLogout from "../hooks/useLogout";
+import Logo2 from "/public/logo.png";
+import Logo3 from "/public/logo3.svg";
+import placeholderImage from "/public/pizza5.png"; // Placeholder image
+import SideMenu from "./sidemenu";
+import { InputLeftElement, Input, InputGroup } from "@chakra-ui/react";
 
+const Header = () => {
+    const { colorMode, toggleColorMode } = useColorMode();
+    const user = useRecoilValue(userAtom);
+    const setAuthScreen = useSetRecoilState(authScreenAtom);
+    const logout = useLogout();
+    const [activeLink, setActiveLink] = useState("foryou");
+    const [showLinks, setShowLinks] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+    const borderBottom = useBreakpointValue({ base: "none", md: "1px" });
 
-    import React, { useState, useEffect, useRef } from "react";
-    import { Box, Flex, Image, Button, Link, useColorMode, useBreakpointValue } from "@chakra-ui/react";
-    import { useRecoilValue, useSetRecoilState } from "recoil";
-    import { Link as RouterLink, useLocation } from "react-router-dom";
-    import { Text } from "@chakra-ui/react";
-    import { HamburgerIcon, SunIcon } from "@chakra-ui/icons";
-    import userAtom from "../atoms/userAtom";
-    import authScreenAtom from "../atoms/authAtom";
-    import useLogout from "../hooks/useLogout";
-    import Logo2 from "/public/logo.png";
-    import Logo3 from "/public/logo3.svg";
-    import emoji2 from "/public/emoji2.png";
-    import right from "/public/right.svg";
-    import SideMenu from "./sidemenu";
-    
-
-    import { SearchIcon } from "@chakra-ui/icons";
-    import { InputLeftElement,  Input, InputGroup,  } from "@chakra-ui/react";
-
-
-    const Header = () => {
-        const { colorMode, toggleColorMode } = useColorMode();
-        const user = useRecoilValue(userAtom);
-        const setAuthScreen = useSetRecoilState(authScreenAtom);
-        const logout = useLogout();
-        const [activeLink, setActiveLink] = useState("foryou");
-        const [showLinks, setShowLinks] = useState(true);
-        const [lastScrollY, setLastScrollY] = useState(0);
-        const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-        const borderBottom = useBreakpointValue({ base: "none", md: "1px" });
-
- 
     const isSmallScreen = useBreakpointValue({ base: true, md: false });
     const isBigScreen = useBreakpointValue({ base: false, md: true });
 
     const sideMenuWrapperRef = useRef(null);
 
     const location = useLocation();
-
 
     useEffect(() => {
         const handleScroll = () => {
@@ -56,32 +46,33 @@
             window.removeEventListener("scroll", handleScroll);
         };
     }, [lastScrollY]);
+
     useEffect(() => {
-      const handleClickOutside = (event) => {
-        if (sideMenuWrapperRef.current && !sideMenuWrapperRef.current.contains(event.target)) {
-          setIsSideMenuOpen(false);
-        }
-      };
-  
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
+        const handleClickOutside = (event) => {
+            if (sideMenuWrapperRef.current && !sideMenuWrapperRef.current.contains(event.target)) {
+                setIsSideMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
     }, []);
-  
+
     const handleLinkClick = (link) => {
-      setActiveLink(link);
+        setActiveLink(link);
     };
-  
+
     const toggleSideMenu = () => {
-      setIsSideMenuOpen(!isSideMenuOpen);
+        setIsSideMenuOpen(!isSideMenuOpen);
     };
-  
+
     const closeSideMenu = () => {
-      setIsSideMenuOpen(false);
+        setIsSideMenuOpen(false);
     };
+
     const linkStyles = (link) => ({
-      
         color: activeLink === link ? "" : "#7b828a",
         position: "relative",
         _after: {
@@ -94,9 +85,10 @@
             bg: "#007bff ",
             borderRadius: "4px",
             display: activeLink === link ? "block" : "none",
-            
         },
     });
+
+
 
 
     return (
@@ -118,7 +110,7 @@
                         {!user ? (
                             <>
                                      <Link as={RouterLink} to="/">
-                                        <Image src={Logo2}  alt="Logo" cursor="pointer" className="logo" />
+                                        <Image src={Logo3}  alt="Logo" cursor="pointer" className="logo" />
                                     </Link>
 
                                 <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
@@ -264,9 +256,19 @@
                             {isBigScreen ? null : (
                                 <>
                              <Box>
-                                    <Link as={RouterLink} to="/">
-                                        <Image src={Logo3}  alt="Logo" cursor="pointer" w={8}   />
-                                    </Link>
+                             <Box display={{ base: "block", md: "none" }} >
+                            <Link as={RouterLink} to="/" onClick={!user ? () => setAuthScreen("login") : null}>
+                                {showLinks ? (
+                                    user ? (
+                                        <Avatar name={user.name} src={user.profilePic} size="sm" />
+                                    ) : (
+                                        <Image src={placeholderImage} alt="Profile" size="sm" />
+                                    )
+                                ) : (
+                                    <Image src={Logo3} alt="Logo" w={8} />
+                                )}
+                            </Link>
+                        </Box>
                                 </Box>
 
                                 {isSmallScreen && user && showLinks && (
@@ -274,7 +276,7 @@
                                       alt="theme"
                                       onClick={toggleColorMode}
                                          >
-                                         <SunIcon  />
+                                    <Image src={Logo3} alt="Logo" w={5} />
                                     </Link>
                              )}
                                
@@ -390,3 +392,21 @@
 };
 
 export default Header;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
