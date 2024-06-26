@@ -97,7 +97,7 @@ const Header = () => {
         left={0}
         right={0}
         borderBottom={borderBottom}
-        borderBottomColor={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
+        borderBottomColor={colorMode === "dark" ? "#14171a " : "#dfecf5"}
         bg={colorMode === "dark" ? "rgba(1, 1, 2, 0.7)" : "rgba(245, 248, 250, 0.7)"}
         zIndex="995"
         position="fixed"
@@ -109,9 +109,19 @@ const Header = () => {
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>
-                                     <Link as={RouterLink} to="/">
-                                        <Image src={Logo3}  alt="Logo" cursor="pointer" className="logo" />
-                                    </Link>
+                                        <Box mt={2} display={{ base: "block", md: "none" }} >
+                            <Link as={RouterLink} to="/" onClick={!user ? () => setAuthScreen("login") : null}>
+                                {showLinks ? (
+                                    user ? (
+                                        <Avatar name={user.name} src={user.profilePic} size="sm" />
+                                    ) : (
+                                        <Image src={placeholderImage} alt="Profile"  w={8}  />
+                                    )
+                                ) : (
+                                    <Image src={Logo3} alt="Logo" w={8} />
+                                )}
+                            </Link>
+                        </Box>
 
                                 <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
                                    color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
@@ -120,12 +130,15 @@ const Header = () => {
 
 
 
-                                <Link  fontSize="lg"
+                                {isSmallScreen && showLinks && (
+                                <Link mr={4} fontSize="lg"
                                       alt="theme"
                                       onClick={toggleColorMode}
                                          >
-                                         <SunIcon  />
+                                    <Image src={Logo3} alt="Logo" w={5} />
                                     </Link>
+                             )}
+                               
                             
 
 
@@ -256,7 +269,7 @@ const Header = () => {
                             {isBigScreen ? null : (
                                 <>
                              <Box>
-                             <Box display={{ base: "block", md: "none" }} >
+                             <Box mt={2} display={{ base: "block", md: "none" }} >
                             <Link as={RouterLink} to="/" onClick={!user ? () => setAuthScreen("login") : null}>
                                 {showLinks ? (
                                     user ? (
@@ -326,6 +339,8 @@ const Header = () => {
 
 
 
+
+
 {(location.pathname === "/discoverdaily" || location.pathname === "/") && (
   <Link
 
@@ -372,7 +387,27 @@ const Header = () => {
   >
     Following
   </Link>
-)}                      <Link
+)}     
+
+
+{(location.pathname === "/wallofshame" || location.pathname === "/") && (
+  <Link
+
+    fontSize="md"
+    as={RouterLink}
+    _hover={{ textDecoration: "none", 
+    color: "#007bff" }}
+    to="/wallofshame"
+    onClick={() => handleLinkClick("discoverdaily")}
+    sx={linkStyles("discoverdaily")}
+  >
+    WOS   </Link>
+)}     
+
+
+
+
+                 <Link
                                 fontSize="md"
                                 as={RouterLink}
                                 to="/Home2"

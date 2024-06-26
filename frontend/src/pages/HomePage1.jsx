@@ -41,7 +41,7 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
         <Box>
           <Text
             mb="-1"
-            color= "#E1E8ED"
+            color= "#dfecf5"
             fontWeight="bold"
             whiteSpace="nowrap"
             overflow="hidden"
@@ -68,7 +68,7 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
           <Image src={smallSrc} alt={name} boxSize={{ base: "25px", md: "35px", lg: "35px" }} borderRadius="full" />
           <Text
             ml="1"
-            color="#E1E8ED "
+            color="#dfecf5 "
             fontWeight="bold"
             whiteSpace="nowrap"
             overflow="hidden"

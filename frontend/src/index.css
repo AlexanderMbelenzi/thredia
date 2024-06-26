@@ -336,3 +336,10 @@ ul li {
     align-items: center; /* Center the icon inside the background */
 }
 
+
+
+.small-avatar {
+	width: 5px;   /* Adjust width and height as per your requirement */
+	height: 5px;
+  }
+  

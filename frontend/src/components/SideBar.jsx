@@ -246,7 +246,7 @@ const SideBar = () => {
             <Box
               w="full"
               h="1px"
-              bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
+              bg={colorMode === "dark" ? "#14171a " : "#dfecf5"}
               mt={2}
             ></Box>
             {userLinks.map((link, index) => (
@@ -278,7 +278,7 @@ const SideBar = () => {
         <Box
           w="full"
           h="1px"
-          bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
+          bg={colorMode === "dark" ? "#14171a " : "#dfecf5"}
           mt={2}
         ></Box>
         {!isCollapsed && (
@@ -339,7 +339,7 @@ const SideBar = () => {
         <Box
           w="full"
           h="1px"
-          bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
+          bg={colorMode === "dark" ? "#14171a " : "#dfecf5"}
           mt={2}
         ></Box>
         {!isCollapsed && (
@@ -378,7 +378,7 @@ const SideBar = () => {
         <Box
           w="full"
           h="1px"
-          bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
+          bg={colorMode === "dark" ? "#14171a " : "#dfecf5"}
           mt={2}
         ></Box>
         <Flex justifyContent="left" mt={12} direction="column" alignItems="center" width="full">

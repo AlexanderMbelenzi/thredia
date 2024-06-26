@@ -107,7 +107,7 @@ const Actions = ({ post }) => {
 
 	return (
 		<Flex flexDirection='column'>
-			<Flex gap={3} my={1} mt={-0.5} onClick={(e) => e.preventDefault()}>
+			<Flex gap={"3"} my={1} mt={-0.5} onClick={(e) => e.preventDefault()}>
 				<svg
 				    
 					aria-label='Like'

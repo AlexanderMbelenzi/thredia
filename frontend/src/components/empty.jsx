@@ -8,7 +8,7 @@ const Empty = () => {
 
     return (
 
-      <Box  borderLeft={"1px"} mt={4} borderLeftColor={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"}
+      <Box  borderLeft={"1px"} mt={4} borderLeftColor={colorMode === "dark" ? "#14171a " : "#dfecf5"}
        bg={colorMode === "dark" ? "blackAlpha.800" : "whiteAlpha.800"} zIndex="998" position="fixed"  height={"4000px"}   >
         
     

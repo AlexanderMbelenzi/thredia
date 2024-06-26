@@ -75,78 +75,27 @@ const Post = ({ post, postedBy }) => {
         <Flex gap={3} paddingTop={3}>
           <Flex flexDirection={"column"} alignItems={"center"}>
             <Box position="relative">
-              <Avatar
-                size={{
-                  base: "sm",
-                  sm: "sm",
-                  md: "md",
-                }}
-                name={user.name}
-                src={user?.profilePic}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(`/t/${user.username}`);
-                }}
-                zIndex={1}
-              />
+            <Avatar
+  width={{ base: "45px", sm: "45px", md: "45px" }}
+  height={{ base: "45px", sm: "45px", md: "45px" }}
+  name={user.name}
+  src={user?.profilePic}
+  onClick={(e) => {
+    e.preventDefault();
+    navigate(`/t/${user.username}`);
+  }}
+  zIndex={1}
+/>
             </Box>
-            <Box w='1px' h={"full"} bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"} my={2} mb={4}></Box>
+            <Box w='1px' h={"full"} bg={colorMode === "dark" ? "#14171a " : "#dfecf5"} my={2} mb={6}></Box>
 
-            <Box position={"relative"} w={"full"}    
-              display={{
-              base: "none",
-              md: "block",
-             }}>
-              {post.replies.length === 0 && (
-                <Text textAlign={"center"}>
-            <Text w={5} h={5} ml={3} mb={-2}  >🥱</Text>
-                </Text>
-              )}
-              <Flex mt={4}   >
-                {post.replies[0] && (
-                  <Avatar
-                    size='xs'
-                    name='John doe'
-                    src={post.replies[0].userProfilePic}
-                    position={"absolute"}
-                    top={"0px"}
-                    left='15px'
-                    padding={"2px"}
-                  />
-                )}
-                {post.replies[1] && (
-                  <Avatar
-                    size='2xs'
-                    name='John doe'
-                    src={post.replies[1].userProfilePic}
-                    position={"absolute"}
-                    bottom={"15px"}
-                    right='8px'
-                    padding={"2px"}
-                  />
-                )}
-                {post.replies[2] && (
-                  <Avatar
-                    size='xs'
-                    name='John doe'
-                    src={post.replies[2].userProfilePic}
-                    position={"absolute"}
-                    bottom={"15px"}
-                    left='-1px'
-                    padding={"2px"}
-                  />
-                )}
-              </Flex>
-            </Box>
+        
 
 
 
 
             <Box position={"relative"} w={"full"}    
-              display={{
-              base: "block",
-              md: "none",
-             }}>
+           >
               {post.replies.length === 0 && (
                 <Text textAlign={"center"}>
             <Text w={5} h={5} ml={2} mb={-2}  >🥱</Text>
@@ -159,31 +108,41 @@ const Post = ({ post, postedBy }) => {
                     name='John doe'
                     src={post.replies[0].userProfilePic}
                     position={"absolute"}
-                    top={"-2px"}
+                    top={"-15px"}
                     left='8px'
                     padding={"3px"}
                   />
                 )}
                 {post.replies[1] && (
                   <Avatar
-                    size='2xs'
                     name='John doe'
                     src={post.replies[1].userProfilePic}
-                    position={"absolute"}
-                    bottom={"15px"}
-                    right='-2px'
                     padding={"3px"}
+                    style={{
+                      width: '26px',
+                      height: '26px',
+                      position: "absolute",
+                      top: "-32px",
+                      left: '14px',
+                  
+                      transform: "scale(0.5)", // Example: scaling down the avatar
+                    }}
                   />
                 )}
                 {post.replies[2] && (
                   <Avatar
-                    size='xs'
-                    name='John doe'
+                
+                  name='John doe'
                     src={post.replies[2].userProfilePic}
-                    position={"absolute"}
-                    bottom={"15px"}
-                    left='-1px'
-                    padding={"3px"}
+                    style={{
+                      width: '35px',
+                      height: '35px',
+                      position: "absolute",
+                      top: "-38px",
+                      left: '-4px',
+                      padding: "3px",
+                      transform: "scale(0.5)", // Example: scaling down the avatar
+                    }}
                   />
                 )}
               </Flex>
@@ -231,7 +190,7 @@ const Post = ({ post, postedBy }) => {
               mt={-2}
               fontSize={{ base: "xs", md: "md" }}
               fontFamily="'Noto Sans', Arial, sans-serif"
-              color={colorMode === "dark" ? "#E1E8ED " : "#0F1419"}
+              color={colorMode === "dark" ? "#dfecf5 " : "#0F1419"}
               fontWeight={"normal"}
             >
               {showFullText ? post.text : `${post.text.slice(0, TEXT_LIMIT)}`}
@@ -303,7 +262,7 @@ const Post = ({ post, postedBy }) => {
             </Flex>
           </Flex>
         </Flex>
-        <Box w="full" h="1px" bg={colorMode === "dark" ? "#2F3336 " : "#E1E8ED"} mt={4}></Box>
+        <Box w="full" h="1px" bg={colorMode === "dark" ? "#14171a " : "#dfecf5"} mt={1}></Box>
       </Link>
     </Box>
   );
