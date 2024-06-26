@@ -125,6 +125,9 @@ const Actions = ({ post }) => {
 						strokeWidth='2'
 					></path>
 				</svg>
+				<Text color={"#68717a "}  fontSize={{ base: "xs", md: "sm" }}>
+					{post.likes.length} likes
+				</Text>
 
 				<svg
 					aria-label='Comment'
@@ -146,20 +149,15 @@ const Actions = ({ post }) => {
 						strokeWidth='2'
 					></path>
 				</svg>
+				<Text color={"#68717a"} f fontSize={{ base: "xs", md: "sm" }}>
+					{post.replies.length} replies
+				</Text>
 
 				<RepostSVG />
 				<ShareSVG />
 			</Flex>
 
-			<Flex gap={2} alignItems={"center"}>
-				<Text color={"#68717a"} f fontSize={{ base: "xs", md: "sm" }}>
-					{post.replies.length} replies
-				</Text>
-				<Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
-				<Text color={"#68717a "}  fontSize={{ base: "xs", md: "sm" }}>
-					{post.likes.length} likes
-				</Text>
-			</Flex>
+		
 
 			<Modal isOpen={isOpen} onClose={onClose}>
 				<ModalOverlay />
