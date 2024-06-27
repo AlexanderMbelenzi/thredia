@@ -76,7 +76,7 @@ function App() {
                         }
                     />
                     <Route path='/t/:username/post/:pid' element={<PostPage />} />
-                    <Route path='/chat' element={user ? <ChatPage /> : <Navigate to={"/auth"} />} />
+                    <Route path='/chat' element={ <ChatPage  />} />
                     <Route path='/settings' element={user ? <SettingsPage /> : <Navigate to={"/auth"} />} />
                 
                     <Route path='/about' element={ <AboutUs /> } />
