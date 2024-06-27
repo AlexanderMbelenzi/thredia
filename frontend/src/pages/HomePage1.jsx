@@ -9,6 +9,7 @@ import SuggestedUsers from "../components/SuggestedUsers";
 import { useColorMode } from "@chakra-ui/react";
 import Empty from "../components/empty";
 
+
 // Import images
 import error from "/public/error.png";
 import pizza1 from "/public/pizza6.png";

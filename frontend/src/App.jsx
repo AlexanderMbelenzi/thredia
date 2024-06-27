@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import UserPage from "./pages/UserPage";
 import PostPage from "./pages/PostPage";
 import Header from "./components/HeaderIn";
+import Controls from "./components/Controls";
 import HomePage1 from "./pages/HomePage1";
 import AuthPage from "./pages/AuthPage";
 import Ideaspage from "./pages/Ideaspage";
@@ -40,6 +41,7 @@ function App() {
         <Box position={"relative"} w='full'>
             <Container maxW={{ base: "620px", md: "1600px" }}>
              <Header />
+             <Controls/>
                 <Routes>                
                     <Route path='/' element={ <HomePage1 /> } />
                     <Route path='/about' element={ <AboutUs /> } />
