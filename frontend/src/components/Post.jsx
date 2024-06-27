@@ -76,8 +76,8 @@ const Post = ({ post, postedBy }) => {
           <Flex flexDirection={"column"} alignItems={"center"}>
             <Box position="relative">
             <Avatar
-  width={{ base: "45px", sm: "45px", md: "45px" }}
-  height={{ base: "45px", sm: "45px", md: "45px" }}
+  width={{ base: "40px", sm: "40px", md: "40px" }}
+  height={{ base: "40px", sm: "40px", md: "40px" }}
   name={user.name}
   src={user?.profilePic}
   onClick={(e) => {
