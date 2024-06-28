@@ -300,7 +300,7 @@ const Header = () => {
                                         <Image src={placeholderImage} alt="Profile" size="sm" />
                                     )
                                 ) : (
-                                    <Image src={Logo3} alt="Logo" w={8} />
+                                    <Avatar name={user.name} src={user.profilePic} size="sm" />
                                 )}
                             </Link>
                         </Box>

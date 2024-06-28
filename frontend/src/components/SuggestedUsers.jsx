@@ -20,7 +20,7 @@ import pic3 from "/public/post3.jpg";
 const SuggestedUsers = () => {
   const { colorMode } = useColorMode();
   const [bgIndex, setBgIndex] = useState(0);
-  const backgrounds = [pic1, pic2];
+  const backgrounds = [pic2];
   const [loading, setLoading] = useState(true);
   const [suggestedUsers, setSuggestedUsers] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -106,7 +106,7 @@ const SuggestedUsers = () => {
 
             mb={3}
             mt={2}
-            backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${backgrounds[bgIndex]})`}
+            backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backgrounds[bgIndex]})`}
             roundedLeft={"xl"}
             bgSize="cover"
             bgPos="center"
@@ -120,7 +120,7 @@ const SuggestedUsers = () => {
               fontSize={"xl"}
               color={"white"}
             >
-              <p>Welcome to reddit</p>
+              <p>Wall Of Shame</p>
             </Text>
             <Text
               pt={"2%"}
@@ -131,8 +131,7 @@ const SuggestedUsers = () => {
               fontSize={{ base: "xs", md: "lg" }}
               fontWeight={"normal"}
             >
-             We  will be rolling out new features every week.
-              Stay tuned for regular updates!
+             Go Anonymous! Watch, Read &Listen to the most Classified news from allover the World
             
             </Text>
             <Text pt={"2%"} pl={2} pb={"4%"}  >

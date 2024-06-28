@@ -33,7 +33,7 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
         left="0"
         width="100%"
         height="100%"
-        backgroundColor="rgba(0, 0, 0, 0.1)" // Adjust the opacity as needed
+        backgroundColor="rgba(0, 0, 0, 0.2)" // Adjust the opacity as needed
         borderRadius="lg"
         zIndex="1"
       />
