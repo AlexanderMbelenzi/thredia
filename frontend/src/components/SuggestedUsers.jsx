@@ -13,8 +13,8 @@ import SuggestedUser from "./SuggestedUser";
 import useShowToast from "../hooks/useShowToast";
 import { Link as RouterLink } from "react-router-dom";
 
-import pic1 from "/public/post1.jpeg";
-import pic2 from "/public/post2.jpg";
+import pic1 from "/public/wos3.avif";
+import pic2 from "/public/wos1.jpg";
 import pic3 from "/public/post3.jpg";
 
 const SuggestedUsers = () => {
@@ -90,7 +90,7 @@ const SuggestedUsers = () => {
   
   
     return (
-      <Box maxWidth={"380"} position="absolute"   marginTop="50px">
+      <Box maxWidth={"400"} ml={"10"} mr={"4"} position="absolute"   marginTop="50px">
         <Box
           ref={welcomeSectionRef}
         
@@ -114,7 +114,7 @@ const SuggestedUsers = () => {
           >
             <Text
               pl={2}
-              pt={"2%"}
+              pt={"1%"}
               fontWeight={"bold"}
               fontFamily="'Noto Sans', Arial, sans-serif"
               fontSize={"xl"}
@@ -123,7 +123,7 @@ const SuggestedUsers = () => {
               <p>Welcome to reddit</p>
             </Text>
             <Text
-              pt={"5%"}
+              pt={"2%"}
               pl={2}
               color={"white"}
               style={{ textShadow: "0 0 2px black" }}
@@ -135,7 +135,7 @@ const SuggestedUsers = () => {
               Stay tuned for regular updates!
             
             </Text>
-            <Text pt={"5%"} pl={2} pb={"6%"}  >
+            <Text pt={"2%"} pl={2} pb={"4%"}  >
               <Link 
                 as={RouterLink}
                 to="/comingsoon"
@@ -153,7 +153,7 @@ const SuggestedUsers = () => {
         </Box>
   
         <Box  position={isScrolledOut ? "fixed" : "relative"}          
-top={isScrolledOut ? "80px" : "auto"} maxWidth={isScrolledOut ? "380" : "auto"}  >
+top={isScrolledOut ? "80px" : "auto"} maxWidth={isScrolledOut ? "400" : "auto"}  >
           <Flex
          
             direction={"column"}

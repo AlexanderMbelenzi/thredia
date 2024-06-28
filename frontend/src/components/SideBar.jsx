@@ -69,13 +69,19 @@ const SideBar = () => {
     {
       icon: FiCompass,
       label: "Explore",
-      subtopics: ["Posts", "Gallery", "Reels"],
+      subtopics: ["Top Trending", "Watch", "Listen"],
       onClick: () => handleLinkClick("Explore Coming soon"),
     },
     {
-      onClick: () => handleLinkClick("Topics Coming soon"),
+      onClick: () => handleLinkClick("Wall Of Shame Coming soon"),
       icon: FiBookOpen,
-      label: "Topics",
+      label: "WOS-Wall Of Shame ",
+      subtopics: ["Crypto", "Gaming", "Computing"],
+    },
+    {
+      onClick: () => handleLinkClick("Go anonymous Coming soon"),
+      icon: FiBookOpen,
+      label: "Go anonymous ",
       subtopics: ["Crypto", "Gaming", "Computing"],
     },
   ];
@@ -87,40 +93,40 @@ const SideBar = () => {
 
   const topPicksLinks = [
     {
-      onClick: () => handleLinkClick("Reddit500 Coming soon"),
+      onClick: () => handleLinkClick("World &Politics Coming soon"),
       icon: FiEdit,
-      label: "Reddit 500",
-      subtopics: ["Discover 500", "Startups", "Companies"],
+      label: "world &Politics",
+      subtopics: ["World News", "Politics", "Social Issues"],
     },
     {
-      onClick: () => handleLinkClick("Discover Coming soon"),
+      onClick: () => handleLinkClick("Science &Technology Coming soon"),
       icon: FiSearch,
-      label: "Discover Daily",
-      subtopics: ["Technology news", "Business news", "trending today"],
+      label: " Science &Technology",
+      subtopics: ["Innovation &Technology", " Space &Astronomy", "Life Science"],
     },
     {
-      onClick: () => handleLinkClick("Podcast Coming soon"),
+      onClick: () => handleLinkClick("Business &Ecomics Coming soon"),
       icon: FiMic,
-      label: "Podcast",
-      subtopics: ["Stream1", "Stream2", "Stream3"],
+      label: "Business &Economics",
+      subtopics: ["Markets", "Tech", "Media"],
     },
     {
-      onClick: () => handleLinkClick("Communities Coming soon"),
+      onClick: () => handleLinkClick("Environmental &Health Coming soon"),
       icon: FiUsers,
-      label: "Communities",
-      subtopics: ["r.reddit", "r.tech", "r.startups"],
+      label: "Environmental &Health",
+      subtopics: ["Environmental science", "Life &Health", "Fitness &Food"],
     },
     {
-      onClick: () => handleLinkClick("Ideas Coming soon"),
+      onClick: () => handleLinkClick("Sports &Entertainment Coming soon"),
       icon: FiStar,
-      label: "Ideas",
-      subtopics: ["Idea 1", "Idea 2", "Idea 3"],
+      label: "Sports &Entertainment",
+      subtopics: ["Games", "Movies &Televison &Music", "Celebrity"],
     },
     {
-      onClick: () => handleLinkClick("Solve Coming soon"),
+      onClick: () => handleLinkClick("Weather Coming soon"),
       icon: FiStopCircle,
-      label: "Solve",
-      subtopics: ["Problem A", "Problem B", "Problem C"],
+      label: "Weather",
+      subtopics: [" Forecast", "Climate", "Impact"],
     },
   ];
 
@@ -381,7 +387,7 @@ const SideBar = () => {
           bg={colorMode === "dark" ? "#14171a " : "#dfecf5"}
           mt={2}
         ></Box>
-        <Flex justifyContent="left" mt={12} direction="column" alignItems="center" width="full">
+        <Flex justifyContent="left"  direction="column" alignItems="center" width="full">
           <Button
             backgroundColor="#007bff"
             _hover={{ textDecoration: "none", backgroundColor: "blue.400" }}

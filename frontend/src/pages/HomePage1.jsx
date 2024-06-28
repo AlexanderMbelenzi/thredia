@@ -12,19 +12,19 @@ import Empty from "../components/empty";
 
 // Import images
 import error from "/public/error.png";
-import pizza1 from "/public/pizza6.png";
-import pizza3 from "/public/34.png";
-import pizza4 from "/public/pizza4.png";
-import pizza7 from "/public/s1.png";
-import pizza6 from "/public/s3.png";
-import pizza5 from "/public/s2.jpg";
+import pizza1 from "/public/image2.jpeg";
+import pizza3 from "/public/woslogo.jpg";
+import pizza4 from "/public/image3.jpeg";
+import pizza7 from "/public/caro3.jpg";
+import pizza6 from "/public/caro2.jpg";
+import pizza5 from "/public/caro1.png";
 
 // Helper function to render the image box with overlayimport { Box, Image, Text } from '@chakra-ui/react';
 
 const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
   return (
     <Box position="relative" flexBasis={{ base: "33%", md: "32.5%", lg: "32.5%" }}>
-      <Image src={src} alt={alt} width="100%" borderRadius="lg" />
+      <Image src={src} alt={alt} width="100%" height={"110%"} borderRadius="lg" />
       
       {/* Dark overlay */}
       <Box
@@ -66,7 +66,7 @@ const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
         </Box>
 
         <Box display="flex" alignItems="center" mt="2">
-          <Image src={smallSrc} alt={name} boxSize={{ base: "25px", md: "35px", lg: "35px" }} borderRadius="full" />
+          <Image src={smallSrc} alt={name} rounded={"50%"} boxSize={{ base: "25px", md: "35px", lg: "35px" }} borderRadius="full" />
           <Text
             ml="1"
             color="#dfecf5 "
@@ -139,7 +139,7 @@ const HomePage1 = () => {
     <Flex maxWidth={1600} mt={6} alignItems="flex-start">
       
       <Box
-        flex={15}
+        flex={18}
         display={{
           base: "none",
           md: "block",
@@ -163,32 +163,32 @@ const HomePage1 = () => {
         <Empty />
       </Box>
 
-      <Box flex={33} marginTop={35}  marginBottom={55}>
+      <Box flex={30} marginTop={35}  marginBottom={55}>
         <Box mt={6} mb={4}>
           <Flex justify="space-between">
             <ImageBox
               src={pizza5}
               alt="Pizza 1"
-              name="Crypto"
+              name="goanonymous"
               smallSrc={pizza1}
-              topic="Bitcoin"
-              subtopic="The cypto world has hit an all time high of 62,000"
+              topic="Politics "
+              subtopic="Race to the statehouse 2027 "
             />
             <ImageBox
               src={pizza6}
               alt="Pizza 2"
-              name="Gaming"
+              name="WOS"
               smallSrc={pizza3}
-              topic="Minecraft"
-              subtopic="House of the dragons comming soon "
+              topic=" WOS-Wall Of Shame "
+              subtopic="The secret behind GenZ riots in Kenya  "
             />
             <ImageBox
               src={pizza7}
               alt="Pizza 3"
-              name="Technology"
+              name="spacex"
               smallSrc={pizza4}
-              topic="Nvidia"
-              subtopic="Nvidia has envailed it new Gforce  RTX GPU"
+              topic="spaceX"
+              subtopic="Watch live as spaceX's Starship sore to the skies"
             />
           </Flex>
         </Box  >
@@ -246,7 +246,7 @@ const HomePage1 = () => {
       </Box>
 
       <Box
-        flex={17}
+        flex={20}
         display={{
           base: "none",
           lg: "block",

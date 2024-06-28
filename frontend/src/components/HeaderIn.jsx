@@ -121,6 +121,17 @@ const Header = () => {
                                     <Image src={Logo3} alt="Logo" w={8} />
                                 )}
                             </Link>
+                         
+
+
+                           {isBigScreen && showLinks && (
+                                     <Link  as={RouterLink} to="/"
+                                        alt="theme">
+                                    <Image src={Logo3} alt="Logo" w={5} />
+                                    </Link>
+                             )}
+                            <Image src={Logo3} alt="Logo" w={8} />
+
                         </Box>
 
                                 <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
@@ -131,6 +142,17 @@ const Header = () => {
 
 
                                 {isSmallScreen && showLinks && (
+                                <Link mr={4} fontSize="lg"
+                                      alt="theme"
+                                      onClick={toggleColorMode}
+                                         >
+                                    <Image src={Logo3} alt="Logo" w={5} />
+                                    </Link>
+                             )}
+                             
+
+
+                             {isBigScreen && showLinks && (
                                 <Link mr={4} fontSize="lg"
                                       alt="theme"
                                       onClick={toggleColorMode}
