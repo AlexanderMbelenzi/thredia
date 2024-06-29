@@ -8,7 +8,8 @@ import authScreenAtom from "../atoms/authAtom";
 import useLogout from "../hooks/useLogout";
 import Logo2 from "/public/logo.png";
 import Logo3 from "/public/logo3.svg";
-import placeholderImage from "/public/pizza5.png"; // Placeholder image
+
+import placeholderImage from "/public/image2.jpeg";// Placeholder image
 import SideMenu from "./sidemenu";
 import { InputLeftElement, Input, InputGroup } from "@chakra-ui/react";
 
@@ -110,70 +111,58 @@ const Header = () => {
                         {!user ? (
                             <>
                                         <Box mt={2} display={{ base: "block", md: "none" }} >
-                            <Link as={RouterLink} to="/" onClick={!user ? () => setAuthScreen("login") : null}>
+                            <Link as={RouterLink} to="/"   onClick={toggleColorMode}>
                                 {showLinks ? (
                                     user ? (
                                         <Avatar name={user.name} src={user.profilePic} size="sm" />
                                     ) : (
-                                        <Image src={placeholderImage} alt="Profile"  w={8}  />
+                                        <Image src={placeholderImage} alt="Profile"  rounded={"50%"} w={8}  />
                                     )
                                 ) : (
-                                    <Image src={Logo3} alt="Logo" w={8} />
-                                )}
+                                    <Image src={placeholderImage} alt="Profile"  rounded={"50%"} w={8}  />
+                                    )}
                             </Link>
-                         
-
-
-                           {isBigScreen && showLinks && (
-                                     <Link  as={RouterLink} to="/"
-                                        alt="theme">
-                                    <Image src={Logo3} alt="Logo" w={5} />
-                                    </Link>
-                             )}
-                            <Image src={Logo3} alt="Logo" w={8} />
 
                         </Box>
 
-                                <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
-                                   color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
-                                    Login
-                                </Link>
-
-
-
-                                {isSmallScreen && showLinks && (
-                                <Link mr={4} fontSize="lg"
-                                      alt="theme"
-                                      onClick={toggleColorMode}
-                                         >
-                                    <Image src={Logo3} alt="Logo" w={5} />
+                        {isBigScreen && (
+                                     <Link  as={RouterLink} to="/"
+                                        alt="theme">
+                                   <Image src={Logo2}  alt="Logo" cursor="pointer" className="logo" />
                                     </Link>
                              )}
-                             
 
 
-                             {isBigScreen && showLinks && (
-                                <Link mr={4} fontSize="lg"
+                                      
+                                  {isBigScreen  && (
+                                <Link  fontSize="lg" 
                                       alt="theme"
                                       onClick={toggleColorMode}
                                          >
-                                    <Image src={Logo3} alt="Logo" w={5} />
                                     </Link>
                              )}
                                
-                            
+                                <Link as={RouterLink} to="/auth" ml={{ base: "0", md: "-8%" }}  _hover={{ textDecoration: "none", 
+                                   color: "#007bff" }}   onClick={() => setAuthScreen("login")}>
+                                    Login
+                                </Link>
+                             
 
-
-                                <Link as={RouterLink} to="/auth"   _hover={{ textDecoration: "none", 
-        color: "#007bff" }}  onClick={() => setAuthScreen("signup")}>
+                       
+                             
+                             <Link as={RouterLink} to="/auth"    _hover={{ textDecoration: "none", 
+                                 color: "#007bff" }}  onClick={() => setAuthScreen("signup")}>
                                     Sign up
                                 </Link>
 
-                                 <Link  fontSize="2xl"
-                                        as={RouterLink}
-                                        to="/auth" >
-                                 
-                                  </Link>
+                                {isBigScreen  && (
+                                <Link  fontSize="lg" 
+                                      alt="theme"
+                                      onClick={toggleColorMode}
+                                         >
+                                    <SunIcon/>
+                                    </Link>
+                             )}
                            <Flex justifyContent="center" 
                                  alignItems="center">
                                 

@@ -23,7 +23,7 @@ import pizza5 from "/public/caro1.png";
 
 const ImageBox = ({ src, alt, name, smallSrc, topic, subtopic }) => {
   return (
-    <Box position="relative" flexBasis={{ base: "33%", md: "32.5%", lg: "32.5%" }}>
+    <Box position="relative" flexBasis={{ base: "33%", md: "33%", lg: "33%" }}>
       <Image src={src} alt={alt} width="100%" height={"110%"} borderRadius="lg" />
       
       {/* Dark overlay */}
