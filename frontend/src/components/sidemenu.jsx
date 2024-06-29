@@ -77,45 +77,45 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
 
                             {/* Menu items */}
                             <Flex flexDirection="column">
-                                <Link fontSize="md" onClick={() => handleLinkClick("Reddit500 coming soon ")} _hover={{ textDecoration: "none", color: "#0000" }} display="flex" alignItems="center" cursor="pointer">
+                                <Link fontSize="md" onClick={() => handleLinkClick("Wall Of Shame coming soon ")} _hover={{ textDecoration: "none", color: "#0000" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaEdit} mr={2} />
-                                    <Text>Reddit 500</Text>
+                                    <Text  fontSize={{ base: "xs", md: "sm", lg: "sm" }}> Wall Of Shame</Text>
                                 </Link>
                                 <br />
 
                                 <Link fontSize="md" as={RouterLink} to="/comingsoon" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "#007bff" }} display="flex" alignItems="center">
                                     <Icon as={FaSun} mr={2} />
-                                    <Text>Coming soon </Text>
+                                    <Text  fontSize={{ base: "xs", md: "sm", lg: "sm" }}>Coming soon  </Text>
                                 </Link>
                                 <br />
                                 <Link fontSize="md" onClick={() => handleLinkClick("Podcast Coming soon")} _hover={{ textDecoration: "none", color: "#007bff" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaPodcast} mr={2} />
-                                    <Text>Podcast</Text>
+                                    <Text  fontSize={{ base: "xs", md: "sm", lg: "sm" }}>Podcast</Text>
                                 </Link>
                                 <br />
                                 <Link fontSize="md" onClick={() => handleLinkClick("Premium Coming soon")} _hover={{ textDecoration: "none", color: "#007bff" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaStar} mr={2} />
-                                    <Text>Premium</Text>
+                                    <Text  fontSize={{ base: "xs", md: "sm", lg: "sm" }}>Premium</Text>
                                 </Link>
                                 <br />
                                 <Link fontSize="md" onClick={() => handleLinkClick("Communities Coming soon")} _hover={{ textDecoration: "none", color: "#007bff" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaUsers} mr={2} />
-                                    <Text>Communities</Text>
+                                    <Text  fontSize={{ base: "xs", md: "sm", lg: "sm" }}>Communities</Text>
                                 </Link>
                                 <br />
                                 <Link fontSize="md" as={RouterLink} to="/settings" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "#007bff" }} display="flex" alignItems="center">
                                     <Icon as={FaCogs} mr={2} />
-                                    <Text>Settings</Text>
+                                    <Text  fontSize={{ base: "xs", md: "sm", lg: "sm" }}>Settings</Text>
                                 </Link>
                                 <br />
                                 <Link fontSize="md" as={RouterLink} to="/about" onClick={closeSideMenu} _hover={{ textDecoration: "none", color: "#007bff" }} display="flex" alignItems="center">
                                     <Icon as={FaInfoCircle} mr={2} />
-                                    <Text>About Us</Text>
+                                    <Text  fontSize={{ base: "xs", md: "sm", lg: "sm" }}>About Us</Text>
                                 </Link>
                                 <br />
                                 <Link fontSize="md" onClick={() => handleLinkClick("Support & Help Coming soon")} _hover={{ textDecoration: "none", color: "#007bff" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaLifeRing} mr={2} />
-                                    <Text>Support & Help</Text>
+                                    <Text  fontSize={{ base: "xs", md: "sm", lg: "sm" }}>Support & Help</Text>
                                 </Link>
                             </Flex>
                         </Flex>
