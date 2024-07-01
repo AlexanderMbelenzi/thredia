@@ -201,7 +201,7 @@ const HomePage1 = () => {
         {!loading && posts.length === 0 && (
           <h1>
             <Flex justify="center">
-            Welcome to reddit, share your ideas    
+            Welcome to bluesky, share your opinions    
              </Flex><br />     
                   
            <Flex justify="center">

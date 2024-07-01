@@ -142,7 +142,7 @@ import { useEffect, useRef, useState } from "react";
                 fontSize={"xl"}
                 color={"white"}
               >
-                <p>Welcome to reddit</p>
+                <p>Welcome to bluesky</p>
               </Text>
               <Text
               

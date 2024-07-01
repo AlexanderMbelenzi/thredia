@@ -70,11 +70,16 @@ const Post = ({ post, postedBy }) => {
   const shouldTruncate = post.text.length > TEXT_LIMIT;
 
   return (
-    <Box wordBreak="break-word">
+    <Box wordBreak="break-word"    
+    >
       <Link to={`/t/${user.username}/post/${post._id}`}>
         <Flex gap={3} paddingTop={3}>
-          <Flex flexDirection={"column"} alignItems={"center"}>
-            <Box position="relative">
+  
+
+          <Flex flex={1} flexDirection={"column"} gap={2} rounded={"lg"}  padding={4}      bg={colorMode === "light" ? "#edf1f5" : "#101014"} >
+            <Flex justifyContent={"space-between"} w={"full"}>
+              <Flex w={"full"} alignItems={"center"}>
+              <Box position="relative">
             <Avatar
   width={{ base: "35px", sm: "35px", md: "35px" }}
   height={{ base: "35px", sm: "35px", md: "35px" }}
@@ -86,15 +91,116 @@ const Post = ({ post, postedBy }) => {
   }}
   zIndex={1}
 />
-            </Box>
-            <Box w='1px' h={"full"} bg={colorMode === "dark" ? "#14171a " : "#dfecf5"} my={2} mb={6}></Box>
+            </Box  >
+                <Text
+                   ml={2}
+                  fontSize={"sm"}
+                  fontWeight={"bold"}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`/${user.name}`);
+                  }}
+                >
+                  {user?.name}
+                </Text>
+                <Image src='/verified.png' w={4} h={4} ml={1} />
+                <Box w={0.5} h={0.5} mx={1} borderRadius={"full"} bg={"gray.light"}></Box>
+                <Text fontSize={"xs"} textAlign={"left"} color={colorMode === "dark" ? "#8899A6 " : "#657786"}>
+                  {formatDistanceToNow(new Date(post.createdAt))}
+                </Text>
+              </Flex>
+              <Flex gap={4} alignItems={"center"} marginLeft={"-20"}>
+                <Text fontSize={"sm"} textAlign={"right"} color={colorMode === "dark" ? "#8899A6 " : "#657786"}>
+                  ...
+                </Text>
+                {currentUser?._id === user._id && <DeleteIcon size={18} color={colorMode === "dark" ? "#8899A6 " : "#657786"} onClick={handleDeletePost} />}
+              </Flex>
+            </Flex>
+            <Text
+              noOfLines={showFullText ? null : 5}
+              overflow={showFullText ? "visible" : "hidden"}
+              display={showFullText ? "block" : "-webkit-box"}
+              style={{
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: showFullText ? "none" : 5,
+              }}
+          
+              fontSize={{ base: "xs", md: "md" }}
+              fontFamily="'Noto Sans', Arial, sans-serif"
+              color={colorMode === "dark" ? "#dfecf5 " : "#0F1419"}
+              fontWeight={"normal"}
+            >
+              {showFullText ? post.text : `${post.text.slice(0, TEXT_LIMIT)}`}
+              {shouldTruncate && !showFullText && (
+                <Text
+                  as="span"
+                  fontSize={"xs"}
+                  color="#007bff"
+                  cursor="pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleTextDisplay();
+                  }}
+                >
+                  {" ... Show more"}
+                </Text>
+              )}
+              {shouldTruncate && showFullText && (
+                <Text
+                  as="span"
+                  fontSize={"xs"}
+                  color="#007bff"
+                  cursor="pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleTextDisplay();
+                  }}
+                >
+                  {" Show less"}
+                </Text>
+              )}
+            </Text>
+            {post.img && (
+              <Box
+              pb={2}
+                maxH={{ base: "300", md: "600" }}
+                overflow="hidden"
+                position="relative"
+                borderRadius={6}
+              >
+                <Box
+                  filter="blur(40px)"
+                  backgroundImage={`url(${post.img})`}
+                  backgroundSize="cover"
+                  backgroundPosition="center"
+                  w="full"
+                  h="full"
+                  position="absolute"
+                  top={0}
+                  left={0}
+                  borderRadius={6}
+                />
+                <Image
+                  src={post.img}
+                  w="full"
+                  h="full"
+                  objectFit="contain"
+                  borderRadius={6}
+                  boxShadow={`0px 0px 0px 15px ${
+                    colorMode === "light"
+                      ? "rgba(0, 0, 0, 0.1)"
+                      : "rgba(0, 0, 0, 0.5)"
+                  }`}
+                  position="relative"
+                />
+              </Box>
+            )}
+            <Flex gap={3} my={1}>
 
-        
 
 
 
-
-            <Box position={"relative"} w={"full"}    
+            <Box position={"relative"}   
            >
               {post.replies.length === 0 && (
                 <Text textAlign={"center"}>
@@ -148,120 +254,11 @@ const Post = ({ post, postedBy }) => {
               </Flex>
             </Box>
 
-
-
-
-          </Flex>
-          <Flex flex={1} flexDirection={"column"} gap={2}>
-            <Flex justifyContent={"space-between"} w={"full"}>
-              <Flex w={"full"} alignItems={"center"}>
-                <Text
-
-                  fontSize={"sm"}
-                  fontWeight={"bold"}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate(`/${user.name}`);
-                  }}
-                >
-                  {user?.name}
-                </Text>
-                <Image src='/verified.png' w={4} h={4} ml={1} />
-                <Box w={0.5} h={0.5} mx={1} borderRadius={"full"} bg={"gray.light"}></Box>
-                <Text fontSize={"xs"} textAlign={"left"} color={colorMode === "dark" ? "#8899A6 " : "#657786"}>
-                  {formatDistanceToNow(new Date(post.createdAt))}
-                </Text>
-              </Flex>
-              <Flex gap={4} alignItems={"center"} marginLeft={"-20"}>
-                <Text fontSize={"sm"} textAlign={"right"} color={colorMode === "dark" ? "#8899A6 " : "#657786"}>
-                  ...
-                </Text>
-                {currentUser?._id === user._id && <DeleteIcon size={18} color={colorMode === "dark" ? "#8899A6 " : "#657786"} onClick={handleDeletePost} />}
-              </Flex>
-            </Flex>
-            <Text
-              noOfLines={showFullText ? null : 5}
-              overflow={showFullText ? "visible" : "hidden"}
-              display={showFullText ? "block" : "-webkit-box"}
-              style={{
-                WebkitBoxOrient: "vertical",
-                WebkitLineClamp: showFullText ? "none" : 5,
-              }}
-              mt={-2}
-              fontSize={{ base: "xs", md: "md" }}
-              fontFamily="'Noto Sans', Arial, sans-serif"
-              color={colorMode === "dark" ? "#dfecf5 " : "#0F1419"}
-              fontWeight={"normal"}
-            >
-              {showFullText ? post.text : `${post.text.slice(0, TEXT_LIMIT)}`}
-              {shouldTruncate && !showFullText && (
-                <Text
-                  as="span"
-                  fontSize={"xs"}
-                  color="#007bff"
-                  cursor="pointer"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleTextDisplay();
-                  }}
-                >
-                  {" ... Show more"}
-                </Text>
-              )}
-              {shouldTruncate && showFullText && (
-                <Text
-                  as="span"
-                  fontSize={"xs"}
-                  color="#007bff"
-                  cursor="pointer"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleTextDisplay();
-                  }}
-                >
-                  {" Show less"}
-                </Text>
-              )}
-            </Text>
-            {post.img && (
-              <Box
-                maxH={{ base: "300", md: "600" }}
-                overflow="hidden"
-                position="relative"
-                borderRadius={6}
-              >
-                <Box
-                  filter="blur(40px)"
-                  backgroundImage={`url(${post.img})`}
-                  backgroundSize="cover"
-                  backgroundPosition="center"
-                  w="full"
-                  h="full"
-                  position="absolute"
-                  top={0}
-                  left={0}
-                  borderRadius={6}
-                />
-                <Image
-                  src={post.img}
-                  w="full"
-                  h="full"
-                  objectFit="contain"
-                  borderRadius={6}
-                  boxShadow={`0px 0px 0px 15px ${
-                    colorMode === "light"
-                      ? "rgba(0, 0, 0, 0.1)"
-                      : "rgba(0, 0, 0, 0.5)"
-                  }`}
-                  position="relative"
-                />
-              </Box>
-            )}
-            <Flex gap={3} my={1}>
               <Actions post={post} />
             </Flex>
           </Flex>
-        </Flex>
+           </Flex>
+        
         <Box w="full" h="1px" bg={colorMode === "dark" ? "#14171a " : "#dfecf5"} mt={1}></Box>
       </Link>
     </Box>

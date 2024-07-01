@@ -68,21 +68,21 @@ const SideBar = () => {
   const topPicks2Links = [
     {
       icon: FiCompass,
-      label: "Explore",
-      subtopics: ["Top Trending", "Watch", "Listen"],
+      label: "Discover",
+      subtopics: ["Top trending ", "Watch", "Listen"],
       onClick: () => handleLinkClick("Explore Coming soon"),
     },
     {
       onClick: () => handleLinkClick("Wall Of Shame Coming soon"),
       icon: FiBookOpen,
       label: "WOS-Wall Of Shame ",
-      subtopics: ["Crypto", "Gaming", "Computing"],
+      subtopics: ["Top trending ", "Watch", "Listen"],
     },
     {
       onClick: () => handleLinkClick("Go anonymous Coming soon"),
       icon: FiBookOpen,
       label: "Go anonymous ",
-      subtopics: ["Crypto", "Gaming", "Computing"],
+      subtopics: ["Top trending ", "Watch", "Listen"],
     },
   ];
 

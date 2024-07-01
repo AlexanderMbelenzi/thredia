@@ -8,7 +8,7 @@ const Support = () => {
             <section className="hero-section">
                 <div className="hero-content">
                     <h1>Support</h1>
-                    <p> Reddit Support & Help </p>
+                    <p> Bluesky Support & Help </p>
                 </div>
             </section>
          

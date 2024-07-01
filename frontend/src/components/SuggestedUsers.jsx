@@ -208,7 +208,7 @@ top={isScrolledOut ? "80px" : "auto"} maxWidth={isScrolledOut ? "400" : "auto"} 
                 fontWeight={"bold"}
                 fontSize={"md"}
               >
-                <p>Reddit community</p>
+                <p>Bluesky community</p>
               </Text>
               <Text
                 mt={2}
@@ -220,7 +220,7 @@ top={isScrolledOut ? "80px" : "auto"} maxWidth={isScrolledOut ? "400" : "auto"} 
                 fontFamily="'Noto Sans', Arial, sans-serif"
                 fontWeight={"normal"}
               >  
-               join our community network of high growth individuals and top CEOs
+                Become a part of bluesky communities, where your voice matters! Connect with diverse individuals, share your stories, and help shape a better world.
               
               </Text>
               <Text pl={2}>

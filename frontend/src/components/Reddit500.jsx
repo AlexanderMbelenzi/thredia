@@ -7,7 +7,7 @@ const Reddit500 = () => {
         <div className="about-us-container">
             <section className="hero-section">
                 <div className="hero-content">
-                    <h1>Reddit500</h1>
+                    <h1>bluesky500</h1>
                     <p>Discover500 Startups Companies</p>
                 </div>
             </section>

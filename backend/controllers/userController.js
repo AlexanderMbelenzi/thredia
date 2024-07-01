@@ -214,11 +214,11 @@ const getSuggestedUsers = async (req, res) => {
 					},
 				},
 				{
-					$sample: { size: 10 },
+					$sample: { size: 4 },
 				},
 			]);
 			const filteredUsers = users.filter((user) => !usersFollowedByYou.includes(user._id));
-			const suggestedUsers = filteredUsers.slice(0, 10);
+			const suggestedUsers = filteredUsers.slice(0, 4);
 
 			// Remove the password field from each user
 			suggestedUsers.forEach((user) => (user.password = null));
@@ -228,7 +228,7 @@ const getSuggestedUsers = async (req, res) => {
 			// User is not logged in
 			const users = await User.aggregate([
 				{
-					$sample: { size: 10 },
+					$sample: { size: 4 },
 				},
 			]);
 

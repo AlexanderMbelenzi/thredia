@@ -76,7 +76,7 @@ const SideMenu = ({ isSideMenuOpen, colorMode, closeSideMenu }) => {
                             </Flex>
 
                             {/* Menu items */}
-                            <Flex flexDirection="column">
+                            <Flex flexDirection="column" ml={2}>
                                 <Link fontSize="md" onClick={() => handleLinkClick("Wall Of Shame coming soon ")} _hover={{ textDecoration: "none", color: "#0000" }} display="flex" alignItems="center" cursor="pointer">
                                     <Icon as={FaEdit} mr={2} />
                                     <Text  fontSize={{ base: "xs", md: "sm", lg: "sm" }}> Wall Of Shame</Text>

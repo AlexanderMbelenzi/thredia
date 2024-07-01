@@ -7,15 +7,22 @@ const About = () => {
         <div className="about-us-container">
             <section className="hero-section">
                 <div className="hero-content">
-                    <h1>Reddit</h1>
-                    <p>Connecting Communities, Sharing Knowledge</p>
+                    <h1>Bluesky</h1>
+                    <p> Your Voice, Our Worlds</p>
                 </div>
             </section>
             <section className="our-story-section">
                 <div className="content-wrapper">
                     <h2>Our Story</h2>
                     <p>
-                        Founded with the vision to bring people together, our platform serves as a hub for diverse communities to connect, share ideas, and grow together. Our mission is to empower individuals through shared experiences and collective knowledge.
+                    At bluesky, we’re not just about trends & news; we’re about connecting people, sparking conversations, 
+                    and empowering voices from every corner of the globe.
+
+                    Our mission? To Inform, Engage, and Empower. We believe in the power of free speech and expression,
+                     creating a space where your opinions matter and your stories can shine.
+
+                   join the bluesky community where diverse voices come together to share, inspire, and make a difference. 
+                   Let’s shape the world together, one story at a time!
                     </p>
                 </div>
             </section>
@@ -23,19 +30,19 @@ const About = () => {
                 <div className="content-wrapper">
                     <h2>Our Values</h2>
                     <ul>
-                        <li><strong>Community:</strong> We believe in the power of community and strive to foster a supportive and inclusive environment for all.</li>
-                        <li><strong>Empowerment:</strong> We empower our users by providing a platform for free expression and the exchange of ideas.</li>
-                        <li><strong>Innovation:</strong> We are committed to constantly evolving and improving our platform to meet the needs of our users.</li>
-                        <li><strong>Integrity:</strong> We operate with transparency and integrity, ensuring a trustworthy experience for everyone.</li>
-                    </ul>
+  <li><strong>Integrity:</strong> We are committed to creating a space where everyone can feel safe and valued. Trust is the cornerstone of our relationship with our audience.</li>
+  <li><strong>Empowerment:</strong> We believe in the power of every individual’s voice. We provide a platform where everyone can express their opinions freely and confidently.</li>
+  <li><strong>Community:</strong> We foster a sense of belonging by connecting diverse communities. We encourage respectful dialogue and mutual understanding.</li>
+  <li><strong>Innovation:</strong> We are always evolving, embracing new technologies and ideas to enhance how we share news and information.</li>
+  <li><strong>Respect:</strong> We value every perspective and treat all individuals with dignity and respect. We strive to create an inclusive environment for all.</li>
+  <li><strong>Transparency:</strong> We operate with openness, ensuring our processes and decisions are clear to our audience.</li>
+  </ul>
                 </div>
             </section>
             <section className="our-team-section">
                 <div className="content-wrapper">
                     <h2 className='team2' >Meet the Team</h2>
-                    <p>
-                        Our dedicated team of professionals works tirelessly to maintain and enhance the platform. We are passionate about creating a space where everyone can feel safe and valued.
-                    </p>
+                
                     <div className="team-grid">
                         <div className="team-member">
                         <Image src={pizza6} alt="Pizza 4"  />
@@ -56,7 +63,8 @@ const About = () => {
                 <div className="content-wrapper">
                     <h2  className='team' >Join Us</h2>
                     <p>
-                        Whether you're a content creator, a developer, or simply passionate about building communities, there's a place for you here.
+                    Become a part of bluesky, where your voice matters! Connect with diverse individuals, 
+                    share your stories, and help shape a better world. Be a part of the conversation!
                          <a href="/careers">Explore Careers</a>
                     </p>
                 </div>
@@ -92,7 +100,7 @@ const About = () => {
             </section>
             <footer className="footer">
                 <div className="content-wrapper">
-                    <p>&copy; 2024@reddit. All rights reserved.</p>
+                    <p>&copy; 2024@bluesky. All rights reserved.</p>
                     <nav>
                         <ul>
                             <li><a href="/privacy">Privacy Policy</a></li>

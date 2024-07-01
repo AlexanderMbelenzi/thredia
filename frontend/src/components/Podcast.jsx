@@ -8,7 +8,7 @@ const Podcast = () => {
             <section className="hero-section">
                 <div className="hero-content">
                     <h1> Podcast</h1>
-                    <p>  Reddit AI generated podcast </p>
+                    <p>  Bluesky AI generated podcast </p>
                 </div>
             </section>
          
