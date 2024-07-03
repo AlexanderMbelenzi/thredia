@@ -186,10 +186,10 @@ const SideBar = () => {
               bg={
                 isActive(link.to)
                   ? colorMode === "light"
-                    ? "gray.200"
+                    ? "gray.100"
                     : "#1e1e1e"
                   : colorMode === "light"
-                  ? "#F5F8FA"
+                  ? "#fcfeff"
                   : "#030304"
               }
               borderRadius="10px"
@@ -212,10 +212,10 @@ const SideBar = () => {
                 bg={
                   isActive(link.to)
                     ? colorMode === "light"
-                      ? "gray.200"
+                      ? "gray.100"
                       : "#1e1e1e"
                     : colorMode === "light"
-                    ? "#F5F8FA"
+                    ? "#fcfeff"
                     : "#030304"
                 }
                 borderRadius="10px"
@@ -264,10 +264,10 @@ const SideBar = () => {
                   bg={
                     isActive(link.to)
                       ? colorMode === "light"
-                        ? "gray.200"
+                        ? "gray.100"
                         : "#1e1e1e"
                       : colorMode === "light"
-                      ? "#F5F8FA"
+                      ? "#fcfeff"
                       : "#030304"
                   }
                   borderRadius="10px"
@@ -307,10 +307,10 @@ const SideBar = () => {
                 bg={
                   isActive(link.to)
                     ? colorMode === "light"
-                      ? "gray.200"
+                      ? "gray.100"
                       : "#1e1e1e"
                     : colorMode === "light"
-                    ? "#F5F8FA"
+                    ? "#fcfeff"
                     : "#030304"
                 }
                 borderRadius="10px"
@@ -366,10 +366,10 @@ const SideBar = () => {
               bg={
                 isActive(link.to)
                   ? colorMode === "light"
-                    ? "gray.200"
+                    ? "gray.100"
                     : "#1e1e1e"
                   : colorMode === "light"
-                  ? "#F5F8FA"
+                  ? "#fcfeff"
                   : "#030304"
               }
               borderRadius="10px"

@@ -99,14 +99,14 @@ const Header = () => {
         right={0}
         borderBottom={borderBottom}
         borderBottomColor={colorMode === "dark" ? "#14171a " : "#dfecf5"}
-        bg={colorMode === "dark" ? "rgba(1, 1, 2, 0.7)" : "rgba(245, 248, 250, 0.7)"}
+        bg={colorMode === "dark" ? "rgba(1, 1, 2, 0.7)" : "rgba(252, 254, 255, 0.7)"}
         zIndex="995"
         position="fixed"
         top={0}
         marginX="auto"
       >
     
-                <Box py={1} pb={1} pt={1} className="header"   px={4}  maxW="1600"  marginX="auto">
+                <Box py={1} pb={1} pt={1} className="header"   px={4}  maxW="1400"  marginX="auto">
                     <Flex justifyContent="space-between" alignItems="center">
                         {!user ? (
                             <>

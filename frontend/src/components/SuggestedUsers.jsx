@@ -90,7 +90,7 @@ const SuggestedUsers = () => {
   
   
     return (
-      <Box maxWidth={"400"} ml={"10"} mr={"4"} position="absolute"   marginTop="50px">
+      <Box maxWidth={"350"}  mr={"4"} position="absolute"   marginTop="50px">
         <Box
           ref={welcomeSectionRef}
         
@@ -131,7 +131,7 @@ const SuggestedUsers = () => {
               fontSize={{ base: "xs", md: "lg" }}
               fontWeight={"normal"}
             >
-             Go Anonymous! Watch, Read &Listen to the most Classified news from allover the World
+              Watch, Read &Listen to the most Classified news from allover the World
             
             </Text>
             <Text pt={"2%"} pl={2} pb={"4%"}  >

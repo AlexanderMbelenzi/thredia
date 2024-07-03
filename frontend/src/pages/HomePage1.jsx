@@ -136,10 +136,10 @@ const HomePage1 = () => {
 
   return (
     
-    <Flex maxWidth={1600} mt={6} alignItems="flex-start">
+    <Flex maxWidth={1400} mt={2} alignItems="flex-start">
       
       <Box
-        flex={18}
+        flex={16}
         display={{
           base: "none",
           md: "block",
@@ -163,7 +163,7 @@ const HomePage1 = () => {
         <Empty />
       </Box>
 
-      <Box flex={30} marginTop={35}  marginBottom={55}>
+      <Box flex={33} marginTop={35}  marginBottom={55}>
         <Box mt={6} mb={4}>
           <Flex justify="space-between">
             <ImageBox
@@ -235,7 +235,8 @@ const HomePage1 = () => {
         borderLeft={"2px"}
         borderLeftColor={colorMode === "light" ? "gray.200" : "#2B2B2B"}
         flex={1}
-        pl={"4"}
+        ml={4}
+      
         mt={35}
         display={{
           base: "none",
@@ -246,7 +247,7 @@ const HomePage1 = () => {
       </Box>
 
       <Box
-        flex={20}
+        flex={18}
         display={{
           base: "none",
           lg: "block",
