@@ -278,6 +278,11 @@ const Post = ({ post, postedBy }) => {
 
 
 
+
+
+
+
+
     <Box display={{
       base: " none ",
       md: "block",
@@ -296,7 +301,7 @@ const Post = ({ post, postedBy }) => {
   padding={4}
   style={{
     boxShadow: `0 ${colorMode === "light" ? 2 : -2}px 4px rgba(0, 0, 0, 0.2)`,
-    backgroundColor: colorMode === "light" ? "#ffffff" : "#030304",
+    backgroundColor: colorMode === "light" ? "#ffffff" : "#1e1e1e",
   }}
 >
     <Flex justifyContent={"space-between"} w={"full"}>
@@ -422,55 +427,48 @@ zIndex={1}
 
 
 
-    <Box position={"relative"}   
+    <Box ml={"-2"} mt={"-1"} position={"relative"}   
    >
       {post.replies.length === 0 && (
         <Text textAlign={"center"}>
-    <Text w={5} h={5} ml={2} mb={-2}  >🥱</Text>
+    <Text w={5} h={5} ml={2}   >🥱</Text>
         </Text>
       )}
-      <Flex mt={4}   >
+      <Flex  mr={8} ml={6}   >
         {post.replies[0] && (
           <Avatar
             size='xs'
             name='John doe'
             src={post.replies[0].userProfilePic}
             position={"absolute"}
-            top={"-15px"}
-            left='8px'
+          
+            left='25px'
             padding={"3px"}
           />
         )}
         {post.replies[1] && (
           <Avatar
-            name='John doe'
-            src={post.replies[1].userProfilePic}
-            padding={"3px"}
-            style={{
-              width: '26px',
-              height: '26px',
-              position: "absolute",
-              top: "-32px",
-              left: '14px',
+          size='xs'
+          name='John doe'
+          src={post.replies[0].userProfilePic}
+          position={"absolute"}
+          left={"15"}
+
           
-              transform: "scale(0.5)", // Example: scaling down the avatar
-            }}
+          padding={"3px"}
           />
         )}
         {post.replies[2] && (
           <Avatar
         
+          size='xs'
           name='John doe'
-            src={post.replies[2].userProfilePic}
-            style={{
-              width: '35px',
-              height: '35px',
-              position: "absolute",
-              top: "-38px",
-              left: '-4px',
-              padding: "3px",
-              transform: "scale(0.5)", // Example: scaling down the avatar
-            }}
+          src={post.replies[0].userProfilePic}
+          position={"absolute"}
+          left={"2"}
+         
+          
+          padding={"3px"}
           />
         )}
       </Flex>
