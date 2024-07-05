@@ -13,6 +13,8 @@ import useFollowUnfollow from "../hooks/useFollowUnfollow";
 import { useColorMode } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import bannerImage from "/public/banner4.jpeg";
+
 
 
 
@@ -44,15 +46,15 @@ const UserHeader = ({ user }) => {
     const activeColor = colorMode === "dark" ? "white" : "black";
 
     return (
-        <VStack  gap={4} alignItems={"start"}>
+        <VStack  gap={4} left={"-8"} right={"-8"} alignItems={"start"}>
 
             {/* Banner Image */}
             <Box w="full" position="relative">
                 <Image 
-                    src={user.profilePic || 'https://bit.ly/broken-link'} 
-                    alt="Banner Image" 
+                    src={user.profilePic ? user.profilePic : bannerImage}  // Use the imported image
+					alt="Banner Image" 
                     w="full" 
-                    h="200px" 
+					height={{ base: "140px", sm: "140px", md: "200px" }}
                     objectFit="cover" 
                 />
               
@@ -79,7 +81,7 @@ const UserHeader = ({ user }) => {
             <Flex justifyContent={"space-between"} w={"full"} position="relative">
 
                 {/* Profile Image */}
-                <Box position="absolute" top="-50px" left="20px">
+                <Box position="absolute" top="-50px" left={{ base: "5px", sm: "5px", md: "20px" }}>
 				<Avatar
     name={user.name}
     src={user.profilePic || 'https://bit.ly/broken-link'}
@@ -92,13 +94,15 @@ const UserHeader = ({ user }) => {
                 </Box>
 
                 {/* Profile Buttons */}
-                <Flex mt={2} ml="auto" alignItems="center">
+                <Flex mt={{ base: "0", md: "2" }} ml="auto" alignItems="center">
                     {currentUser?._id === user._id ? (
                         <>
                             <Link as={RouterLink} to="/update">
                                 <Button
                                     size="sm"
 									rounded={"20"}
+									fontSize={{ base: "sm", md: "md" }}
+
                                     mr={2}
                                     bg={bgColor}
                                     border={`1px solid ${borderColor}`}
@@ -110,6 +114,8 @@ const UserHeader = ({ user }) => {
                                 size="sm"
                                 bg={bgColor}
 								rounded={"20"}
+								fontSize={{ base: "sm", md: "md" }}
+
                                 border={`1px solid ${borderColor}`}
                                 onClick={copyURL}
                             >
@@ -123,6 +129,9 @@ const UserHeader = ({ user }) => {
                                 onClick={handleFollowUnfollow}
                                 isLoading={updating}
                                 mr={2}
+								rounded={"20"}
+								fontSize={{ base: "sm", md: "md" }}
+
                                 bg={bgColor}
                                 border={`1px solid ${borderColor}`}
                             >
@@ -132,6 +141,8 @@ const UserHeader = ({ user }) => {
                                 <Button
                                     size="sm"
                                     mr={2}
+									rounded={"20"}
+									fontSize={{ base: "sm", md: "md" }}
                                     bg={bgColor}
                                     border={`1px solid ${borderColor}`}
                                 >
@@ -143,18 +154,18 @@ const UserHeader = ({ user }) => {
                 </Flex>
             </Flex>
 
-            <Box mt="20px" pl="20px" w="full">
+            <Box mt={{ base: "0", md: "10" }} pl={{ base: "5px", sm: "5px", md: "20px" }} w="full">
                 {/* User Info */}
-                <Text fontSize={"xl"} fontWeight={"bold"}>{user.name}</Text>
-                <Text fontSize={"sm"} color={textColor}>{user.username}</Text>
-                <Text mt={2}>{user.bio}</Text>
+                <Text       fontSize={{ base: "lg", md: "xl" }} fontWeight={"bold"}>{user.name}</Text>
+                <Text       fontSize={{ base: "xs", md: "sm" }} color={textColor}>@{user.username}</Text>
+                <Text       fontSize={{ base: "xs", md: "sm" }} mt={{ base: "1px", sm: "2px", md: "2px" }} >{user.bio}</Text>
 
                 {/* Followers and Following */}
-                <Flex gap={4} mt={4} alignItems={"center"}>
-                    <Text color={activeColor}>{user.followers.length}</Text>
-                    <Text color={textColor}>followers</Text>
-                    <Text color={activeColor}>{user.following.length}</Text>
-                    <Text color={textColor}>following</Text>
+                <Flex  mt={{ base: "2", md: "4" }} alignItems={"center"}>
+                    <Text fontSize={{ base: "sm", md: "md" }}  color={activeColor}>{user.followers.length}</Text>
+                    <Text fontSize={{ base: "sm", md: "md" }} ml={1} color={textColor}>followers</Text>
+                    <Text fontSize={{ base: "sm", md: "md" }} ml={4} color={activeColor}>{user.following.length}</Text>
+                    <Text fontSize={{ base: "sm", md: "md" }} ml={1} color={textColor}>following</Text>
                 </Flex>
             </Box>
 
@@ -168,14 +179,15 @@ const UserHeader = ({ user }) => {
                 cursor={"pointer"}
                 position="relative"
             >
-                <Text fontWeight={"bold"} color={activeColor}>Posts</Text>
+                <Text fontWeight={"bold"} fontSize={{ base: "sm", md: "md" }} color={activeColor}>Posts</Text>
                 <Box
+			
                     position="absolute"
-                    bottom="-2px"
+                    bottom="-1px"
                     w="full"
                     h="2px"
                     bg="#007bff"
-                    boxShadow="0 0 10px #007bff"
+                
                 />
             </Flex>
 
@@ -188,7 +200,7 @@ const UserHeader = ({ user }) => {
                     pb='3'
                     cursor={"pointer"}
                 >
-                    <Text fontWeight={"bold"}>Replies</Text>
+                    <Text fontSize={{ base: "sm", md: "md" }} fontWeight={"bold"}>Replies</Text>
                 </Flex>
                 <Flex
                     flex={1}
@@ -199,7 +211,7 @@ const UserHeader = ({ user }) => {
                     pb='3'
                     cursor={"pointer"}
                 >
-                    <Text fontWeight={"bold"}>Media</Text>
+                    <Text fontSize={{ base: "sm", md: "md" }} fontWeight={"bold"}>Media</Text>
                 </Flex>
                 <Flex
                     flex={1}
@@ -210,7 +222,7 @@ const UserHeader = ({ user }) => {
                     pb='3'
                     cursor={"pointer"}
                 >
-                    <Text fontWeight={"bold"}>Likes</Text>
+                    <Text fontSize={{ base: "sm", md: "md" }} fontWeight={"bold"}>Likes</Text>
                 </Flex>
             </Flex>
         </VStack>

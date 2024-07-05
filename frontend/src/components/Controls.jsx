@@ -79,8 +79,8 @@ const Controls = () => {
             <Link as={RouterLink} to="/chat" height="auto" bg={useColorModeValue("rgba(245, 248, 250, 0.7)", "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
               <Icon as={FiMail} boxSize={6} color={isActive('/chat') ? "#007bff" : undefined} />
             </Link>
-            <Link as={RouterLink} to={user ? `/t/${user.username}` : "/anonymous"} height="auto" bg={useColorModeValue("rgba(245, 248, 250, 0.7)", "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
-              <Icon as={FiUser} boxSize={6} color={isActive(user ? `/t/${user.username}` : "/goanonymous") ? "#007bff" : undefined} />
+            <Link as={RouterLink} to={user ? `/${user.username}` : "/anonymous"} height="auto" bg={useColorModeValue("rgba(245, 248, 250, 0.7)", "rgba(1, 1, 2, 0.7)")} borderRadius="20px">
+              <Icon as={FiUser} boxSize={6} color={isActive(user ? `/${user.username}` : "/goanonymous") ? "#007bff" : undefined} />
             </Link>
           </Flex>
         </Box>

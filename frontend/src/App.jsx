@@ -61,7 +61,7 @@ function App() {
                     <Route path='/update' element={user ? <UpdateProfilePage /> : <Navigate to='/auth' />} />
                     
                     <Route
-                        path='/t/:username'
+                        path='/:username'
                         element={
                             user ? (
                                 <>
@@ -73,7 +73,7 @@ function App() {
                             )
                         }
                     />
-                    <Route path='/t/:username/post/:pid' element={<PostPage />} />
+                    <Route path='/:username/post/:pid' element={<PostPage />} />
                     <Route path='/chat' element={ <ChatPage  />} />
                     <Route path='/settings' element={user ? <SettingsPage /> : <Navigate to={"/auth"} />} />
                 

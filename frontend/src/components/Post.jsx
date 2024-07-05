@@ -75,7 +75,7 @@ const Post = ({ post, postedBy }) => {
       base: " block",
       md: "none",
     }}>
-      <Link to={`/t/${user.username}/post/${post._id}`}>
+      <Link to={`/${user.username}/post/${post._id}`}>
         <Flex gap={3} paddingTop={3} >
      
 
@@ -89,7 +89,7 @@ const Post = ({ post, postedBy }) => {
   src={user?.profilePic}
   onClick={(e) => {
     e.preventDefault();
-    navigate(`/t/${user.username}`);
+    navigate(`/${user.username}`);
   }}
   zIndex={1}
 />
@@ -287,7 +287,7 @@ const Post = ({ post, postedBy }) => {
       base: " none ",
       md: "block",
     }}>
-       <Link to={`/t/${user.username}/post/${post._id}`}>
+       <Link to={`/${user.username}/post/${post._id}`}>
 
 
        <Flex gap={3} paddingTop={3}>
@@ -314,7 +314,7 @@ name={user.name}
 src={user?.profilePic}
 onClick={(e) => {
 e.preventDefault();
-navigate(`/t/${user.username}`);
+navigate(`/${user.username}`);
 }}
 zIndex={1}
 />
