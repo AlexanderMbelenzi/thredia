@@ -75,8 +75,8 @@ const Post = ({ post, postedBy }) => {
       base: " block",
       md: "none",
     }}>
-      <Link to={`/${user.username}/post/${post._id}`}>
-        <Flex gap={3} paddingTop={3} >
+<Link to={`/${user.username}/post/${post._id}`}>
+          <Flex gap={3} paddingTop={3} >
      
 
         
@@ -168,7 +168,7 @@ const Post = ({ post, postedBy }) => {
                   fontWeight={"bold"}
                   onClick={(e) => {
                     e.preventDefault();
-                    navigate(`/${user.name}`);
+                    navigate(`/${user.username}`);
                   }}
                 >
                   {user?.name}
@@ -287,8 +287,7 @@ const Post = ({ post, postedBy }) => {
       base: " none ",
       md: "block",
     }}>
-       <Link to={`/${user.username}/post/${post._id}`}>
-
+<Link to={`/${user.username}/post/${post._id}`}>
 
        <Flex gap={3} paddingTop={3}>
   

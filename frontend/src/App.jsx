@@ -30,9 +30,7 @@ import Comingsoonpage from "./pages/Comingsoonpage";
 
 function App() {
     const user = useRecoilValue(userAtom);
-    const { pathname } = useLocation();
-    const isSmallScreen = useBreakpointValue({ base: true, md: false });
-
+  
     
 
 
@@ -61,19 +59,19 @@ function App() {
                     <Route path='/update' element={user ? <UpdateProfilePage /> : <Navigate to='/auth' />} />
                     
                     <Route
-                        path='/:username'
-                        element={
-                            user ? (
-                                <>
-                                    <UserPage />
-                                    <CreatePost />
-                                </>
-                            ) : (
-                                <UserPage />
-                            )
-                        }
-                    />
-                    <Route path='/:username/post/:pid' element={<PostPage />} />
+						path='/:username'
+						element={
+							user ? (
+								<>
+									<UserPage />
+									<CreatePost />
+								</>
+							) : (
+								<UserPage />
+							)
+						}
+					/>
+					<Route path='/:username/post/:pid' element={<PostPage />} />
                     <Route path='/chat' element={ <ChatPage  />} />
                     <Route path='/settings' element={user ? <SettingsPage /> : <Navigate to={"/auth"} />} />
                 

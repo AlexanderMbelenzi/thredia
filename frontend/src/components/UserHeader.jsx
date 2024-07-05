@@ -14,6 +14,7 @@ import { useColorMode } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import bannerImage from "/public/banner4.jpeg";
+import { Navigate } from "react-router-dom";
 
 
 
@@ -64,16 +65,16 @@ const UserHeader = ({ user }) => {
     left="10px"
     cursor="pointer"
 >
-    <Flex
-        w="30px"
-        h="30px"
-        bg="rgba(0, 0, 0, 0.5)"
-        borderRadius="full"
-        alignItems="center"
-        justifyContent="center"
-    >
-        <ArrowBackIcon color="white" />
-    </Flex>
+<Flex
+                    w="30px"
+                    h="30px"
+                    bg={colorMode === "light" ?  "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)"}
+                    borderRadius="full"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    <ArrowBackIcon color={colorMode === "light" ?  "black" : "white"} />
+                </Flex>
 
                 </Box>
             </Box>

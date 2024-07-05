@@ -4,7 +4,7 @@ import UserHeader from "../components/UserHeader";
 import { useParams } from "react-router-dom";
 import useShowToast from "../hooks/useShowToast";
 import SuggestedUsers2 from "../components/SuggestedUsers2";
-import SideBar from "../components/SideBar";
+import SideBar2 from "../components/SideBar2";
 import { useColorMode } from "@chakra-ui/react";
 import Empty from "../components/empty";
 import { Flex, Spinner } from "@chakra-ui/react";
@@ -58,12 +58,13 @@ const UserPage = () => {
 <Flex maxWidth={1800}  alignItems="flex-start">
 <Box
   flex={15}
+  mt={2}
   display={{
 	base: "none",
 	md: "block",
   }}
 >
-  <SideBar />
+  <SideBar2 />
 </Box>
 
 <Box
@@ -71,7 +72,7 @@ const UserPage = () => {
   borderLeftColor={colorMode === "light" ? "gray.200" : "#2B2B2B"}
   flex={1}
   px={8}
-  mt={35}
+  
   display={{
 	base: "none",
 	md: "block",
@@ -80,7 +81,10 @@ const UserPage = () => {
   <Empty />
 </Box>
 
-<Box flex={35}   marginBottom={55}>
+<Box flex={35} mt={{
+	base: "0",
+	md: "6px",
+  }}  marginBottom={55}>
 
 <Box  marginBottom={35}   >
 					<>

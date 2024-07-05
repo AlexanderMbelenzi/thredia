@@ -7,29 +7,31 @@ import mongoose from "mongoose";
 
      
 
-
 const getUserProfile = async (req, res) => {
-	const { query } = req.params;
+    const { query } = req.params;
 
-	try {
-		let user;
+    try {
+        let user;
 
-		// query is userId
-		if (mongoose.Types.ObjectId.isValid(query)) {
-			user = await User.findOne({ _id: query }).select("-password").select("-updatedAt");
-		} else {
-			// query is username
-			user = await User.findOne({ username: query }).select("-password").select("-updatedAt");
-		}
+        // Check if query is a valid ObjectId (i.e., MongoDB _id)
+        if (mongoose.Types.ObjectId.isValid(query)) {
+            user = await User.findOne({ _id: query }).select("-password -updatedAt");
+        } else {
+            // Query is a username
+            user = await User.findOne({ username: query }).select("-password -updatedAt");
+        }
 
-		if (!user) return res.status(404).json({ error: "user not found" });
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
 
-		res.status(200).json(user);
-	} catch (err) {
-		res.status(500).json({ error: err.message });
-		console.log("Error in getUserProfile: ", err.message);
-	}
+        res.status(200).json(user);
+    } catch (err) {
+        console.error("Error in getUserProfile:", err.message);
+        res.status(500).json({ error: "Server error" });
+    }
 };
+
 
 const signupUser = async (req, res) => {
 	try {

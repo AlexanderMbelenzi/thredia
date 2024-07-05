@@ -113,7 +113,7 @@ import { useEffect, useRef, useState } from "react";
     
     
       return (
-        <Box maxWidth={"350"}  mr={"4"} position="absolute"   marginTop="50px">
+        <Box maxWidth={"350"}  mr={"4"} position="absolute"   marginTop="2px">
         <Box
             ref={welcomeSectionRef}
           
@@ -175,7 +175,7 @@ import { useEffect, useRef, useState } from "react";
           </Box>
     
           <Box  position={isScrolledOut ? "fixed" : "relative"}          
-top={isScrolledOut ? "50px" : "auto"} maxWidth={isScrolledOut ? "350" : "auto"}  >
+top={isScrolledOut ? "2px" : "auto"} maxWidth={isScrolledOut ? "350" : "auto"}  >
        
     
          
