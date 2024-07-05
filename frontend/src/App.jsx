@@ -2,7 +2,6 @@ import { Box, Container, useBreakpointValue } from "@chakra-ui/react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import UserPage from "./pages/UserPage";
 import PostPage from "./pages/PostPage";
-import Header from "./components/HeaderIn";
 import Controls from "./components/Controls";
 import HomePage1 from "./pages/HomePage1";
 import AuthPage from "./pages/AuthPage";
@@ -40,7 +39,6 @@ function App() {
     return (
         <Box position={"relative"} w='full'>
             <Container maxW={{ base: "620px", md: "1400px" }}>
-             <Header />
              <Controls/>
                 <Routes>                
                     <Route path='/' element={ <HomePage1 /> } />

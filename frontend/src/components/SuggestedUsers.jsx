@@ -152,7 +152,7 @@ const SuggestedUsers = () => {
         </Box>
   
         <Box  position={isScrolledOut ? "fixed" : "relative"}          
-top={isScrolledOut ? "80px" : "auto"} maxWidth={isScrolledOut ? "400" : "auto"}  >
+top={isScrolledOut ? "50px" : "auto"} maxWidth={isScrolledOut ? "350" : "auto"}  >
           <Flex
          
             direction={"column"}

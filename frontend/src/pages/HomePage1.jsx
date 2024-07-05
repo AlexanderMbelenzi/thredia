@@ -8,6 +8,7 @@ import postsAtom from "../atoms/postsAtom";
 import SuggestedUsers from "../components/SuggestedUsers";
 import { useColorMode } from "@chakra-ui/react";
 import Empty from "../components/empty";
+import Header from "../components/HeaderIn";
 
 
 // Import images
@@ -135,8 +136,12 @@ const HomePage1 = () => {
   }, [prevScrollPos]);
 
   return (
+ <>                 
+    <Header />
+ 
     
     <Flex maxWidth={1400} mt={2} alignItems="flex-start">
+
       
       <Box
         flex={16}
@@ -145,8 +150,8 @@ const HomePage1 = () => {
           md: "block",
         }}
       >
+        <SideBar/>
         
-        <SideBar />
       </Box>
 
       <Box
@@ -256,6 +261,7 @@ const HomePage1 = () => {
         <SuggestedUsers />
       </Box>
     </Flex>
+    </>
   );
 };
 

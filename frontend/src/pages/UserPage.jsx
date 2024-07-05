@@ -55,7 +55,7 @@ const UserPage = () => {
 	return (
 
 
-<Flex maxWidth={1800} mt={6} alignItems="flex-start">
+<Flex maxWidth={1800}  alignItems="flex-start">
 <Box
   flex={15}
   display={{
@@ -80,7 +80,7 @@ const UserPage = () => {
   <Empty />
 </Box>
 
-<Box flex={35} marginTop={5}  marginBottom={55}>
+<Box flex={35}   marginBottom={55}>
 
 <Box  marginBottom={35}   >
 					<>
