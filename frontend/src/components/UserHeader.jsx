@@ -50,7 +50,16 @@ const UserHeader = ({ user }) => {
         <VStack  gap={4} left={"-8"} right={"-8"} alignItems={"start"}>
 
             {/* Banner Image */}
-            <Box w="full" position="relative">
+            <Box
+                w="full"
+                position="relative"
+                sx={{
+                    "@media (max-width: 768px)": {
+                        width: "100vw",
+                        marginLeft: "calc(-50vw + 50%)",
+                    },
+                }}
+            >
                 <Image 
                     src={user.profilePic ? user.profilePic : bannerImage}  // Use the imported image
 					alt="Banner Image" 

@@ -57,8 +57,8 @@ const UserPage = () => {
 
 <Flex maxWidth={1800}  alignItems="flex-start">
 <Box
-  flex={15}
-  mt={2}
+  flex={16}
+  
   display={{
 	base: "none",
 	md: "block",
@@ -71,7 +71,7 @@ const UserPage = () => {
   borderLeft={"2px"}
   borderLeftColor={colorMode === "light" ? "gray.200" : "#2B2B2B"}
   flex={1}
-  px={8}
+  
   
   display={{
 	base: "none",
@@ -84,7 +84,9 @@ const UserPage = () => {
 <Box flex={35} mt={{
 	base: "0",
 	md: "6px",
-  }}  marginBottom={55}>
+  }}
+  
+  marginBottom={55}>
 
 <Box  marginBottom={35}   >
 					<>
@@ -111,11 +113,13 @@ const UserPage = () => {
 
 
 <Box
-  borderLeft={"8px"}
-  borderLeftColor={colorMode === "light" ? "gray.200" : "#2B2B2B"}
-  flex={1}
-  px={8}
-  mt={35}
+      borderLeft={"2px"}
+	  borderLeftColor={colorMode === "light" ? "gray.200" : "#2B2B2B"}
+	  flex={1}
+	  ml={4}
+	
+
+  
   display={{
 	base: "none",
 	md: "block",
@@ -125,7 +129,7 @@ const UserPage = () => {
 </Box>
 
 <Box
-  flex={17}
+  flex={18}
   display={{
 	base: "none",
 	lg: "block",

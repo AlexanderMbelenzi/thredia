@@ -57,7 +57,6 @@ function App() {
 
                     <Route path='/auth' element={!user ? <AuthPage /> : <Navigate to='/' />} />
                     <Route path='/update' element={user ? <UpdateProfilePage /> : <Navigate to='/auth' />} />
-                    
                     <Route
 						path='/:username'
 						element={
@@ -71,6 +70,7 @@ function App() {
 							)
 						}
 					/>
+                 
 					<Route path='/:username/post/:pid' element={<PostPage />} />
                     <Route path='/chat' element={ <ChatPage  />} />
                     <Route path='/settings' element={user ? <SettingsPage /> : <Navigate to={"/auth"} />} />
@@ -78,6 +78,7 @@ function App() {
                     <Route path='/about' element={ <AboutUs /> } />
                 </Routes>
             </Container>
+          
         </Box>
     );
 }

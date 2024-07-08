@@ -113,7 +113,7 @@ import { useEffect, useRef, useState } from "react";
     
     
       return (
-        <Box maxWidth={"350"}  mr={"4"} position="absolute"   marginTop="2px">
+        <Box maxWidth={"350"}  mr={"4"} position="absolute">
         <Box
             ref={welcomeSectionRef}
           
@@ -136,7 +136,7 @@ import { useEffect, useRef, useState } from "react";
               <Text
                 pl={2}
                 heigt="80px"
-                pt={"3%"}
+                pt={"2%"}
                 fontWeight={"bold"}
                 fontFamily="'Noto Sans', Arial, sans-serif"
                 fontSize={"xl"}
@@ -157,7 +157,7 @@ import { useEffect, useRef, useState } from "react";
                We will be rolling out new features every week.
                 Stay tuned for regular updates and enhancements! 
               </Text>
-              <Text pt={"2%"} pl={2} pb={"4.5%"}  >
+              <Text pt={"2%"} pl={2} pb={"3%"}  >
                 <Link 
                   as={RouterLink}
                   to="/comingsoon"
